@@ -8,7 +8,7 @@ import Header from '../../Components/Header'
 
 const { height, width } = Dimensions.get('window');
 
-const IDphotoinfo = () => {
+const IDphotoinfo = (props) => {
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: '#1C1D22' }}>
             <View style={{ flex: 1 }}>

@@ -5,7 +5,7 @@ import WholeButton1 from '../../Components/WholeButton1'
 import Header from '../../Components/Header'
 
 const { height, width } = Dimensions.get('window');
-const Submitted = () => {
+const Submitted = (props) => {
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: '#1C1D22' }}>
             <View style={{ flex: 1 }}>
@@ -21,7 +21,7 @@ const Submitted = () => {
                             <Image source={IMAGEPATH.Telegram} style={{height:17,width:17,}} />
                             <Text style={styles.account3}>Stay informed about the latest money-making insights by  <Text style={[styles.account3,{color:'#2F9ED6'}]}>joining our telegram group</Text></Text>
                         </View>
-                    <WholeButton1 Label={'Next'} Action={() => { }} styles={{ width: width * 0.9 }} />
+                    <WholeButton1 Label={'Next'} Action={() => {props.navigation.navigate('Home') }} styles={{ width: width * 0.9 }} />
                 </View>
             </View>
         </SafeAreaView>

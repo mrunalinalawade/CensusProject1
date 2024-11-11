@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Form1 from '../Screens/LingayatSamajSankalan/Form1';
 import Form2 from '../Screens/LingayatSamajSankalan/Form2';
 import Form3 from '../Screens/LingayatSamajSankalan/Form3';
@@ -17,12 +17,14 @@ import Startverification from '../Screens/KYCFlow/Startverification';
 import Personalnformation from '../Screens/KYCFlow/Personalnformation';
 import IDphotoinfo from '../Screens/KYCFlow/IDphotoinfo';
 import Submitted from '../Screens/KYCFlow/Submitted';
+import Home from '../Screens/HomeFlow/Home';
+import WithdrawSearchcoin from '../Screens/WithdrawFlow/WithdrawSearchcoin';
 
 const Stack = createNativeStackNavigator();
 const RouteNavigation = () => {
   return (
     <Stack.Navigator
-      screenOptions={{headerShown: false}}
+      screenOptions={{ headerShown: false }}
       initialRouteName="Login">
       {/* -----------------------Splash----------------------------- */}
       <Stack.Screen name="Splash" component={Splash} />
@@ -33,16 +35,24 @@ const RouteNavigation = () => {
       <Stack.Screen name="Form3" component={Form3} />
       <Stack.Screen name="Form4" component={Form4} />
 
+      {/* -----------------------Authentication Flow----------------------------- */}
       <Stack.Screen name="Login" component={Login} />
       <Stack.Screen name="Signup" component={Signup} />
       <Stack.Screen name="SetPassword" component={SetPassword} />
       <Stack.Screen name="Forgetpassword" component={Forgetpassword} />
+      {/* -----------------------KYC Flow----------------------------- */}
       <Stack.Screen name="FaceIDpermission" component={FaceIDpermission} />
       <Stack.Screen name="KYCIdentityverification" component={KYCIdentityverification} />
       <Stack.Screen name="Startverification" component={Startverification} />
       <Stack.Screen name="Personalnformation" component={Personalnformation} />
       <Stack.Screen name="IDphotoinfo" component={IDphotoinfo} />
       <Stack.Screen name="Submitted" component={Submitted} />
+
+      {/* -----------------------Home Flow----------------------------- */}
+
+      <Stack.Screen name="Home" component={Home} />
+      <Stack.Screen name="WithdrawSearchcoin" component={WithdrawSearchcoin} />
+
     </Stack.Navigator>
   );
 };

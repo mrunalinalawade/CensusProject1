@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, SafeAreaView, Dimensions, TouchableOpacity, Image } from 'react-native'
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import FONTS from '../../assets/Fonts';
 import COLORS from '../../assets/colors/Colors';
@@ -8,9 +8,11 @@ import Inputfield1 from '../../Components/Inputfields1';
 import WholeButton1 from '../../Components/WholeButton1';
 import { ValidateEmail, ValidateMobileNo, } from '../../Components/ValidationConfig/Validations';
 import Header from '../../Components/Header';
+import RBSheet from "react-native-raw-bottom-sheet";
 
 const { height, width } = Dimensions.get('window');
 const Login = (props) => {
+  const refRBSheet = useRef();
   const [Email, setEmail] = useState('');
   const [EmailError, setEmailError] = useState('');
   const [show, setshow] = useState(true);
@@ -23,7 +25,7 @@ const Login = (props) => {
   });
   const OnLoginBtnPress = () => {
     if (CheckValidation()) {
-      props.navigation.navigate("FaceIDpermission");
+      refRBSheet.current.open()
     } else {
       setShowError({
         EmailError: EmailError !== '',
@@ -38,6 +40,7 @@ const Login = (props) => {
     const PASSWORDREGEX = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
     return PASSWORDREGEX.test(password) ? "" : "Please enter valid password";
   };
+
 
   const CheckValidation = () => {
     let valid = true;
@@ -168,6 +171,36 @@ const Login = (props) => {
               </TouchableOpacity>
             </View>
           </View>
+
+
+          <RBSheet
+                ref={refRBSheet}
+                closeOnDragDown={true}
+                closeOnPressMask={true}
+                height={235}
+                animationType={"fade"}
+                customStyles={{
+                    wrapper: {
+                        backgroundColor: "rgba(0, 0, 0, 0.4)",
+                    },
+                    draggableIcon: {
+                        backgroundColor: '#fff',
+                        width: width * 0.2
+                    },
+                    container: {
+                        borderTopEndRadius: 30,
+                        borderTopStartRadius: 30,
+                        backgroundColor: "#1C1D22",
+                    },
+                }}
+            >
+                <View style={{ marginBottom: '5%', flex: 1, width: width * 0.9, alignSelf: 'center', alignItems: 'center' }}>
+                    <Text style={styles.logintext1}>Identify verification required</Text>
+                    <Text style={styles.signStyle1}>To enjoy the full range of our products and services, we kindly request you complete the identity verification process.</Text>
+                    <WholeButton1 Label={'Okay'} Action={() => { props.navigation.navigate('FaceIDpermission') }} styles={{ width: width * 0.9, }} />
+
+                </View>
+            </RBSheet>
         </KeyboardAwareScrollView>
       </View>
 
@@ -287,6 +320,24 @@ const styles = StyleSheet.create({
     width: width * 0.34,
     alignSelf: 'center',
     marginTop: '11%',
-  }
+  },
+  logintext1: {
+    fontSize: 22,
+    fontWeight: '600',
+    // fontFamily: FONTS.semiBold,
+    color: '#fff',
+    marginTop: '6%',
+    lineHeight: 32.97,
+
+},
+signStyle1: {
+  fontSize: 12,
+  // fontFamily: FONTS.Regular,
+  fontWeight: '400',
+  color: 'rgba(255, 255, 255, 0.6)',
+  lineHeight: 18,
+  marginTop: '4%',
+  // textAlign:'center'
+},
 
 })

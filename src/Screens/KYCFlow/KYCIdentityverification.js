@@ -8,7 +8,7 @@ import RBSheet from "react-native-raw-bottom-sheet";
 
 const { height, width } = Dimensions.get('window');
 const KYCIdentityverification = (props) => {
-    const refRBSheet = useRef();
+    
     const refRBSheet1 = useRef();
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: '#1C1D22' }}>
@@ -18,7 +18,7 @@ const KYCIdentityverification = (props) => {
                     <Header
                         label={true}
                         navigate={() => props.navigation.goBack()}
-                        navigate3={() => refRBSheet.current.open()}
+                        // navigate3={() =>}
                         navigate4={() => refRBSheet1.current.open()}
 
                     />
@@ -85,34 +85,7 @@ const KYCIdentityverification = (props) => {
                 </View>
 
             </ScrollView>
-            <RBSheet
-                ref={refRBSheet}
-                closeOnDragDown={true}
-                closeOnPressMask={true}
-                height={235}
-                animationType={"fade"}
-                customStyles={{
-                    wrapper: {
-                        backgroundColor: "rgba(0, 0, 0, 0.4)",
-                    },
-                    draggableIcon: {
-                        backgroundColor: '#fff',
-                        width: width * 0.2
-                    },
-                    container: {
-                        borderTopEndRadius: 30,
-                        borderTopStartRadius: 30,
-                        backgroundColor: "#1C1D22",
-                    },
-                }}
-            >
-                <View style={{ marginBottom: '5%', flex: 1, width: width * 0.9, alignSelf: 'center', alignItems: 'center' }}>
-                    <Text style={styles.logintext1}>Identify verification required</Text>
-                    <Text style={styles.signStyle1}>To enjoy the full range of our products and services, we kindly request you complete the identity verification process.</Text>
-                    <WholeButton1 Label={'Okay'} Action={() => { props.navigation.navigate('Startverification') }} styles={{ width: width * 0.9, }} />
-
-                </View>
-            </RBSheet>
+   
 
 
             <RBSheet

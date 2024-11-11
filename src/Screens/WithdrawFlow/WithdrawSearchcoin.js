@@ -1,0 +1,185 @@
+import { StyleSheet, Text, View ,SafeAreaView,TouchableOpacity, TextInput,Dimensions, FlatList, Image} from 'react-native'
+import React, { useState } from 'react'
+import { IMAGEPATH, VECTOR_ICONS } from '../../assets/Theme'
+
+const { height, width } = Dimensions.get('window');
+const WithdrawSearchcoin = (props) => {
+    const [searchQuery, setSearchQuery] = useState("");
+    const filterData = [
+        {
+          id: 1,
+       
+          img2: IMAGEPATH.BitCoin,
+          coinname: 'USDT',
+          UiId: 'Tehter',
+          price: '0.0264968',
+          percentage: '$ 0.026168',
+        },
+        {
+          id: 2,
+         img2: IMAGEPATH.Ethereum,
+          coinname: 'BTC',
+          UiId:'Bitcoin',
+          price: '0.0264968',
+          percentage: '$ 0.026168',
+        },
+        {
+          id: 3,
+          img2:IMAGEPATH.Bitcoin2,
+          coinname: 'ETH',
+          UiId: 'Ethereum',
+          price: '0.0264968',
+          percentage: '$ 0.026168',
+        },
+        {
+          id: 4,
+          img2:IMAGEPATH.Bitcoin2,
+          coinname: 'LTC',
+          UiId: 'Light coin',
+          price: '0.0264968',
+          percentage: '$ 0.026168',
+        },
+        {
+            id: 5,
+            img2:IMAGEPATH.Bitcoin2,
+            coinname: 'MATIC',
+            UiId: 'Matic',
+            price: '0.0264968',
+            percentage: '$ 0.026168',
+          },
+          {
+            id: 6,
+            img2:IMAGEPATH.Bitcoin2,
+            coinname: 'DOT',
+            UiId: 'Polka dot',
+            price: '0.0264968',
+            percentage: '$ 0.026168',
+          },
+          {
+            id: 7,
+           img2: IMAGEPATH.Ethereum,
+            coinname: 'BTC',
+            UiId:'Bitcoin',
+            price: '0.0264968',
+            percentage: '$ 0.026168',
+          },
+    
+    
+      ]
+  return (
+    <SafeAreaView style={{ flex: 1, backgroundColor: '#1C1D22' }}>
+
+        <View style={{width:width*0.9,flexDirection:'row',justifyContent:'space-between',alignItems:'center',alignSelf:'center',marginTop:'4%'}}>
+        <View style={styles.InputViewFiled}>
+            <TouchableOpacity
+              style={{ alignSelf: "center", marginLeft: '4%' }} >
+              <VECTOR_ICONS.AntDesign
+                name="search1"
+                color={"rgba(127, 128, 130, 1)"}
+                size={19}
+              />
+            </TouchableOpacity>
+            <TextInput
+              placeholder="Search"
+              style={{
+                width: width * 0.6,
+                color: 'rgba(255, 255, 255, 0.4)',
+                marginLeft: '3%',
+                fontSize:12,fontWeight:'400'
+              }}
+              placeholderTextColor={"rgba(255, 255, 255, 0.4)"}
+              value={searchQuery}
+              onChangeText={(text) => setSearchQuery(text)}
+            />
+          </View>
+          <Text style={styles.textStyle}>Cancel</Text>
+        </View>
+
+        <Text style={[styles.textStyle,{color:'#fff',marginVertical:'5%',marginHorizontal:'6%'}]}>Coin list</Text>
+
+        <FlatList
+          showsVerticalScrollIndicator={false}
+          data={filterData}
+          style={{marginBottom:'2%'}}
+          // refreshControl={
+          //   <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+          // }
+          ListEmptyComponent={() => (
+            <Text style={{ color: 'black', fontSize: 16, fontFamily: FONT.semiBold, textAlign: 'center', marginTop: '10%' }} >
+              No Data Found
+            </Text>
+          )}
+          renderItem={(item) => (
+            <View style={styles.FlatlistView}>
+                <View style={{flexDirection:'row',alignItems:'center',justifyContent:'space-between',width:width*0.4}}>
+                <Image source={item?.item?.img2}  style={{width:50,height:50}} />
+              <View style={styles.TextView}>
+                <Text style={styles.Text11}>{item.item?.coinname}</Text>
+                <Text style={[styles.Text2]} > {item?.item?.UiId}</Text>
+              </View>
+                </View>
+              <View style={[styles.TextView,{alignItems:'flex-end'}]}>
+                <Text style={styles.Text3}>{item?.item?.price}</Text>
+                <Text style={[styles.Text2]} >{item?.item?.percentage} </Text>
+              </View>
+
+            </View>
+          )}
+        />
+
+        </SafeAreaView>
+  )
+}
+
+export default WithdrawSearchcoin
+
+const styles = StyleSheet.create({
+    InputViewFiled: {
+        backgroundColor: "rgba(42, 43, 47, 1)",
+        alignSelf: "center",
+        flexDirection: "row",
+        // justifyContent: "space-between",
+        width: width * 0.7,
+        borderRadius: 6, marginLeft: '1%'
+    
+      },
+      textStyle:{
+        fontSize: 14,
+        fontWeight: '500',
+        color: '#768C5C'
+      },
+      FlatlistView:{
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        width: width*0.9,
+        alignItems: 'center',
+        alignSelf: 'center',
+        // backgroundColor:'red',
+        marginTop:'5%'
+      },
+      TextView:{
+        width:width*0.23
+        // ,backgroundColor:'red'
+      },
+      Text11:{
+        fontSize: 16,
+        fontWeight: '600',
+        color: '#fff',
+
+      },
+      Text2:{
+        fontSize: 11,
+        fontWeight: '400',
+        color: 'rgba(255, 255, 255, 0.6)',
+        marginTop:'2%'
+    
+      },
+      Text3:{
+        fontSize: 14,
+        fontWeight: '500',
+        color: '#fff',
+        marginTop:'2%'
+    
+      }
+    
+})
