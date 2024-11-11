@@ -1,12 +1,15 @@
-import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity, Dimensions, Image, ScrollView } from 'react-native'
-import React from 'react'
+import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity, Dimensions, Image, ScrollView, Modal } from 'react-native'
+import React, { useRef, useState } from 'react'
 import { IMAGEPATH, VECTOR_ICONS } from '../../assets/Theme'
 import COLORS from '../../assets/colors/Colors'
 import WholeButton1 from '../../Components/WholeButton1'
 import Header from '../../Components/Header'
+import RBSheet from "react-native-raw-bottom-sheet";
 
 const { height, width } = Dimensions.get('window');
 const KYCIdentityverification = (props) => {
+    const refRBSheet = useRef();
+    const refRBSheet1 = useRef();
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: '#1C1D22' }}>
             <ScrollView style={{ flex: 1 }} showsVerticalScrollIndicator={false}>
@@ -15,6 +18,8 @@ const KYCIdentityverification = (props) => {
                     <Header
                         label={true}
                         navigate={() => props.navigation.goBack()}
+                        navigate3={() => refRBSheet.current.open()}
+                        navigate4={() => refRBSheet1.current.open()}
 
                     />
                     <Text style={styles.logintext}>Identity verification</Text>
@@ -80,6 +85,89 @@ const KYCIdentityverification = (props) => {
                 </View>
 
             </ScrollView>
+            <RBSheet
+                ref={refRBSheet}
+                closeOnDragDown={true}
+                closeOnPressMask={true}
+                height={235}
+                animationType={"fade"}
+                customStyles={{
+                    wrapper: {
+                        backgroundColor: "rgba(0, 0, 0, 0.4)",
+                    },
+                    draggableIcon: {
+                        backgroundColor: '#fff',
+                        width: width * 0.2
+                    },
+                    container: {
+                        borderTopEndRadius: 30,
+                        borderTopStartRadius: 30,
+                        backgroundColor: "#1C1D22",
+                    },
+                }}
+            >
+                <View style={{ marginBottom: '5%', flex: 1, width: width * 0.9, alignSelf: 'center', alignItems: 'center' }}>
+                    <Text style={styles.logintext1}>Identify verification required</Text>
+                    <Text style={styles.signStyle1}>To enjoy the full range of our products and services, we kindly request you complete the identity verification process.</Text>
+                    <WholeButton1 Label={'Okay'} Action={() => { props.navigation.navigate('Startverification') }} styles={{ width: width * 0.9, }} />
+
+                </View>
+            </RBSheet>
+
+
+            <RBSheet
+                ref={refRBSheet1}
+                closeOnDragDown={true}
+                closeOnPressMask={true}
+                height={570}
+                animationType={"fade"}
+                customStyles={{
+                    wrapper: {
+                        backgroundColor: "rgba(0, 0, 0, 0.4)",
+                    },
+                    draggableIcon: {
+                        backgroundColor: '#fff',
+                        width: width * 0.2,
+                        height:100
+                    },
+                    container: {
+                        borderTopEndRadius: 30,
+                        borderTopStartRadius: 30,
+                        backgroundColor: "#1C1D22",
+                    },
+                }}
+            >
+                <View style={{ marginBottom: '5%', flex: 1, width: width * 0.9, alignSelf: 'center', alignItems: 'center' }}>
+
+                    <Image source={IMAGEPATH.Cancel} style={{ width: 60, height: 60, marginTop: '10%' }} />
+                    <Text style={[styles.logintext1, { textAlign: 'center' }]}>Didn’t receive the SMS verification code?</Text>
+                    <Text style={[styles.signStyle1, { textAlign: 'center', width: width * 0.75, marginTop: '6%', }]}>Make sure that the information you provide is true, accurate, and clear before trying again.</Text>
+
+                    <View style={{ flexDirection: 'row', marginTop: '7%', alignSelf: 'flex-start' }}>
+                        <Text style={styles.signStyle1}>1.</Text>
+                        <Text style={[styles.signStyle1, { alignSelf: 'flex-start', }]}> The personal information you provide must match that  shown on your ID.</Text>
+                    </View>
+                    <View style={{ flexDirection: 'row', marginTop: '2%', alignSelf: 'flex-start' }}>
+                        <Text style={styles.signStyle1}>2.</Text>
+                        <Text style={[styles.signStyle1, { alignSelf: 'flex-start' }]}> Make sure that your entire ID is clearly visible.</Text>
+                    </View>
+                    <View style={{ flexDirection: 'row', marginTop: '2%', alignSelf: 'flex-start' }}>
+                        <Text style={styles.signStyle1}>3.</Text>
+                        <Text style={[styles.signStyle1, { alignSelf: 'flex-start' }]}> Only passports, driver’s licenses, and ID cards can beused for verification.</Text>
+                    </View>
+                    <View style={{ flexDirection: 'row', marginTop: '2%', alignSelf: 'flex-start' }}>
+                        <Text style={styles.signStyle1}>4.</Text>
+                        <Text style={[styles.signStyle1, { alignSelf: 'flex-start' }]}> You must be at least 18 years old, and your ID must be valid and cannot be expired.</Text>
+                    </View>
+
+                    <WholeButton1 Label={'Try again'} Action={() => { props.navigation.navigate('Startverification') }} styles={{ width: width * 0.9, }} />
+
+                    <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width: width * 0.9 }}>
+                        <Image source={IMAGEPATH.Telegram} style={{ height: 17, width: 17, }} />
+                        <Text style={[styles.account3, { width: width * .799 }]}>Having trouble your account? Join our Telegram group and get help from our official customer support team</Text>
+                    </View>
+                </View>
+            </RBSheet>
 
         </SafeAreaView>
     )
@@ -109,6 +197,15 @@ const styles = StyleSheet.create({
         color: '#fff',
         marginTop: '13%',
         lineHeight: 32.97,
+    },
+    logintext1: {
+        fontSize: 22,
+        fontWeight: '600',
+        // fontFamily: FONTS.semiBold,
+        color: '#fff',
+        marginTop: '6%',
+        lineHeight: 32.97,
+
     },
     inputStyle: {
         alignItems: 'center',
@@ -175,5 +272,23 @@ const styles = StyleSheet.create({
         alignSelf: 'center'
         // marginVertical:'2%'
 
-    }
+    },
+    signStyle1: {
+        fontSize: 12,
+        // fontFamily: FONTS.Regular,
+        fontWeight: '400',
+        color: 'rgba(255, 255, 255, 0.6)',
+        lineHeight: 18,
+        // marginTop: '6%',
+        // textAlign:'center'
+    },
+    account3: {
+        fontSize: 12,
+        fontWeight: '400',
+        color: 'rgba(255, 255, 255, 0.6)',
+        // lineHeight: 20,
+        marginLeft: '2%',
+
+
+    },
 })

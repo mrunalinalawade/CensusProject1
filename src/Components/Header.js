@@ -30,8 +30,8 @@ const Header = (props) => {
 
             {props.label && (
                   <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                  <TouchableOpacity><Image source={IMAGEPATH.Frame} /></TouchableOpacity>
-                  <TouchableOpacity><Image source={IMAGEPATH.Headphone} /></TouchableOpacity>
+                  <TouchableOpacity onPress={props.navigate3}><Image source={IMAGEPATH.Frame} /></TouchableOpacity>
+                  <TouchableOpacity onPress={props.navigate4}><Image source={IMAGEPATH.Headphone} /></TouchableOpacity>
               </View>
 
             )

@@ -7,6 +7,7 @@ import Inputfield1 from '../../Components/Inputfields1'
 import WholeButton1 from '../../Components/WholeButton1'
 import { ValidateFullname, ValidateMiddlename, ValidateMobileNo } from '../../Components/ValidationConfig/Validations'
 import FONTS from '../../assets/Fonts'
+import Header from '../../Components/Header'
 const { height, width } = Dimensions.get('window');
 const Personalnformation = (props) => {
   const [FName, setFName] = useState('');
@@ -29,12 +30,7 @@ const Personalnformation = (props) => {
       <View style={{ flex: 1 }}>
         <KeyboardAwareScrollView showsVerticalScrollIndicator={false} bounces={false}>
           <View style={styles.mainviewStyle}>
-            <View style={styles.logoStyle}>
-              <TouchableOpacity><VECTOR_ICONS.AntDesign name="arrowleft" size={30} color={COLORS.RED} /></TouchableOpacity>
-              {/* <TouchableOpacity onPress={() => { props.navigation.navigate('Signup') }}>
-              <Text style={styles.signstyele}>Sign up</Text>
-            </TouchableOpacity> */}
-            </View>
+          <Header   navigate={() => props.navigation.goBack()}/>
             <Text style={styles.logintext}>Personal Information</Text>
             <Text style={styles.signStyle}>We’re so excited to see you again!</Text>
 
@@ -117,7 +113,7 @@ const Personalnformation = (props) => {
             </View>
 
 
-            <WholeButton1 Label={'Next'} Action={() => { }} styles={{ width: width * 0.9, marginTop: height * 0.25 }} />
+            <WholeButton1 Label={'Next'} Action={() => {props.navigation.navigate('IDphotoinfo') }} styles={{ width: width * 0.9, marginTop: height * 0.25 }} />
 
 
 

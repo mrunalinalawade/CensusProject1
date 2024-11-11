@@ -151,7 +151,7 @@ const styles = StyleSheet.create({
   InputFieldStyle: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#rgba(255, 255, 255, 0.06)',
+    backgroundColor: 'rgba(255, 255, 255, 0.06)',
     paddingHorizontal: 8,
     fontSize: 12,
     fontWeight: '400',

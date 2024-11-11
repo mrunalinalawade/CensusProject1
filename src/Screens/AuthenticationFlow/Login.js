@@ -3,16 +3,15 @@ import React, { useState } from 'react'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import FONTS from '../../assets/Fonts';
 import COLORS from '../../assets/colors/Colors';
-import { IMAGEPATH, VECTOR_ICONS } from '../../assets/Theme';
+import { IMAGEPATH } from '../../assets/Theme';
 import Inputfield1 from '../../Components/Inputfields1';
 import WholeButton1 from '../../Components/WholeButton1';
-import { ValidateEmail, ValidateEmailOrPhone, ValidateMobileNo, ValidatePassword } from '../../Components/ValidationConfig/Validations';
+import { ValidateEmail, ValidateMobileNo, } from '../../Components/ValidationConfig/Validations';
 import Header from '../../Components/Header';
 
 const { height, width } = Dimensions.get('window');
 const Login = (props) => {
   const [Email, setEmail] = useState('');
-  // const [EmailOrPhone, setEmailOrPhone] = useState('');
   const [EmailError, setEmailError] = useState('');
   const [show, setshow] = useState(true);
   const [password, setpassword] = useState('')
@@ -22,20 +21,6 @@ const Login = (props) => {
     EmailError: false,
     PasswordError: false
   });
-  // const Submit = () => {
-  //   const emailError = ValidateEmail(Email)
-  //   const PasswordError = ValidatePassword(password)
-  //   if (emailError == '' && PasswordError == '') {
-  //     props.navigation.navigate('FaceIDpermission')
-  //   } else {
-  //     setEmailError(emailError)
-  //     setPasswordError(PasswordError)
-  //     setShowError({
-  //       EmailError: true,
-  //       PasswordError: true
-  //     })
-  //   }
-  // }
   const OnLoginBtnPress = () => {
     if (CheckValidation()) {
       props.navigation.navigate("FaceIDpermission");
@@ -87,14 +72,11 @@ const Login = (props) => {
             <Text style={styles.signStyle}>We’re so excited to see you again!</Text>
             <View style={styles.inputStyle}>
               <Text style={styles.account}>Account Information</Text>
-
-              {/* // Input Field for Email or Phone with either validation */}
               <Inputfield1
                 placeholder={'Email or Phone number'}
                 MaxLength={256}
                 value={Email}
                 onBlur={() => {
-                  // Show error only if there's an error message when user leaves the field
                   setShowError((prevState) => ({
                     ...prevState,
                     EmailError: !!EmailError,
@@ -102,20 +84,15 @@ const Login = (props) => {
                 }}
                 onChangeText={(text) => {
                   setEmail(text);
-
-                  // Perform validation for either email or phone number
                   const isEmailValid = ValidateEmail(text) === "";
                   const isPhoneValid = ValidateMobileNo(text) === "";
-
                   if (isEmailValid || isPhoneValid) {
-                    // If either email or phone validation is successful, clear the error
                     setEmailError("");
                     setShowError((prevState) => ({
                       ...prevState,
                       EmailError: false,
                     }));
                   } else {
-                    // If both validations fail, set the error message
                     setEmailError("Please enter a valid email address or phone number.");
                     setShowError((prevState) => ({
                       ...prevState,
@@ -125,6 +102,11 @@ const Login = (props) => {
                 }}
                 ShowError={ShowError.EmailError}
                 Error={EmailError}
+                InputFieldStyle={{
+                  borderColor: ShowError.EmailError ? 'red' :'rgba(255, 255, 255, 0.06)',
+                  borderWidth: 1, 
+             
+                }}
               />
 
 
@@ -139,8 +121,10 @@ const Login = (props) => {
                 placeholder="Password"
                 TextInputStyle={{ fontSize: 14, fontFamily: FONTS.medium }}
                 InputFieldStyle={{
-                  borderColor: COLORS.BORDERCOLOR,
+                  // borderColor: COLORS.BORDERCOLOR,
                   marginTop: 3,
+                  borderColor: ShowError.PasswordError ? 'red' :'rgba(255, 255, 255, 0.06)',
+                  borderWidth: 1, 
                 }}
                 PasswordPress={() => setshow(!show)}
                 ShowPassword={show}
@@ -161,6 +145,7 @@ const Login = (props) => {
                 }}
                 ShowError={ShowError.PasswordError}
                 Error={PasswordError}
+              
               />
             </View>
             <View style={styles.CheakBoxEntireVIEW}>

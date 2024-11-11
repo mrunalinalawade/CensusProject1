@@ -127,6 +127,11 @@ const Forgetpassword = (props) => {
                 // Errorstyle={{ marginLeft: '5%' }}
                 ShowError={ShowError.EmailError}
                 Error={EmailError}
+                InputFieldStyle={{
+                  borderColor: ShowError.EmailError ? 'red' :'rgba(255, 255, 255, 0.06)',
+                  borderWidth: 1, 
+             
+                }}
               />
 
             </View>

@@ -23,16 +23,65 @@ const SetPassword = (props) => {
         ConfirmPasswordError: false
 
     });
+
+    const [isLengthValid, setIsLengthValid] = useState(false);
+    const [isComplexityValid, setIsComplexityValid] = useState(false);
+    const [isNoSpaces, setIsNoSpaces] = useState(false);
+
+    const ValidatePassword = (password) => {
+        setIsLengthValid(password.length >= 10 && password.length <= 32);
+        setIsComplexityValid(
+            /[A-Z]/.test(password) && /[a-z]/.test(password) && /\d/.test(password)
+        );
+        setIsNoSpaces(!/\s/.test(password));
+        if (!isLengthValid) return 'Password must be 10-32 characters';
+        if (!isComplexityValid) return 'Must include uppercase, lowercase, and number';
+        if (!isNoSpaces) return 'Password cannot contain spaces';
+        return ''; 
+    };
+    const ValidateConfirmPassword = (confirmPassword) => {
+        return confirmPassword === NewPassword ? '' : 'Passwords do not match';
+    };
+    const onPasswordChange = (text) => {
+        setNewPassword(text);
+        setNewPasswordError(ValidatePassword(text));
+    };
+    const onConfirmPasswordChange = (text) => {
+        setConfirmPassword(text);
+        setConfirmPasswordError(ValidateConfirmPassword(text));
+    };
+
+    const ConfirmPasswordfun = () => {
+        const NewPassErr = ValidatePassword(NewPassword);
+        const ConPassErr = ValidateConfirmPassword(ConfirmPassword);
+
+        if (NewPassErr == '' && ConPassErr == '') {
+            props.navigation.navigate('Login');
+        } else {
+            setNewPasswordError(NewPassErr);
+            setConfirmPasswordError(ConPassErr);
+            setShowError({
+                NewPasswordError:!!NewPassErr,
+                ConfirmPasswordError:!!ConPassErr,
+            });
+        }
+    };
+
+    const isValid = isLengthValid && isComplexityValid && isNoSpaces;
+    const buttonBackgroundColor = isValid ? 'rgba(118, 140, 92, 1)' : 'rgba(118, 140, 92, 0.2)';
+    const buttonTextColor = isValid ? '#fff' : 'rgba(255, 255, 255, 0.2)';
+
+
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: '#1C1D22' }}>
             <View style={{ flex: 1 }}>
                 <KeyboardAwareScrollView showsVerticalScrollIndicator={false} bounces={false}>
                     <View style={styles.mainviewStyle}>
-                    <Header
-              sign={true}
-              navigate={() => props.navigation.goBack()}
-              navigate1={() => props.navigation.navigate('Signup')}
-            />
+                        <Header
+                            sign={true}
+                            navigate={() => props.navigation.goBack()}
+                            navigate1={() => props.navigation.navigate('Signup')}
+                        />
                         <Text style={styles.logintext}>Set password</Text>
                         <Text style={styles.signStyle}>Almost done! Just one final step to go.</Text>
 
@@ -41,84 +90,74 @@ const SetPassword = (props) => {
                         <View style={styles.inputStyle}>
                             <Text style={styles.account}>Create password</Text>
                             <Inputfield1
-                                placeholder={'New password'}
-                                // PasswordField
-                                placeholderTextColor={'#B1B1B1'}
+                                placeholder="New password"
+                                placeholderTextColor="#B1B1B1"
                                 MaxLength={16}
                                 ShowPassword={SeeNewPassword}
                                 value={NewPassword}
                                 PasswordPress={() => setSeeNewPassword(!SeeNewPassword)}
                                 onBlur={() => {
-                                    if (NewPassword != '' || NewPassword != undefined) {
-                                        setShowError(prevState => ({
-                                            ...prevState,
-                                            NewPasswordError: true,
-                                        }));
-                                    }
+                                    setShowError((prevState) => ({
+                                        ...prevState,
+                                        NewPasswordError: NewPasswordError ? true : false,
+                                    }));
                                 }}
-                                ViewStyle={{ borderRadius: 5, marginTop: '-1%' }}
-                                passwordIconStyle={{ marginRight: '5%' }}
-                                InputFieldStyle={{ paddingVertical: '1%', color: 'rgba(38, 38, 38, 0.5)', fontSize: 14, fontFamily: FONTS.Regular, paddingLeft: '3%' }}
-                                onChangeText={(text) => {
-                                    if (NewPassword != '' || NewPassword != undefined) {
-                                        setNewPassword(text);
-                                        setNewPasswordError(ValidatePassword(text));
-                                    }
+                                InputFieldStyle={{
+                                    borderColor: ShowError.NewPasswordError ? 'red' : 'rgba(255, 255, 255, 0.06)',
+                                    borderWidth: 1,
                                 }}
+                                onChangeText={onPasswordChange}
                                 ShowError={ShowError.NewPasswordError}
                                 Error={NewPasswordError}
                                 Errorstyle={{ fontSize: 12, fontFamily: FONTS.light }}
-                                ContainerStyle={{ marginVertical: '1%', marginBottom: 18 }}
                             />
-
                             <Inputfield1
-                                placeholder={'Confirm password'}
-                                placeholderTextColor={'#B1B1B1'}
+                                placeholder="Confirm password"
+                                placeholderTextColor="#B1B1B1"
                                 MaxLength={16}
                                 value={ConfirmPassword}
                                 PasswordPress={() => setSeeConfirmPassword(!SeeConfirmPassword)}
-                                // PasswordField
-                                ViewStyle={{ borderRadius: 5, marginTop: '-1%' }}
                                 ShowPassword={SeeConfirmPassword}
                                 onBlur={() => {
-                                    if (ConfirmPassword != '' || ConfirmPassword != undefined) {
-                                        setShowError(prevState => ({
-                                            ...prevState,
-                                            ConfirmPasswordError: true,
-                                        }));
-                                    }
+                                    setShowError((prevState) => ({
+                                        ...prevState,
+                                        ConfirmPasswordError: ConfirmPasswordError ? true : false,
+                                    }));
                                 }}
-                                Errorstyle={{ fontSize: 12, fontFamily: FONTS.light, color: 'red' }}
-                                passwordIconStyle={{ marginRight: '5%' }}
-                                InputFieldStyle={{ paddingVertical: '1%', color: 'rgba(38, 38, 38, 0.5)', fontSize: 14, fontFamily: FONTS.Regular, paddingLeft: '3%' }}
-                                onChangeText={(text) => {
-                                    if (ConfirmPassword != '' || ConfirmPassword != undefined) {
-                                        setConfirmPassword(text);
-                                        setConfirmPasswordError(ValidateConfirmPassword(text, NewPassword));
-                                    }
+                                InputFieldStyle={{
+                                    borderColor: ShowError.ConfirmPasswordError ? 'red' : 'rgba(255, 255, 255, 0.06)',
+                                    borderWidth: 1,
                                 }}
+                                onChangeText={onConfirmPasswordChange}
                                 ShowError={ShowError.ConfirmPasswordError}
                                 Error={ConfirmPasswordError}
-                                ContainerStyle={{ marginVertical: '1%', marginBottom: 20 }}
-
                             />
 
                         </View>
-                        <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: '2%' }}>
-                            <VECTOR_ICONS.AntDesign name={'check'} size={15} />
+                        <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: '2%', marginTop: '4%' }}>
+                            <VECTOR_ICONS.AntDesign name="check" size={15} color={isLengthValid ? 'rgba(118, 140, 92, 1)' : 'rgba(255, 255, 255, 0.4)'} />
                             <Text style={styles.account2}>Must contain 10-32 characters</Text>
                         </View>
 
                         <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: '2%' }}>
-                            <VECTOR_ICONS.AntDesign name={'check'} size={15} />
+                            <VECTOR_ICONS.AntDesign name="check" size={15} color={isComplexityValid ? 'rgba(118, 140, 92, 1)' : 'rgba(255, 255, 255, 0.4)'} />
                             <Text style={styles.account2}>At least one uppercase, lowercase, and number.</Text>
                         </View>
+
                         <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: '2%' }}>
-                            <VECTOR_ICONS.AntDesign name={'check'} size={15} />
+                            <VECTOR_ICONS.AntDesign name="check" size={15} color={isNoSpaces ? 'rgba(118, 140, 92, 1)' : 'rgba(255, 255, 255, 0.4)'} />
                             <Text style={styles.account2}>No spaces.</Text>
                         </View>
 
-                        <WholeButton1 Label={'Confirm'} Action={() => { }} styles={{ width: width * 0.9 }} />
+                        <WholeButton1
+                Label={'Confirm'}
+                Action={ConfirmPasswordfun}
+                styles={{
+                    width:width*0.9,
+                    backgroundColor: buttonBackgroundColor,
+                    color: buttonTextColor,
+                }}
+            />
 
 
 

@@ -15,8 +15,6 @@ const IDphotoinfo = () => {
 
                 <View style={styles.mainviewStyle}>
                 <Header   navigate={() => props.navigation.goBack()}/>
-                    {/* <Text style={styles.logintext}>Welcome back!</Text>
-          <Text style={styles.signStyle}>We’re so excited to see you again!</Text> */}
                     <View style={styles.inputStyle}>
                         <Image source={IMAGEPATH.Identity} style={{ marginTop: '5%', width: 190, height: 150 }} />
                     </View>
@@ -24,7 +22,6 @@ const IDphotoinfo = () => {
 
 
                     <Text style={styles.account}>Before taking a photo of your ID card, make sure that</Text>
-
                     <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: '5%' }}>
                         <VECTOR_ICONS.AntDesign name={'check'} size={18} color={'rgba(118, 140, 92, 1)'} />
                         <Text style={styles.account2}>This is your real and it has not expired.</Text>
@@ -38,22 +35,12 @@ const IDphotoinfo = () => {
                         <VECTOR_ICONS.AntDesign name={'check'} size={18} color={'rgba(118, 140, 92, 1)'} />
                         <Text style={styles.account2}>Your ID is in good condition and not damaged.</Text>
                     </View>
-
-
-
-
-
-
-
                     <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginTop:height*0.2 }}>
                             <Image source={IMAGEPATH.Vector} style={{height:20,width:16,}} />
                             <Text style={styles.account3}>Rest assured that safeguarding information and ansuring you remain in control of it is our utmost priority,</Text>
                         </View>
 
-
-
-
-                    <WholeButton1 Label={'Next'} Action={() => { }} styles={{ width: width * 0.9 }} />
+                    <WholeButton1 Label={'Next'} Action={() => {props.navigation.navigate('Submitted') }} styles={{ width: width * 0.9 }} />
 
 
                 </View>

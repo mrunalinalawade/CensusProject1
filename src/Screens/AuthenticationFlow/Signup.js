@@ -114,6 +114,11 @@ const Signup = (props) => {
               Errorstyle={{ marginLeft: '5%' }}
               ShowError={ShowError.EmailError}
               Error={EmailError}
+              InputFieldStyle={{
+                borderColor: ShowError.EmailError ? 'red' :'rgba(255, 255, 255, 0.06)',
+                borderWidth: 1, 
+           
+              }}
             />
 
             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
@@ -154,6 +159,11 @@ const Signup = (props) => {
               Errorstyle={{ marginLeft: '5%' }}
               ShowError={ShowError.PincodeError}
               Error={PincodeError}
+              InputFieldStyle={{
+                borderColor: ShowError.PincodeError ? 'red' :'rgba(255, 255, 255, 0.06)',
+                borderWidth: 1, 
+           
+              }}
             />
             )}
 
@@ -180,7 +190,7 @@ const Signup = (props) => {
           </View>
 
 
-          <View style={{ width: width * 0.9, alignSelf: 'center', marginTop: '20%', alignItems: 'center' }}>
+          <View style={{ width: width * 0.9, alignSelf: 'center', marginTop: '35%', alignItems: 'center' }}>
             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
               <Text style={styles.account1}>By signing up, you agree to the</Text>
               <TouchableOpacity><Text style={[styles.account1, { color: '#2F9ED6' }]}> Privacy policy</Text></TouchableOpacity><Text style={styles.account1}>and</Text>

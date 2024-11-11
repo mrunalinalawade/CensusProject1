@@ -14,7 +14,8 @@ export const IMAGEPATH = {
   IDCard:require('../Images/KYCFlowImage/IDcard.png'),
   Passport:require('../Images/KYCFlowImage/Passport.png'),
   Checkmaark:require('../Images/KYCFlowImage/checkmark.png'),
-  Telegram:require('../Images/KYCFlowImage/telegram.png')
+  Telegram:require('../Images/KYCFlowImage/telegram.png'),
+  Cancel:require('../Images/KYCFlowImage/Cancel.png')
 
 
 

@@ -141,7 +141,7 @@ const Startverification = (props) => {
 
                     </View>
                     <Text style={[styles.signStyle, { textAlign: 'center', width: width * 0.9, marginVertical: '5%' }]}>Refer to the user identification statement and the jumbo privacy statement for more information on how we store and use your personal information and biometric data. by clicking the “next” button, you indicate that you have read and agree to the above statements and agreements.</Text>
-                    <WholeButton1 Label={'Next'} Action={() => { }} styles={{ width: width * 0.9 }} />
+                    <WholeButton1 Label={'Next'} Action={() => {props.navigation.navigate('Personalnformation') }} styles={{ width: width * 0.9 }} />
 
 
 
