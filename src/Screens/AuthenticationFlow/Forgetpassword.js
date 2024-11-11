@@ -14,40 +14,52 @@ const Forgetpassword = (props) => {
   const [Email, setEmail] = useState('');
   const [EmailError, setEmailError] = useState('');
   const [show, setshow] = useState(true);
-
+  const [selected, setSelected] = useState('phone');
   const [ShowError, setShowError] = useState({
 
     EmailError: false,
-   
+
 
   });
-  const Submit = () => {
 
-    const emailError = ValidateEmail(Email)
-  
-
-    if (emailError == '' ) {
-
-      props.navigation.navigate('SetPassword')
+  const OnSignupBtnPress = () => {
+    if (CheckValidation()) {
+      props.navigation.navigate("SetPassword");
     } else {
-
-      setEmailError(emailError)
-    
       setShowError({
-        EmailError: true,
-      
+        EmailError: EmailError !== '',
 
-      })
-
+      });
     }
-  }
+  };
+
+  const ValidateEmail = (email) => {
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return emailRegex.test(email) ? "" : "Please enter a valid email address.";
+  };
+
+  const ValidateMobileNo = (text) => {
+    const phoneRegex = /^([0-9]{10,14})$/;
+    return phoneRegex.test(text) ? "" : "Please enter a valid phone number (7-14 digits).";
+  };
+  const CheckValidation = () => {
+    let valid = true;
+
+    // Validate email or phone
+    const emailError = ValidateEmail(Email) === "" || ValidateMobileNo(Email) === "";
+    setEmailError(emailError ? "" : "Please enter a valid email address or phone number.");
+    if (!emailError) valid = false;
+
+
+    return valid;
+  };
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: '#1C1D22' }}>
       <View style={{ flex: 1 }}>
         <KeyboardAwareScrollView showsVerticalScrollIndicator={false} bounces={false}>
           <View style={styles.mainviewStyle}>
-          <Header
+            <Header
               sign={true}
               navigate={() => props.navigation.goBack()}
               navigate1={() => props.navigation.navigate('Signup')}
@@ -55,39 +67,72 @@ const Forgetpassword = (props) => {
             <Text style={styles.logintext}>Forget password?</Text>
 
             <View style={styles.viewStyle1}>
-                <TouchableOpacity style={styles.inputStyle1}><Text style={styles.phoneStyle2}>Phone</Text></TouchableOpacity>
-                <TouchableOpacity style={styles.inputStyle1}><Text style={styles.phoneStyle2}>Email</Text></TouchableOpacity>
+              <TouchableOpacity
+                style={[
+                  styles.inputStyle1,
+                  selected === 'phone' ? { backgroundColor: 'rgba(42, 43, 47, 1)' } : null
+                ]}
+                onPress={() => setSelected('phone')}
+              >
+                <Text style={styles.phoneStyle2}>Phone</Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity
+                style={[
+                  styles.inputStyle1,
+                  selected === 'email' ? { backgroundColor: 'rgba(42, 43, 47, 1)' } : null
+                ]}
+                onPress={() => setSelected('email')}
+              >
+                <Text style={styles.phoneStyle2}>Email</Text>
+              </TouchableOpacity>
             </View>
             <View style={styles.inputStyle}>
-            <Text style={styles.account}>Phone Number or email</Text>
+              <Text style={styles.account}>Phone Number or email</Text>
+
+              
+
+
+
               <Inputfield1
-              PhoneField
+                PhoneField
                 placeholder={'Email or Phone number'}
                 MaxLength={256}
                 value={Email}
                 onBlur={() => {
-                  if (Email != '' || Email != undefined) {
-                    setShowError(prevState => ({
+
+                  setShowError((prevState) => ({
+                    ...prevState,
+                    EmailError: !!EmailError,
+                  }));
+                }}
+                onChangeText={(text) => {
+                  setEmail(text);
+                  const isEmailValid = ValidateEmail(text) === "";
+                  const isPhoneValid = ValidateMobileNo(text) === "";
+                  if (isEmailValid || isPhoneValid) {
+                    setEmailError("");
+                    setShowError((prevState) => ({
+                      ...prevState,
+                      EmailError: false,
+                    }));
+                  } else {
+                    setEmailError("Please enter a valid email address or phone number.");
+                    setShowError((prevState) => ({
                       ...prevState,
                       EmailError: true,
                     }));
                   }
                 }}
-                onChangeText={(text) => {
-                  if (Email != '' || Email != undefined) {
-                    setEmail(text);
-                    setEmailError(ValidateEmail(text));
-                  }
-                }}
+                // Errorstyle={{ marginLeft: '5%' }}
                 ShowError={ShowError.EmailError}
                 Error={EmailError}
               />
 
-            
             </View>
 
 
-            <WholeButton1 Label={'Next'} Action={Submit} styles={{ width: width * 0.9 }} />
+            <WholeButton1 Label={'Next'} Action={OnSignupBtnPress} styles={{ width: width * 0.9 }} />
           </View>
         </KeyboardAwareScrollView>
       </View>
@@ -113,15 +158,15 @@ const styles = StyleSheet.create({
     marginTop: '20%',
     lineHeight: 32.97,
   },
-  viewStyle1:{
-    flexDirection:'row',
-    alignItems:'center',
-    width:width*0.9,
-    backgroundColor:'#000',
-    padding:'2%',
-    justifyContent:'space-between',
-    marginTop:'12%',
-    borderRadius:7
+  viewStyle1: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    width: width * 0.9,
+    backgroundColor: '#000',
+    padding: '2%',
+    justifyContent: 'space-between',
+    marginTop: '12%',
+    borderRadius: 7
   },
 
   inputStyle: {
@@ -135,16 +180,16 @@ const styles = StyleSheet.create({
 
 
   },
-  inputStyle1:{
-    alignItems:'center',
-    width:width*0.42,
-    backgroundColor:'red',
-    padding:'3.8%',
-    backgroundColor:'rgba(42, 43, 47, 1)',
-    borderRadius:5
+  inputStyle1: {
+    alignItems: 'center',
+    width: width * 0.42,
+    // backgroundColor:'red',
+    padding: '3.8%',
+
+    borderRadius: 5
 
   },
-  phoneStyle2:{
+  phoneStyle2: {
     fontSize: 12,
     fontFamily: FONTS.medium,
     color: '#FFFFFF',
@@ -158,7 +203,7 @@ const styles = StyleSheet.create({
     lineHeight: 20,
     // marginTop: 2,
     marginVertical: '2%'
-},
+  },
 
 
 })

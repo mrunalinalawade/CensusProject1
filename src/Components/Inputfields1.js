@@ -18,6 +18,7 @@ import { WIDTH } from '../../Helpers/Dimentions';
 import FONTS from '../assets/Fonts';
 import COLORS from '../assets/colors/Colors';
 import Coutry from './ValidationConfig/Country';
+import { VECTOR_ICONS } from '../assets/Theme';
 
 const { height, width } = Dimensions.get('window');
 
@@ -39,35 +40,33 @@ const Inputfield1 = (props) => {
             props.PhoneField &&
 
 
-            <View style={{ width: '20%', backgroundColor: '#rgba(255, 255, 255, 0.06)', flexDirection: 'row', height: 50, alignItems: 'center', borderRadius: 10, }} >
-
-
-              <Coutry setCountrycode={setCountryCode} style={{  }} />
-
-
+            <View style={{ width: '20%', flexDirection: 'row', height: 50, alignItems: 'center', marginRight:'3%',justifyContent:'space-between'}} >
+              <Coutry 
+              setCountrycode={setCountryCode} style={{  }} />
+             
             </View>
           }
 
-          {
+          {/* {
             props.PhoneField &&
 
             <View
               style={{
                 height: 30,
-                borderWidth: 1,
+                // borderWidth: 1,
                 // borderColor:'#rgba(255, 255, 255, 0.06)',
                 marginTop: '1%',
                 marginRight: '2%',
-                backgroundColor: '#rgba(255, 255, 255, 0.06)'
+                // backgroundColor: 'rgba(255, 255, 255, 0.06)'
 
               }}
             />
 
-          }
+          } */}
           <TextInput
             editable={props.edit}
             placeholder={props.placeholder}
-            placeholderTextColor={'#rgba(255, 255, 255, 0.4)'}
+            placeholderTextColor={'rgba(255, 255, 255, 0.4)'}
             autoCapitalize="none"
             style={[
               styles.PlaceholderStyle,
@@ -142,7 +141,7 @@ const styles = StyleSheet.create({
     fontWeight: '400',
   },
   PlaceholderStyle: {
-    color: '#rgba(255, 255, 255, 0.4)',
+    color: 'rgba(255, 255, 255, 0.4)',
     fontSize: 12,
     width: '90%',
     fontWeight: '400',
@@ -158,7 +157,7 @@ const styles = StyleSheet.create({
     fontWeight: '400',
     borderRadius: 7,
     fontFamily: FONTS.regular,
-    color: '#rgba(255, 255, 255, 0.4)',
+    color: 'rgba(255, 255, 255, 0.4)',
   },
   Errorstyle: {
     color: 'red',

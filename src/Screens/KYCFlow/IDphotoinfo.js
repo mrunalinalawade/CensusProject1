@@ -4,6 +4,7 @@ import { IMAGEPATH, VECTOR_ICONS } from '../../assets/Theme'
 import COLORS from '../../assets/colors/Colors'
 import FONTS from '../../assets/Fonts'
 import WholeButton1 from '../../Components/WholeButton1'
+import Header from '../../Components/Header'
 
 const { height, width } = Dimensions.get('window');
 
@@ -13,10 +14,7 @@ const IDphotoinfo = () => {
             <View style={{ flex: 1 }}>
 
                 <View style={styles.mainviewStyle}>
-                    <View style={styles.logoStyle}>
-                        <TouchableOpacity><VECTOR_ICONS.AntDesign name="arrowleft" size={30} color={COLORS.RED} /></TouchableOpacity>
-
-                    </View>
+                <Header   navigate={() => props.navigation.goBack()}/>
                     {/* <Text style={styles.logintext}>Welcome back!</Text>
           <Text style={styles.signStyle}>We’re so excited to see you again!</Text> */}
                     <View style={styles.inputStyle}>
