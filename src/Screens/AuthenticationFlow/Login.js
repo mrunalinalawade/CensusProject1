@@ -1,0 +1,307 @@
+import { StyleSheet, Text, View, SafeAreaView, Dimensions, TouchableOpacity, Image } from 'react-native'
+import React, { useState } from 'react'
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+import FONTS from '../../assets/Fonts';
+import COLORS from '../../assets/colors/Colors';
+import { IMAGEPATH, VECTOR_ICONS } from '../../assets/Theme';
+import Inputfield1 from '../../Components/Inputfields1';
+import WholeButton1 from '../../Components/WholeButton1';
+import { ValidateEmail, ValidateEmailOrPhone, ValidateMobileNo, ValidatePassword } from '../../Components/ValidationConfig/Validations';
+import Header from '../../Components/Header';
+
+const { height, width } = Dimensions.get('window');
+const Login = (props) => {
+  const [Email, setEmail] = useState('');
+  // const [EmailOrPhone, setEmailOrPhone] = useState('');
+  const [EmailError, setEmailError] = useState('');
+  const [show, setshow] = useState(true);
+  const [password, setpassword] = useState('')
+  const [PasswordError, setPasswordError] = useState('')
+  const [Cheaked, setCheaked] = useState(false);
+  const [ShowError, setShowError] = useState({
+    EmailError: false,
+    PasswordError: false
+  });
+  // const Submit = () => {
+  //   const emailError = ValidateEmail(Email)
+  //   const PasswordError = ValidatePassword(password)
+  //   if (emailError == '' && PasswordError == '') {
+  //     props.navigation.navigate('FaceIDpermission')
+  //   } else {
+  //     setEmailError(emailError)
+  //     setPasswordError(PasswordError)
+  //     setShowError({
+  //       EmailError: true,
+  //       PasswordError: true
+  //     })
+  //   }
+  // }
+  const OnLoginBtnPress = () => {
+    if (CheckValidation()) {
+      props.navigation.navigate("FaceIDpermission");
+    } else {
+      setShowError({
+        EmailError: EmailError !== '',
+        PasswordError: PasswordError !== ''
+      });
+    }
+  };
+
+
+
+  const ValidatePassword = (password) => {
+    const PASSWORDREGEX = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    return PASSWORDREGEX.test(password) ? "" : "Please enter valid password";
+  };
+
+  const CheckValidation = () => {
+    let valid = true;
+
+    // Validate email or phone
+    const emailError = ValidateEmail(Email) === "" || ValidateMobileNo(Email) === "";
+    setEmailError(emailError ? "" : "Please enter a valid email address or phone number.");
+    if (!emailError) valid = false;
+
+    // Validate password
+    const passwordError = ValidatePassword(password);
+    setPasswordError(passwordError);
+    if (passwordError) valid = false;
+
+    return valid;
+  };
+
+
+
+  return (
+    <SafeAreaView style={{ flex: 1, backgroundColor: '#1C1D22' }}>
+      <View style={{ flex: 1 }}>
+        <KeyboardAwareScrollView showsVerticalScrollIndicator={false} bounces={false}>
+          <View style={styles.mainviewStyle}>
+            <Header
+              sign={true}
+              navigate={() => props.navigation.goBack()}
+              navigate1={() => props.navigation.navigate('Signup')}
+            />
+
+            <Text style={styles.logintext}>Welcome back!</Text>
+            <Text style={styles.signStyle}>We’re so excited to see you again!</Text>
+            <View style={styles.inputStyle}>
+              <Text style={styles.account}>Account Information</Text>
+
+              {/* // Input Field for Email or Phone with either validation */}
+              <Inputfield1
+                placeholder={'Email or Phone number'}
+                MaxLength={256}
+                value={Email}
+                onBlur={() => {
+                  // Show error only if there's an error message when user leaves the field
+                  setShowError((prevState) => ({
+                    ...prevState,
+                    EmailError: !!EmailError,
+                  }));
+                }}
+                onChangeText={(text) => {
+                  setEmail(text);
+
+                  // Perform validation for either email or phone number
+                  const isEmailValid = ValidateEmail(text) === "";
+                  const isPhoneValid = ValidateMobileNo(text) === "";
+
+                  if (isEmailValid || isPhoneValid) {
+                    // If either email or phone validation is successful, clear the error
+                    setEmailError("");
+                    setShowError((prevState) => ({
+                      ...prevState,
+                      EmailError: false,
+                    }));
+                  } else {
+                    // If both validations fail, set the error message
+                    setEmailError("Please enter a valid email address or phone number.");
+                    setShowError((prevState) => ({
+                      ...prevState,
+                      EmailError: true,
+                    }));
+                  }
+                }}
+                ShowError={ShowError.EmailError}
+                Error={EmailError}
+              />
+
+
+
+
+
+              <Inputfield1
+                Password
+                Line
+                PasswordField
+                passwordIconStyle={{ right: '20%' }}
+                placeholder="Password"
+                TextInputStyle={{ fontSize: 14, fontFamily: FONTS.medium }}
+                InputFieldStyle={{
+                  borderColor: COLORS.BORDERCOLOR,
+                  marginTop: 3,
+                }}
+                PasswordPress={() => setshow(!show)}
+                ShowPassword={show}
+                MaxLength={8}
+                value={password}
+                onBlur={() => setShowError((prevState) => ({
+                  ...prevState,
+                  PasswordError: !!PasswordError,
+                }))}
+                onChangeText={(text) => {
+                  setpassword(text);
+                  const error = ValidatePassword(text);
+                  setPasswordError(error);
+                  setShowError((prevState) => ({
+                    ...prevState,
+                    PasswordError: !!error,
+                  }));
+                }}
+                ShowError={ShowError.PasswordError}
+                Error={PasswordError}
+              />
+            </View>
+            <View style={styles.CheakBoxEntireVIEW}>
+              <TouchableOpacity onPress={() => { props.navigation.navigate('Forgetpassword') }}>
+                <Text style={styles.Forgotpass}>Forgot Password?</Text>
+              </TouchableOpacity>
+            </View>
+            <WholeButton1 Label={'Login'} Action={OnLoginBtnPress} styles={{ width: width * 0.9 }} />
+            <View style={styles.accountStyle}>
+              <View style={styles.viewStyle}></View>
+              <Text style={styles.accounttextStyle}>Or, sign in with</Text>
+              <View style={styles.viewStyle}></View>
+            </View>
+            <View style={styles.appStyle}>
+              <TouchableOpacity onPress={() => { ToCallAppleApi() }} style={styles.loginWithGoogleViewIos}>
+                <Image source={IMAGEPATH.Apple} style={{ width: 25, height: 32, marginHorizontal: '1%' }} />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => { ToCallGoogleSign() }} style={[styles.loginWithGoogleViewIos, { paddingVertical: '13%', }]}>
+                <Image source={IMAGEPATH.Google} style={{ width: 25, height: 25 }} />
+              </TouchableOpacity>
+            </View>
+          </View>
+        </KeyboardAwareScrollView>
+      </View>
+
+    </SafeAreaView>
+  )
+}
+
+export default Login
+
+const styles = StyleSheet.create({
+  mainviewStyle: {
+    justifyContent: 'center',
+    width: width * 0.9,
+    alignSelf: 'center',
+    marginVertical: '6%',
+  },
+  logintext: {
+    fontSize: 32,
+    fontWeight: '600',
+    color: '#fff',
+    marginTop: '20%',
+    lineHeight: 32.97,
+  },
+  signStyle: {
+    fontSize: 12,
+    fontWeight: '400',
+    color: '#rgba(255, 255, 255, 0.6)',
+    lineHeight: 20,
+    marginTop: 9,
+  },
+  accountStyle: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignSelf: 'center',
+    alignItems: 'center',
+    marginTop: 5,
+
+  },
+  accounttextStyle: {
+    fontSize: 14,
+    fontFamily: FONTS.medium,
+    color: '#3E4049',
+    marginHorizontal: '3%'
+  },
+  signupStyle: {
+    fontSize: 14,
+    fontFamily: FONTS.semiBold,
+    color: '#fff',
+  },
+  Forgotpass: {
+    fontSize: 12,
+    fontFamily: FONTS.semiBold,
+    fontWeight: '400',
+    color: '#2F9ED6',
+    marginTop: '2%', marginLeft: '2%'
+  },
+  RememberTEXT: {
+    fontSize: 14,
+    fontFamily: FONTS.medium,
+    color: '#fff',
+    paddingLeft: 12,
+    marginTop: '2%',
+  },
+  CheakBoxEntireVIEW: {
+    marginTop: 5,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    width: width * 0.9,
+    alignSelf: 'center',
+  },
+  FALSECHEAK: {
+    width: '13%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginLeft: '-1.7%'
+  },
+  inputStyle: {
+    marginTop: 40,
+  },
+
+  imgStyle: {
+    width: '62%',
+    height: 62,
+    resizeMode: 'contain',
+  },
+  signstyele: {
+    fontSize: 14,
+    fontFamily: FONTS.medium,
+    color: '#768C5C',
+    fontWeight: '500'
+  },
+  account: {
+    fontSize: 12,
+    fontWeight: '400',
+    color: '#rgba(255, 255, 255, 0.6)',
+    lineHeight: 20,
+    marginVertical: '1.5%'
+  },
+  viewStyle: {
+    width: width * 0.35,
+    backgroundColor: '#2D2F36',
+    height: 1.5
+  },
+  loginWithGoogleViewIos: {
+    backgroundColor: '#F6F6F633',
+    borderRadius: 8,
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: '10%',
+    width: width * 0.15,
+    alignSelf: 'center'
+  },
+  appStyle: {
+    justifyContent: 'space-between',
+    flexDirection: 'row',
+    width: width * 0.34,
+    alignSelf: 'center',
+    marginTop: '11%',
+  }
+
+})
