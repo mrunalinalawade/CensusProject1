@@ -19,8 +19,8 @@ const Header = (props) => {
 
     return (
         <View style={[styles.logoStyle, ViewStyle]} {...props}>
-            <TouchableOpacity  onPress={props?.navigate}>
-                <VECTOR_ICONS.AntDesign name="arrowleft" size={30} color={COLORS.RED} />
+            <TouchableOpacity onPress={props?.navigate}>
+                <VECTOR_ICONS.AntDesign name="arrowleft" size={30} color={COLORS.WHITE} />
             </TouchableOpacity>
             {props.sign && (
                 <TouchableOpacity onPress={props?.navigate1}>
@@ -29,13 +29,20 @@ const Header = (props) => {
             )}
 
             {props.label && (
-                  <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                  <TouchableOpacity onPress={props.navigate3}><Image source={IMAGEPATH.Frame} /></TouchableOpacity>
-                  <TouchableOpacity onPress={props.navigate4}><Image source={IMAGEPATH.Headphone} /></TouchableOpacity>
-              </View>
+                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                    <TouchableOpacity onPress={props.navigate3}><Image source={IMAGEPATH.Frame} /></TouchableOpacity>
+                    <TouchableOpacity onPress={props.navigate4}><Image source={IMAGEPATH.Headphone} /></TouchableOpacity>
+                </View>
 
             )
 
+            }
+            {
+                props.Frame && (
+
+                    <TouchableOpacity><Image source={IMAGEPATH.Frame} style={{ width: 30, height: 38, right: 5, marginTop: '2%' }} /></TouchableOpacity>
+
+                )
             }
         </View>
     );
@@ -56,6 +63,6 @@ const styles = StyleSheet.create({
         fontFamily: FONTS.medium,
         color: '#768C5C',
         fontWeight: '500'
-      },
+    },
 
 });

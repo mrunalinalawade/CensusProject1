@@ -6,25 +6,26 @@ import {
   TouchableOpacity,
   Dimensions,
   Platform,
+  Image,
 } from 'react-native';
 import React, { useState } from 'react';
 import Feather from 'react-native-vector-icons/Feather';
 import Entypo from 'react-native-vector-icons/Entypo';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-  // import Country from './Country';
+// import Country from './Country';
 
 import { WIDTH } from '../../Helpers/Dimentions';
 
 import FONTS from '../assets/Fonts';
 import COLORS from '../assets/colors/Colors';
 import Coutry from './ValidationConfig/Country';
-import { VECTOR_ICONS } from '../assets/Theme';
+import { IMAGEPATH, VECTOR_ICONS } from '../assets/Theme';
 
 const { height, width } = Dimensions.get('window');
 
 const Inputfield1 = (props) => {
   const { LabelStyle, ContainerStyle } = styles;
-  const {CountryCode,setCountryCode}=useState('+91')
+  const { CountryCode, setCountryCode } = useState('+91')
 
   return (
     <>
@@ -40,10 +41,10 @@ const Inputfield1 = (props) => {
             props.PhoneField &&
 
 
-            <View style={{ width: '20%', flexDirection: 'row', height: 50, alignItems: 'center', marginRight:'3%',justifyContent:'space-between'}} >
-              <Coutry 
-              setCountrycode={setCountryCode} style={{  }} />
-             
+            <View style={{ width: '20%', flexDirection: 'row', height: 50, alignItems: 'center', marginRight: '3%', justifyContent: 'space-between' }} >
+              <Coutry
+                setCountrycode={setCountryCode} style={{}} />
+
             </View>
           }
 
@@ -73,7 +74,7 @@ const Inputfield1 = (props) => {
               styles.InputFieldStyle,
               {
                 width:
-                  props.PasswordField || props.CorrectEmailTrue ? '90%' : '99%',
+                  props.PasswordField || props.CorrectEmailTrue || props.vector || props.Network || props.withamount ? '88%' : '99%',
                 backgroundColor: props.backgroundColor,
                 paddingVertical: '4.2%',
                 paddingLeft: '3.2%',
@@ -105,7 +106,35 @@ const Inputfield1 = (props) => {
               onPress={props.PasswordPress}>
               <Entypo name={'cross'} color={'rgba(199, 199, 199, 1)'} size={18} />
             </TouchableOpacity>
-          ) : null}
+          ) : props.vector ?
+
+
+          (
+              <View style={{ flexDirection: 'row', alignItems: 'center',width:width*0.16,right:'8%',justifyContent:'space-between'}}>
+                <Image source={IMAGEPATH.Vector} style={{ width: 20, height: 20 }} />
+                <Image source={IMAGEPATH.Scanner} style={{ width: 30, height: 40 }} />
+              </View>
+
+
+
+            ):props.Network ?
+
+            ( <TouchableOpacity onPress={props.NetworkPress}>
+              <VECTOR_ICONS.AntDesign name={'caretdown'} color={'#7F8082'}/>
+              </TouchableOpacity>):
+            props.withamount ?
+
+            (
+              <View style={{ flexDirection: 'row', alignItems: 'center',width:width*0.19,right:'12%',justifyContent:'space-between'}}>
+            <Text style={styles.account1}>USDT</Text>
+            <Text  style={[styles.account1,{color:'#768C5C',}]}>Max</Text>
+            </View>
+
+            ):null
+          
+ 
+            
+          }
         </View>
 
       </View>
@@ -167,5 +196,11 @@ const styles = StyleSheet.create({
     fontWeight: '400',
     paddingLeft: 5,
   },
-  Replace: {},
+  account1: {
+    fontSize: 14,
+    fontWeight: '500',
+    color: '#fff',
+    // lineHeight: 20,
+    // marginVertical: '1.5%'
+},
 });

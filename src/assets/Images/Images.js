@@ -32,7 +32,10 @@ export const IMAGEPATH = {
   Ethereum:require('../Images/HomeFlowImage/Ethereum.png'),
   Bitcoin2:require('../Images/HomeFlowImage/Bitcoingray.png'),
   Graphgreen:require('../Images/HomeFlowImage/Graph1.png'),
-  Graphred:require('../Images/HomeFlowImage/Graph2.png')
+  Graphred:require('../Images/HomeFlowImage/Graph2.png'),
+  Frame:require('../Images/WithdrawFlowImages/Frame.png'),
+  Square:require('../Images/WithdrawFlowImages/Square.png'),
+  Vector:require('../Images/WithdrawFlowImages/Vector.png')
   
 
 

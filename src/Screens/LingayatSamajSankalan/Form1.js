@@ -40,14 +40,14 @@ const Form1 = (props) => {
   const [birthDate, setBirthDate] = useState(null);
   const [dateSelected, setDateSelected] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
-  
+
   const [ShowError, setShowError] = useState({
     FNameError: false,
     MNameError: false,
     SNameError: false,
     GenderError: false,
     SubcastError: false,
-    errorMessage:false
+    errorMessage: false
   });
 
   const dispatch = useDispatch();
@@ -61,7 +61,7 @@ const Form1 = (props) => {
       return false;
     }
 
-    const selectedDate = new Date(dateSelected);  
+    const selectedDate = new Date(dateSelected);
     if (selectedDate < minDate || selectedDate > maxDate) {
       console.log('Selected date is out of range', selectedDate);
       setErrorMessage('Please enter a birth date between 1945 and 2070.');
@@ -103,9 +103,14 @@ const Form1 = (props) => {
 
   }
 
+
+
+
+
+
   return (
     <KeyboardAwareScrollView
-      style={{ flex: 1, alignSelf: 'center',marginBottom:'2%' }}
+      style={{ flex: 1, alignSelf: 'center', marginBottom: '2%' }}
       showsVerticalScrollIndicator={false} >
       <View style={styles.viewStyle}>
         <View style={styles.headerContainer}>
@@ -114,7 +119,7 @@ const Form1 = (props) => {
         <View style={styles.subHeaderContainer}>
           <Text style={styles.typename}>Type name of family head</Text>
         </View>
-        <Text style={[styles.firstname,{marginTop:'2%'}]}>
+        <Text style={[styles.firstname, { marginTop: '2%' }]}>
           First Name<Text style={styles.starStyle}>*</Text>
         </Text>
         <Inputfield
@@ -228,22 +233,22 @@ const Form1 = (props) => {
         {errorMessage !== '' && (
           <Text style={styles.Errorstyle1}>{errorMessage}</Text>
         )}
-      <DatePicker
-        modal
-        open={open}
-        date={birthDate || new Date()} // Default to current date if birthDate is not set
-        mode="date"
-        // maximumDate={date18YearsAgo} // Maximum date is 18 years ago
-        // minimumDate={date100YearsAgo} // Minimum date is 100 years ago
-        onConfirm={(date) => {
-          setOpen(false);
-          if (isValidDate(date)) {
-            setBirthDate(date); // Set the selected valid date
-            setDateSelected(true);
-          }
-        }}
-        onCancel={() => setOpen(false)}
-      />
+        <DatePicker
+          modal
+          open={open}
+          date={birthDate || new Date()} // Default to current date if birthDate is not set
+          mode="date"
+          // maximumDate={date18YearsAgo} // Maximum date is 18 years ago
+          // minimumDate={date100YearsAgo} // Minimum date is 100 years ago
+          onConfirm={(date) => {
+            setOpen(false);
+            if (isValidDate(date)) {
+              setBirthDate(date); // Set the selected valid date
+              setDateSelected(true);
+            }
+          }}
+          onCancel={() => setOpen(false)}
+        />
 
 
 

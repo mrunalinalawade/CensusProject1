@@ -163,10 +163,10 @@ const Login = (props) => {
               <View style={styles.viewStyle}></View>
             </View>
             <View style={styles.appStyle}>
-              <TouchableOpacity onPress={() => { ToCallAppleApi() }} style={styles.loginWithGoogleViewIos}>
+              <TouchableOpacity style={styles.loginWithGoogleViewIos}>
                 <Image source={IMAGEPATH.Apple} style={{ width: 25, height: 32, marginHorizontal: '1%' }} />
               </TouchableOpacity>
-              <TouchableOpacity onPress={() => { ToCallGoogleSign() }} style={[styles.loginWithGoogleViewIos, { paddingVertical: '13%', }]}>
+              <TouchableOpacity style={[styles.loginWithGoogleViewIos, { paddingVertical: '13%', }]}>
                 <Image source={IMAGEPATH.Google} style={{ width: 25, height: 25 }} />
               </TouchableOpacity>
             </View>
@@ -325,7 +325,7 @@ const styles = StyleSheet.create({
     fontSize: 22,
     fontWeight: '600',
     // fontFamily: FONTS.semiBold,
-    color: '#fff',
+    color:'#fff',
     marginTop: '6%',
     lineHeight: 32.97,
 

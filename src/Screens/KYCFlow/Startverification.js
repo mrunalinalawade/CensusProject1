@@ -4,9 +4,16 @@ import { IMAGEPATH, VECTOR_ICONS } from '../../assets/Theme'
 import COLORS from '../../assets/colors/Colors'
 import WholeButton1 from '../../Components/WholeButton1'
 import Header from '../../Components/Header'
+import Inputfield1 from '../../Components/Inputfields1'
 const { height, width } = Dimensions.get('window');
 
 const Startverification = (props) => {
+    const [Email, setEmail] = useState('');
+  const [EmailError, setEmailError] = useState('');
+  const [ShowError, setShowError] = useState({
+    EmailError: false,
+    PincodeError: false,
+  });
 
     const [showBothCircles, setShowBothCircles] = useState(false);
     const [showBothCircles1, setShowBothCircles1] = useState(false);
@@ -36,8 +43,47 @@ const Startverification = (props) => {
 
                     <View style={styles.inputStyle}>
                         <Text style={styles.account}>Issuing country  </Text>
-                        <VECTOR_ICONS.AntDesign name="questioncircleo" size={13} color={COLORS.RED} style={{ marginTop: '1%' }} />
+                        <VECTOR_ICONS.AntDesign name="questioncircleo" size={13} color={'#A4A5A7'} style={{ marginTop: '1%' }} />
                     </View>
+                    <Inputfield1
+                PhoneField
+                placeholder={'Email or Phone number'}
+                MaxLength={256}
+                value={Email}
+                onBlur={() => {
+
+                  setShowError((prevState) => ({
+                    ...prevState,
+                    EmailError: !!EmailError,
+                  }));
+                }}
+                onChangeText={(text) => {
+                  setEmail(text);
+                  const isEmailValid = ValidateEmail(text) === "";
+                  const isPhoneValid = ValidateMobileNo(text) === "";
+                  if (isEmailValid || isPhoneValid) {
+                    setEmailError("");
+                    setShowError((prevState) => ({
+                      ...prevState,
+                      EmailError: false,
+                    }));
+                  } else {
+                    setEmailError("Please enter a valid email address or phone number.");
+                    setShowError((prevState) => ({
+                      ...prevState,
+                      EmailError: true,
+                    }));
+                  }
+                }}
+                // Errorstyle={{ marginLeft: '5%' }}
+                ShowError={ShowError.EmailError}
+                Error={EmailError}
+                InputFieldStyle={{
+                  borderColor: ShowError.EmailError ? 'red' :'rgba(255, 255, 255, 0.06)',
+                  borderWidth: 1, 
+             
+                }}
+              />
                     <Text style={[styles.account, { fontSize: 16, marginTop: '7%', color: '#FFF' }]}>Select ID type</Text>
                     <Text style={[styles.signStyle, { fontSize: 12, lineHeight: 17, }]}>You will need to provide you personal information, a photo of your ID, and complete face verification (the entire process should take about 3-4 minutes).</Text>
 

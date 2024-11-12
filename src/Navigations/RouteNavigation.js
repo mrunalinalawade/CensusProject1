@@ -19,13 +19,16 @@ import IDphotoinfo from '../Screens/KYCFlow/IDphotoinfo';
 import Submitted from '../Screens/KYCFlow/Submitted';
 import Home from '../Screens/HomeFlow/Home';
 import WithdrawSearchcoin from '../Screens/WithdrawFlow/WithdrawSearchcoin';
+import BottomTabbar from './BottomTabbar';
+import Sendviacryptonetwork from '../Screens/WithdrawFlow/Sendviacryptonetwork';
+import EnterOTP from '../Screens/AuthenticationFlow/EnterOTP';
 
 const Stack = createNativeStackNavigator();
 const RouteNavigation = () => {
   return (
     <Stack.Navigator
       screenOptions={{ headerShown: false }}
-      initialRouteName="Login">
+      initialRouteName="EnterOTP">
       {/* -----------------------Splash----------------------------- */}
       <Stack.Screen name="Splash" component={Splash} />
       <Stack.Screen name="Viewdata" component={Viewdata} />
@@ -40,6 +43,7 @@ const RouteNavigation = () => {
       <Stack.Screen name="Signup" component={Signup} />
       <Stack.Screen name="SetPassword" component={SetPassword} />
       <Stack.Screen name="Forgetpassword" component={Forgetpassword} />
+      <Stack.Screen name="EnterOTP" component={EnterOTP} />
       {/* -----------------------KYC Flow----------------------------- */}
       <Stack.Screen name="FaceIDpermission" component={FaceIDpermission} />
       <Stack.Screen name="KYCIdentityverification" component={KYCIdentityverification} />
@@ -48,10 +52,12 @@ const RouteNavigation = () => {
       <Stack.Screen name="IDphotoinfo" component={IDphotoinfo} />
       <Stack.Screen name="Submitted" component={Submitted} />
 
-      {/* -----------------------Home Flow----------------------------- */}
+      {/* -----------------------Home Flow----------------------------- */} 
 
       <Stack.Screen name="Home" component={Home} />
       <Stack.Screen name="WithdrawSearchcoin" component={WithdrawSearchcoin} />
+      <Stack.Screen name="BottomTabbar" component={BottomTabbar} />
+      <Stack.Screen name="Sendviacryptonetwork" component={Sendviacryptonetwork} />
 
     </Stack.Navigator>
   );

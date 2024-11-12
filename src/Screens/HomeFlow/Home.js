@@ -109,7 +109,7 @@ const Home = (props) => {
           </View>
           <View style={styles.deStyle}>
             <TouchableOpacity style={styles.loginWithGoogleViewIos}>
-              <Image source={IMAGEPATH.Swap} style={{ width: 40, height: 40 }} />
+              <Image source={IMAGEPATH.Swap} style={{ width: 40, height: 40 }} /> 
             </TouchableOpacity>
             <Text style={styles.depoStyle}>Swap</Text>
           </View>

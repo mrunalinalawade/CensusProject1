@@ -5,26 +5,48 @@ import { VECTOR_ICONS } from '../../assets/Theme'
 import COLORS from '../../assets/colors/Colors'
 import Inputfield1 from '../../Components/Inputfields1'
 import WholeButton1 from '../../Components/WholeButton1'
-import { ValidateFullname, ValidateMiddlename, ValidateMobileNo } from '../../Components/ValidationConfig/Validations'
+import { ValidateFullname, ValidateMiddlename, ValidateMobileNo, ValidateSurname } from '../../Components/ValidationConfig/Validations'
 import FONTS from '../../assets/Fonts'
 import Header from '../../Components/Header'
 const { height, width } = Dimensions.get('window');
 const Personalnformation = (props) => {
   const [FName, setFName] = useState('');
   const [FNameError, setFNameError] = useState('');
-  const [MName, setMName] = useState('');
-  const [MNameError, setMNameError] = useState('');
   const [SName, setSName] = useState('');
   const [SNameError, setSNameError] = useState('');
+
   const [phone, setPhone] = useState('');
   const [phoneError, setPhoneError] = useState('');
 
   const [ShowError, setShowError] = useState({
     FNameError: false,
-    MNameError: false,
+    phoneError: false,
     SNameError: false,
 
   });
+  const Form1com = () => {
+    let fnameError = ValidateFullname(FName);
+    let PhoneError = ValidateMobileNo(phone);
+    let snameError = ValidateSurname(SName);
+  
+
+    if (fnameError == '' && PhoneError == '' && snameError == "") {
+       props.navigation.navigate('IDphotoinfo')
+
+    } else {
+      setFNameError(fnameError);
+      setPhoneError(PhoneError);
+      setSNameError(snameError);
+    
+      setShowError({
+        FNameError: true,
+        phoneError: true,
+        SNameError: true,
+  
+      });
+    }
+
+  }
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: '#1C1D22' }}>
       <View style={{ flex: 1 }}>
@@ -40,7 +62,7 @@ const Personalnformation = (props) => {
             <View style={styles.inputStyle}>
               <Text style={styles.account}>First Name</Text>
               <Inputfield1
-                placeholder={'Enter First Name'}
+                placeholder={'Enter first Name'}
                 MaxLength={256}
                 value={FName}
                 onBlur={() => {
@@ -60,28 +82,29 @@ const Personalnformation = (props) => {
                 ShowError={ShowError.FNameError}
                 Error={FNameError} />
               <Text style={styles.account}>Last name</Text>
-              <Inputfield1
-                placeholder={'Enter Middle Name'}
-                MaxLength={256}
-                value={MName}
-                onBlur={() => {
-                  if (MName != '' || MName != undefined) {
-                    setShowError((prevState) => ({
-                      ...prevState,
-                      MNameError: true,
-                    }));
-                  }
-                }}
-                onChangeText={(text) => {
-                  if (MName != '' || MName != undefined) {
-                    setMName(text);
-                    setMNameError(ValidateMiddlename(text));
-                  }
+   
 
-                }}
-                ShowError={ShowError.MNameError}
-                Error={MNameError}
-              />
+<Inputfield1
+          placeholder={'Enter last name'}
+          MaxLength={256}
+          value={SName}
+          onBlur={() => {
+            if (SName.trim() !== '') {
+              setShowError((prevState) => ({
+                ...prevState,
+                SNameError: true,
+              }));
+            }
+          }}
+          onChangeText={(text) => {
+            if (SName != '' || SName != undefined) {
+              setSName(text);
+              setSNameError(ValidateSurname(text));
+            }
+          }}
+          ShowError={ShowError.SNameError}
+          Error={SNameError}
+        />
               <Text style={styles.account}>ID number</Text>
 
               <Inputfield1
@@ -113,7 +136,7 @@ const Personalnformation = (props) => {
             </View>
 
 
-            <WholeButton1 Label={'Next'} Action={() => {props.navigation.navigate('IDphotoinfo') }} styles={{ width: width * 0.9, marginTop: height * 0.25 }} />
+            <WholeButton1 Label={'Next'} Action={Form1com} styles={{ width: width * 0.9, marginTop: height * 0.25 }} />
 
 
 
@@ -163,4 +186,11 @@ const styles = StyleSheet.create({
   inputStyle: {
     marginTop: 40,
   },
+  account:{
+    fontSize: 12,
+    // fontFamily: FONTS.Regular,
+    fontWeight: '400',
+    color: 'rgba(255, 255, 255, 0.6)',
+    marginTop:'1%'
+  }
 })
