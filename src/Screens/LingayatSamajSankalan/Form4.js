@@ -141,99 +141,75 @@ const Form4 = (props) => {
     const formData3 = useSelector((state: RootState) => state.UserData3_?.userData3);
     console.log(formData3, 'formDataformDataformDataformData22222222222222233333333');
 
-    const Form4 = () => {
-        // let mobileError = ValidateMobileNo(phone);
-        // let mobile1Err = ValidateMobileNo(Mobile1);
-        // let maleErr = NoFamily(Male);
-        // let emailError = ValidateEmail(Email);
-        // let femaleError = NoFamily(Female);
-
-        // if (mobileError === '' && mobile1Err === '' && maleErr === "" && emailError === "" && femaleError === "") {
-        //     submitData()
-
-        // } else {
-        //     setPhoneError(mobileError);
-        //     setMobile1Error(mobile1Err);
-        //     setMaleError(maleErr);
-        //     setEmailError(emailError);
-        //     setFemaleError(femaleError);
-
-        //     setShowError({
-        //         Mobile1Error: true,
-        //         phoneError: true,
-        //         MaleError: true,
-        //         EmailError: true,
-        //         FemaleError: true
-        //     });
-        //     Alert.alert('Error', 'Please fix the validation errors before submitting');
-        // }
+    // const Form4 = () => {
+    
 
 
-        let mobileError = ValidateMobileNo(phone);
-        let mobile1Err = ValidateMobileNo(Mobile1);
-        let maleErr = NoFamily(Male);
-        let emailError = ValidateEmail(Email);
-        let femaleError = NoFamily(Female);
+    //     let mobileError = ValidateMobileNo(phone);
+    //     let mobile1Err = ValidateMobileNo(Mobile1);
+    //     let maleErr = NoFamily(Male);
+    //     let emailError = ValidateEmail(Email);
+    //     let femaleError = NoFamily(Female);
 
-        // Initialize error state for details array
-        let detailsError = false;
+    //     // Initialize error state for details array
+    //     let detailsError = false;
 
-        const updatedDetailsArray = detailsArray.map((details, index) => {
-            let relationError = ValidateFullname(details.Relation1) || '';
-            let fnameError = ValidateFullname(details.FName) || '';
-            let employerError = ValidateFirmemployername(details.employer) || '';
-            let businessError = details.Business === null ? 'Business is required' : '';
-            let phone1Error = ValidateMobileNo(details.phone1) || '';
-            let birthDateError = !details.birthDate ? 'Date of Birth is required' : '';
+    //     const updatedDetailsArray = detailsArray.map((details, index) => {
+    //         let relationError = ValidateFullname(details.Relation1) || '';
+    //         let fnameError = ValidateFullname(details.FName) || '';
+    //         let employerError = ValidateFirmemployername(details.employer) || '';
+    //         let businessError = details.Business === null ? 'Business is required' : '';
+    //         let phone1Error = ValidateMobileNo(details.phone1) || '';
+    //         let birthDateError = !details.birthDate ? 'Date of Birth is required' : '';
 
-            // Update the error states
-            updateDetails(index, 'RelationError1', relationError);
-            updateDetails(index, 'FNameError', fnameError);
-            updateDetails(index, 'employerError', employerError);
-            updateDetails(index, 'BusinessError', businessError);
-            updateDetails(index, 'phone1Error', phone1Error);
-            updateDetails(index, 'birthDateError', birthDateError);
+    //         // Update the error states
+    //         updateDetails(index, 'RelationError1', relationError);
+    //         updateDetails(index, 'FNameError', fnameError);
+    //         updateDetails(index, 'employerError', employerError);
+    //         updateDetails(index, 'BusinessError', businessError);
+    //         updateDetails(index, 'phone1Error', phone1Error);
+    //         updateDetails(index, 'birthDateError', birthDateError);
 
-            // If any error exists, mark detailsError as true
-            if (relationError || fnameError || employerError || businessError || phone1Error || birthDateError) {
-                detailsError = true;
-            }
+    //         // If any error exists, mark detailsError as true
+    //         if (relationError || fnameError || employerError || businessError || phone1Error || birthDateError) {
+    //             detailsError = true;
+    //         }
 
-            return details;
-        });
+    //         return details;
+    //     });
 
-        // Check for errors in the main fields and in the details array
-        if (
-            mobileError === '' &&
-            mobile1Err === '' &&
-            maleErr === "" &&
-            emailError === "" &&
-            femaleError === "" &&
-            !detailsError
-        ) {
-            // Proceed with submission if no errors
-            submitData();
-        } else {
-            // Set errors for main fields
-            setPhoneError(mobileError);
-            setMobile1Error(mobile1Err);
-            setMaleError(maleErr);
-            setEmailError(emailError);
-            setFemaleError(femaleError);
+    //     // Check for errors in the main fields and in the details array
+    //     if (
+    //         mobileError === '' &&
+    //         mobile1Err === '' &&
+    //         maleErr === "" &&
+    //         emailError === "" &&
+    //         femaleError === "" &&
+    //         !detailsError
+    //     ) {
+    //         // Proceed with submission if no errors
+    //         submitData();
+    //     } else {
+    //         // Set errors for main fields
+    //         setPhoneError(mobileError);
+    //         setMobile1Error(mobile1Err);
+    //         setMaleError(maleErr);
+    //         setEmailError(emailError);
+    //         setFemaleError(femaleError);
 
-            // Display the error messages
-            setShowError({
-                Mobile1Error: true,
-                phoneError: true,
-                MaleError: true,
-                EmailError: true,
-                FemaleError: true,
-                // Add the details-related error flags here if needed
-            });
+    //         // Display the error messages
+    //         setShowError({
+    //             Mobile1Error: true,
+    //             phoneError: true,
+    //             MaleError: true,
+    //             EmailError: true,
+    //             FemaleError: true,
+    //             // Add the details-related error flags here if needed
+    //         });
 
-            Alert.alert('Error', 'Please fix the validation errors before submitting');
-        }
-    };
+    //         Alert.alert('Error', 'Please fix the validation errors before submitting');
+    //     }
+    // };
 
 
     const addNewDetails = () => {
@@ -539,21 +515,21 @@ const Form4 = (props) => {
                     MaxLength={12}
                     value={phone}
                     keyboardType="number-pad"
-                    onBlur={() => {
-                        if (phone != '' || phone != undefined) {
-                            setShowError(prevState => ({
-                                ...prevState,
-                                phoneerror: true,
-                            }));
-                        }
-                    }}
+                    // onBlur={() => {
+                    //     if (phone != '' || phone != undefined) {
+                    //         setShowError(prevState => ({
+                    //             ...prevState,
+                    //             phoneerror: true,
+                    //         }));
+                    //     }
+                    // }}
                     onChangeText={(num) => {
                         if (phone != '' || phone != undefined) {
                             setPhone(num);
                             setPhoneError(ValidateMobileNo(num));
                         }
                     }}
-                    ShowError={ShowError.phoneError}
+                    // ShowError={ShowError.phoneError}
                     Error={phoneError}
                     style={{ color: '#1C57A5', fontSize: 15, fontFamily: FONTS.semibold, paddingVertical: '4.4%', }}
                 />
@@ -567,21 +543,21 @@ const Form4 = (props) => {
                     MaxLength={12}
                     keyboardType="number-pad"
                     value={Mobile1}
-                    onBlur={() => {
-                        if (Mobile1 != '' || Mobile1 != undefined) {
-                            setShowError((prevState) => ({
-                                ...prevState,
-                                Mobile1Error: true,
-                            }));
-                        }
-                    }}
+                    // onBlur={() => {
+                    //     if (Mobile1 != '' || Mobile1 != undefined) {
+                    //         setShowError((prevState) => ({
+                    //             ...prevState,
+                    //             Mobile1Error: true,
+                    //         }));
+                    //     }
+                    // }}
                     onChangeText={(num) => {
                         if (Mobile1 != '' || Mobile1 != undefined) {
                             setMobile1(num);
                             setMobile1Error(ValidateMobileNo(num));
                         }
                     }}
-                    ShowError={ShowError.Mobile1Error}
+                    // ShowError={ShowError.Mobile1Error}
                     Error={Mobile1Error}
                     style={{ color: '#1C57A5', fontSize: 15, fontFamily: FONTS.semibold, paddingVertical: '4.4%', }}
                 />
@@ -593,21 +569,21 @@ const Form4 = (props) => {
                     placeholder={'Enter  Email Address'}
                     MaxLength={256}
                     value={Email}
-                    onBlur={() => {
-                        if (Email != '' || Email != undefined) {
-                            setShowError(prevState => ({
-                                ...prevState,
-                                EmailError: true,
-                            }));
-                        }
-                    }}
+                    // onBlur={() => {
+                    //     if (Email != '' || Email != undefined) {
+                    //         setShowError(prevState => ({
+                    //             ...prevState,
+                    //             EmailError: true,
+                    //         }));
+                    //     }
+                    // }}
                     onChangeText={(text) => {
                         if (Email != '' || Email != undefined) {
                             setEmail(text);
                             setEmailError(ValidateEmail(text));
                         }
                     }}
-                    ShowError={ShowError.EmailError}
+                    // ShowError={ShowError.EmailError}
                     Error={EmailError}
                 />
                 <Text style={styles.firstname}>
@@ -619,21 +595,21 @@ const Form4 = (props) => {
                     MaxLength={2}
                     value={Male}
                     keyboardType="number-pad"
-                    onBlur={() => {
-                        if (Male != '' || Male != undefined) {
-                            setShowError(prevState => ({
-                                ...prevState,
-                                MaleError: true,
-                            }));
-                        }
-                    }}
+                    // onBlur={() => {
+                    //     if (Male != '' || Male != undefined) {
+                    //         setShowError(prevState => ({
+                    //             ...prevState,
+                    //             MaleError: true,
+                    //         }));
+                    //     }
+                    // }}
                     onChangeText={(text) => {
                         if (Male != '' || Male != undefined) {
                             setMale(text);
                             setMaleError(NoFamily(text));
                         }
                     }}
-                    ShowError={ShowError.MaleError}
+                    // ShowError={ShowError.MaleError}
                     Error={MaleError}
                 />
 
@@ -661,13 +637,13 @@ const Form4 = (props) => {
                                     placeholder={'Enter Relation'}
                                     MaxLength={256}
                                     value={details.Relation1}
-                                    onBlur={() => {
-                                        if (details.Relation1) {
-                                            updateDetails(index, 'RelationError1', ValidateFullname(details.Relation1));
-                                        }
-                                    }}
+                                    // onBlur={() => {
+                                    //     if (details.Relation1) {
+                                    //         updateDetails(index, 'RelationError1', ValidateFullname(details.Relation1));
+                                    //     }
+                                    // }}
                                     onChangeText={(text) => updateDetails(index, 'Relation1', text)}
-                                    ShowError={ShowError.RelationError1}
+                                    // ShowError={ShowError.RelationError1}
                                     Error={details.RelationError1}
                                 />
 
@@ -679,13 +655,13 @@ const Form4 = (props) => {
                                     placeholder={'Enter First Name'}
                                     MaxLength={256}
                                     value={details.FName}
-                                    onBlur={() => {
-                                        if (details.FName) {
-                                            updateDetails(index, 'FNameError', ValidateFullname(details.FName));
-                                        }
-                                    }}
+                                    // onBlur={() => {
+                                    //     if (details.FName) {
+                                    //         updateDetails(index, 'FNameError', ValidateFullname(details.FName));
+                                    //     }
+                                    // }}
                                     onChangeText={(text) => updateDetails(index, 'FName', text)}
-                                    ShowError={ShowError.FNameError}
+                                    // ShowError={ShowError.FNameError}
                                     Error={details.FNameError}
                                 />
 
@@ -745,13 +721,13 @@ const Form4 = (props) => {
                                     placeholder={'Enter Name Of the firm or employer'}
                                     MaxLength={256}
                                     value={details.employer}
-                                    onBlur={() => {
-                                        if (details.employer) {
-                                            updateDetails(index, 'employerError', ValidateFirmemployername(details.employer));
-                                        }
-                                    }}
+                                    // onBlur={() => {
+                                    //     if (details.employer) {
+                                    //         updateDetails(index, 'employerError', ValidateFirmemployername(details.employer));
+                                    //     }
+                                    // }}
                                     onChangeText={(text) => updateDetails(index, 'employer', text)}
-                                    ShowError={ShowError.employerError}
+                                    // ShowError={ShowError.employerError}
                                     Error={details.employerError}
                                 />
 
@@ -762,13 +738,13 @@ const Form4 = (props) => {
                                     MaxLength={12}
                                     value={details.phone1}
                                     keyboardType="number-pad"
-                                    onBlur={() => {
-                                        if (details.phone1 !== '' && details.phone1 !== undefined) {
-                                            updateDetails(index, 'phone1Error', ValidateMobileNo(details.phone1));
-                                        }
-                                    }}
+                                    // onBlur={() => {
+                                    //     if (details.phone1 !== '' && details.phone1 !== undefined) {
+                                    //         updateDetails(index, 'phone1Error', ValidateMobileNo(details.phone1));
+                                    //     }
+                                    // }}
                                     onChangeText={(num) => updateDetails(index, 'phone1', num)}
-                                    ShowError={details.phone1Error}
+                                    // ShowError={details.phone1Error}
                                     Error={details.phone1Error}
                                     style={{ color: '#1C57A5', fontSize: 15, fontFamily: FONTS.semibold, paddingVertical: '4.4%' }}
                                 />
@@ -796,21 +772,21 @@ const Form4 = (props) => {
                     value={Female}
                     keyboardType="number-pad"
 
-                    onBlur={() => {
-                        if (Female != '' || Female != undefined) {
-                            setShowError(prevState => ({
-                                ...prevState,
-                                FemaleError: true,
-                            }));
-                        }
-                    }}
+                    // onBlur={() => {
+                    //     if (Female != '' || Female != undefined) {
+                    //         setShowError(prevState => ({
+                    //             ...prevState,
+                    //             FemaleError: true,
+                    //         }));
+                    //     }
+                    // }}
                     onChangeText={(text) => {
                         if (Female != '' || Female != undefined) {
                             setFemale(text);
                             setFemaleError(NoFamily(text));
                         }
                     }}
-                    ShowError={ShowError.FemaleError}
+                    // ShowError={ShowError.FemaleError}
                     Error={FemaleError}
                 />
 
@@ -858,13 +834,13 @@ const Form4 = (props) => {
                                     // ShowError={ShowError.RelationError}
                                     // Error={RelationError}
 
-                                    onBlur={() => {
-                                        if (details1.Relation) {
-                                            updateDetails1(index, 'RelationError', ValidateFullname(details1.Relation));
-                                        }
-                                    }}
+                                    // onBlur={() => {
+                                    //     if (details1.Relation) {
+                                    //         updateDetails1(index, 'RelationError', ValidateFullname(details1.Relation));
+                                    //     }
+                                    // }}
                                     onChangeText={(text) => updateDetails1(index, 'Relation', text)}
-                                    ShowError={ShowError.RelationError}
+                                    // ShowError={ShowError.RelationError}
                                     Error={details1.RelationError}
                                 />
                                 <Text style={styles.firstname}>
@@ -891,13 +867,13 @@ const Form4 = (props) => {
                                     // }}
                                     // ShowError={ShowError.FNameError1}
                                     // Error={FName1Error}
-                                    onBlur={() => {
-                                        if (details1.FName1) {
-                                            updateDetails1(index, 'FNameError', ValidateFullname(details1.FName1));
-                                        }
-                                    }}
+                                    // onBlur={() => {
+                                    //     if (details1.FName1) {
+                                    //         updateDetails1(index, 'FNameError', ValidateFullname(details1.FName1));
+                                    //     }
+                                    // }}
                                     onChangeText={(text) => updateDetails1(index, 'FName1', text)}
-                                    ShowError={ShowError.FNameError1}
+                                    // ShowError={ShowError.FNameError1}
                                     Error={details1.FName1Error}
                                 />
 
@@ -1005,13 +981,13 @@ const Form4 = (props) => {
                                     // ShowError={ShowError.employer1Error}
                                     // Error={employer1Error}
 
-                                    onBlur={() => {
-                                        if (details1.employer1) {
-                                            updateDetails1(index, 'employerError1', ValidateFirmemployername(details1.employer1));
-                                        }
-                                    }}
+                                    // onBlur={() => {
+                                    //     if (details1.employer1) {
+                                    //         updateDetails1(index, 'employerError1', ValidateFirmemployername(details1.employer1));
+                                    //     }
+                                    // }}
                                     onChangeText={(text) => updateDetails1(index, 'employer1', text)}
-                                    ShowError={ShowError.employer1Error}
+                                    // ShowError={ShowError.employer1Error}
                                     Error={details1.employer1Error}
                                 />
                                 <Text style={styles.firstname}>
@@ -1040,13 +1016,13 @@ const Form4 = (props) => {
                                     // ShowError={ShowError.phone11Error}
                                     // Error={phone11Error}
 
-                                    onBlur={() => {
-                                        if (details1.phone11 !== '' && details1.phone11 !== undefined) {
-                                            updateDetails1(index, 'phone11Error', ValidateMobileNo(details1.phone11));
-                                        }
-                                    }}
+                                    // onBlur={() => {
+                                    //     if (details1.phone11 !== '' && details1.phone11 !== undefined) {
+                                    //         updateDetails1(index, 'phone11Error', ValidateMobileNo(details1.phone11));
+                                    //     }
+                                    // }}
                                     onChangeText={(num) => updateDetails1(index, 'phone11', num)}
-                                    ShowError={details1.phone11Error}
+                                    // ShowError={details1.phone11Error}
                                     Error={details1.phone11Error}
                                     style={{ color: '#1C57A5', fontSize: 15, fontFamily: FONTS.semibold, paddingVertical: '4.2%', }}
                                 />
@@ -1064,7 +1040,7 @@ const Form4 = (props) => {
                         <Text style={styles.firstname1}>Add Details</Text>
                     </TouchableOpacity>
                 )}
-                <WholeButton Label={'Submit'} Action={Form4} styles={{ width: WIDTH * 0.9 }} />
+                <WholeButton Label={'Submit'} Action={submitData} styles={{ width: WIDTH * 0.9 }} />
 
 
             </View>

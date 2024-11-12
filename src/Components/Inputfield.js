@@ -78,7 +78,7 @@ const Inputfield = (props) => {
       </View>
     
     </View>
-      {props.Error && props.ShowError && (
+      {props.Error &&  (
         <Text style={[styles.Errorstyle, props.Errorstyle]}>{props.Error}</Text>
       )}
       </>

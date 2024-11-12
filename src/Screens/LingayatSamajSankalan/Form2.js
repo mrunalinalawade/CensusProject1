@@ -46,41 +46,41 @@ const Form2 = (props) => {
 
     const dispatch = useDispatch();
     const Form2com = () => {
-        let addressError = ValidateaddressField(Address);
-        // let address1Err=ValidateCityField(Address1);
-        let cityErr = ValidateCityField(City);
-        let address1Err = Validateaddress1Field(Address1);
-        let takukaError = ValidatetalukaField(Taluka);
-        let districtError = ValidatedistrictField(District)
-        let stateError = ValidatestateField(State);
-        let pincodeError = OTPVerification(Pincode)
+        // let addressError = ValidateaddressField(Address);
+        // // let address1Err=ValidateCityField(Address1);
+        // let cityErr = ValidateCityField(City);
+        // let address1Err = Validateaddress1Field(Address1);
+        // let takukaError = ValidatetalukaField(Taluka);
+        // let districtError = ValidatedistrictField(District)
+        // let stateError = ValidatestateField(State);
+        // let pincodeError = OTPVerification(Pincode)
 
 
 
-        if (addressError == '' && cityErr == '' && address1Err == "" && takukaError == "" && districtError == "" && stateError == "" && pincodeError == "") {
+        // if (addressError == '' && cityErr == '' && address1Err == "" && takukaError == "" && districtError == "" && stateError == "" && pincodeError == "") {
             const formData2 = { Address, City, Address1, Taluka, District, State, Pincode };
             dispatch(setUserData2(formData2));
 
             props.navigation.navigate('Form3')
-        } else {
-            setAddressError(addressError);
-            setAddress1Error(address1Err);
-            setCityError(cityErr);
-            setTalukaError(address1Err);
-            setTalukaError(takukaError);
-            setDistrictError(districtError)
-            setStateError(stateError)
-            setPincodeError(pincodeError)
-            setShowError({
-                AddressError: true,
-                Address1Error: true,
-                CityError: true,
-                TalukaError: true,
-                DistrictError: true,
-                StateError: true,
-                PincodeError: true,
-            });
-        }
+        // } else {
+        //     setAddressError(addressError);
+        //     setAddress1Error(address1Err);
+        //     setCityError(cityErr);
+        //     setTalukaError(address1Err);
+        //     setTalukaError(takukaError);
+        //     setDistrictError(districtError)
+        //     setStateError(stateError)
+        //     setPincodeError(pincodeError)
+        //     setShowError({
+        //         AddressError: true,
+        //         Address1Error: true,
+        //         CityError: true,
+        //         TalukaError: true,
+        //         DistrictError: true,
+        //         StateError: true,
+        //         PincodeError: true,
+        //     });
+        // }
 
     }
 
@@ -106,21 +106,21 @@ const Form2 = (props) => {
                     placeholder={'Enter Address Line 1'}
                     MaxLength={256}
                     value={Address}
-                    onBlur={() => {
-                        if (Address.trim() !== '') {
-                            setShowError((prevState) => ({
-                                ...prevState,
-                                AddressError: true,
-                            }));
-                        }
-                    }}
+                    // onBlur={() => {
+                    //     if (Address.trim() !== '') {
+                    //         setShowError((prevState) => ({
+                    //             ...prevState,
+                    //             AddressError: true,
+                    //         }));
+                    //     }
+                    // }}
                     onChangeText={(text) => {
                         if (Address != '' || Address != undefined) {
                             setAddress(text);
                             setAddressError(ValidateaddressField(text));
                         }
                     }}
-                    ShowError={ShowError.AddressError}
+                    // ShowError={ShowError.AddressError}
                     Error={AddressError}
                 />
 
@@ -132,21 +132,21 @@ const Form2 = (props) => {
                     placeholder={'Enter Address Line 2'}
                     MaxLength={256}
                     value={Address1}
-                    onBlur={() => {
-                        if (Address1 != '' || Address1 != undefined) {
-                            setShowError((prevState) => ({
-                                ...prevState,
-                                Address1Error: true,
-                            }));
-                        }
-                    }}
+                    // onBlur={() => {
+                    //     if (Address1 != '' || Address1 != undefined) {
+                    //         setShowError((prevState) => ({
+                    //             ...prevState,
+                    //             Address1Error: true,
+                    //         }));
+                    //     }
+                    // }}
                     onChangeText={(text) => {
                         if (Address1 != '' || Address1 != undefined) {
                             setAddress1(text);
                             setAddress1Error(Validateaddress1Field(text));
                         }
                     }}
-                    ShowError={ShowError.Address1Error}
+                    // ShowError={ShowError.Address1Error}
                     Error={Address1Error}
                 />
 
@@ -158,21 +158,21 @@ const Form2 = (props) => {
                     MaxLength={256}
                     value={City}
 
-                    onBlur={() => {
-                        if (City != '' || City != undefined) {
-                            setShowError((prevState) => ({
-                                ...prevState,
-                                CityError: true,
-                            }));
-                        }
-                    }}
+                    // onBlur={() => {
+                    //     if (City != '' || City != undefined) {
+                    //         setShowError((prevState) => ({
+                    //             ...prevState,
+                    //             CityError: true,
+                    //         }));
+                    //     }
+                    // }}
                     onChangeText={(text) => {
                         if (City != '' || City != undefined) {
                             setCity(text);
                             setCityError(ValidateCityField(text));
                         }
                     }}
-                    ShowError={ShowError.CityError}
+                    // ShowError={ShowError.CityError}
                     Error={CityError}
                 />
 
@@ -186,21 +186,21 @@ const Form2 = (props) => {
                     MaxLength={256}
                     value={Taluka}
 
-                    onBlur={() => {
-                        if (Taluka != '' || Taluka != undefined) {
-                            setShowError((prevState) => ({
-                                ...prevState,
-                                TalukaError: true,
-                            }));
-                        }
-                    }}
+                    // onBlur={() => {
+                    //     if (Taluka != '' || Taluka != undefined) {
+                    //         setShowError((prevState) => ({
+                    //             ...prevState,
+                    //             TalukaError: true,
+                    //         }));
+                    //     }
+                    // }}
                     onChangeText={(text) => {
                         if (Taluka != '' || Taluka != undefined) {
                             setTaluka(text);
                             setTalukaError(ValidatetalukaField(text));
                         }
                     }}
-                    ShowError={ShowError.TalukaError}
+                    // ShowError={ShowError.TalukaError}
                     Error={TalukaError}
                 />
 
@@ -216,14 +216,14 @@ const Form2 = (props) => {
                     value={District}
 
 
-                    onBlur={() => {
-                        if (District != '' || District != undefined) {
-                            setShowError((prevState) => ({
-                                ...prevState,
-                                DistrictError: true,
-                            }));
-                        }
-                    }}
+                    // onBlur={() => {
+                    //     if (District != '' || District != undefined) {
+                    //         setShowError((prevState) => ({
+                    //             ...prevState,
+                    //             DistrictError: true,
+                    //         }));
+                    //     }
+                    // }}
                     onChangeText={(text) => {
                         if (District != '' || District != undefined) {
                             setDistrict(text);
@@ -231,7 +231,7 @@ const Form2 = (props) => {
                         }
                     }}
 
-                    ShowError={ShowError.DistrictError}
+                    // ShowError={ShowError.DistrictError}
                     Error={DistrictError}
                 />
 
@@ -244,21 +244,21 @@ const Form2 = (props) => {
                     placeholder={'State'}
                     MaxLength={256}
                     value={State}
-                    onBlur={() => {
-                        if (State != '' || State != undefined) {
-                            setShowError((prevState) => ({
-                                ...prevState,
-                                StateError: true,
-                            }));
-                        }
-                    }}
+                    // onBlur={() => {
+                    //     if (State != '' || State != undefined) {
+                    //         setShowError((prevState) => ({
+                    //             ...prevState,
+                    //             StateError: true,
+                    //         }));
+                    //     }
+                    // }}
                     onChangeText={(text) => {
                         if (State != '' || State != undefined) {
                             setState(text);
                             setStateError(ValidatestateField(text));
                         }
                     }}
-                    ShowError={ShowError.StateError}
+                    // ShowError={ShowError.StateError}
                     Error={StateError}
                 />
                 <Text style={styles.firstname}>
@@ -273,21 +273,21 @@ const Form2 = (props) => {
                     value={Pincode}
 
 
-                    onBlur={() => {
-                        if (Pincode != '' || Pincode != undefined) {
-                            setShowError((prevState) => ({
-                                ...prevState,
-                                PincodeError: true,
-                            }));
-                        }
-                    }}
+                    // onBlur={() => {
+                    //     if (Pincode != '' || Pincode != undefined) {
+                    //         setShowError((prevState) => ({
+                    //             ...prevState,
+                    //             PincodeError: true,
+                    //         }));
+                    //     }
+                    // }}
                     onChangeText={(text) => {
                         if (Pincode != '' || Pincode != undefined) {
                             setPincode(text);
                             setPincodeError(OTPVerification(text));
                         }
                     }}
-                    ShowError={ShowError.PincodeError}
+                    // ShowError={ShowError.PincodeError}
                     Error={PincodeError}
                 />
 

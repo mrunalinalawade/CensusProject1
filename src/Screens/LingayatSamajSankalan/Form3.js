@@ -42,28 +42,28 @@ const Form3 = (props) => {
 
   const dispatch = useDispatch();
   const Form3com = () => {
-    let employError = ValidateFirmemployername(employer);
-    let organisationErr = ValidateDesignation(organisation);
+    // let employError = ValidateFirmemployername(employer);
+    // let organisationErr = ValidateDesignation(organisation);
    
 
 
 
-    if (employError == '' && organisationErr == '' && Business2 !== null ) {
+    // if (employError == '' && organisationErr == '' && Business2 !== null ) {
       const formData3 = { employer, organisation, Business2 };
       dispatch(setUserData3(formData3));
       props.navigation.navigate('Form4')
 
-    } else {
-      setemployerError(employError);
-      setorganisationError(organisationErr);
-      setBusinessError2("Please select a Business or Service");
+    // } else {
+    //   setemployerError(employError);
+    //   setorganisationError(organisationErr);
+    //   setBusinessError2("Please select a Business or Service");
 
-      setShowError({
-        employerError: true,
-        organisationError: true,
-        BusinessError2: true,
-      });
-    }
+    //   setShowError({
+    //     employerError: true,
+    //     organisationError: true,
+    //     BusinessError2: true,
+    //   });
+    // }
 
   }
 
@@ -107,21 +107,21 @@ const Form3 = (props) => {
           value={employer}
 
 
-          onBlur={() => {
-            if (employer != '' || employer != undefined) {
-              setShowError((prevState) => ({
-                ...prevState,
-                employerError: true,
-              }));
-            }
-          }}
+          // onBlur={() => {
+          //   if (employer != '' || employer != undefined) {
+          //     setShowError((prevState) => ({
+          //       ...prevState,
+          //       employerError: true,
+          //     }));
+          //   }
+          // }}
           onChangeText={(text) => {
             if (employer != '' || employer != undefined) {
               setemployer(text);
               setemployerError(ValidateFirmemployername(text));
             }
           }}
-          ShowError={ShowError.employerError}
+          // ShowError={ShowError.employerError}
           Error={employerError}
         />
 
@@ -134,14 +134,14 @@ const Form3 = (props) => {
           MaxLength={256}
           value={organisation}
 
-          onBlur={() => {
-            if (organisation != '' || organisation != undefined) {
-              setShowError(prevState => ({
-                ...prevState,
-                fullNmError: true,
-              }));
-            }
-          }}
+          // onBlur={() => {
+          //   if (organisation != '' || organisation != undefined) {
+          //     setShowError(prevState => ({
+          //       ...prevState,
+          //       fullNmError: true,
+          //     }));
+          //   }
+          // }}
           onChangeText={(text) => {
             if (organisation != '' || organisation != undefined) {
               setorganisation(text);
@@ -149,7 +149,7 @@ const Form3 = (props) => {
             }
           }}
 
-          ShowError={ShowError.organisationError}
+          // ShowError={ShowError.organisationError}
           Error={organisationError}
         />
 

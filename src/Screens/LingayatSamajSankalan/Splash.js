@@ -20,10 +20,10 @@ const Splash = (props) => {
                 <Text style={{ color: '#2372B5', fontSize: 25, alignSelf: 'center', width: '90%', textAlign: 'center', letterSpacing: 1 }}>लिंगायत संघर्ष समिती </Text>
                 <Text style={{ color: '#2372B5', fontSize: 25, alignSelf: 'center', width: '90%', textAlign: 'center', letterSpacing: 1 }}>व </Text>
                 <Text style={{ color: '#2372B5', fontSize: 25, alignSelf: 'center', width: '90%', textAlign: 'center', letterSpacing: 1 }}>
-                    बोरशैव  इंटरनॅशनल असोशिएशन 
+                वीरशैव इंटरनॅशनल असोशिएशन 
                 </Text>
                 <Text style={{ color: '#2372B5', fontSize: 25, alignSelf: 'center', width: '90%', textAlign: 'center', letterSpacing: 1 }}>सादर करीत आहे.</Text>
-                <Text style={{ color: '#2372B5', fontSize: 25, alignSelf: 'center', width: '90%', textAlign: 'center', letterSpacing: 1 ,marginTop:'10%'}}>बोरशैव लिंगायत समाजाची </Text>
+                <Text style={{ color: '#2372B5', fontSize: 25, alignSelf: 'center', width: '90%', textAlign: 'center', letterSpacing: 1 ,marginTop:'10%'}}>वीरशैव लिंगायत समाजाची </Text>
                 <Text style={{ color: '#2372B5', fontSize: 25, alignSelf: 'center', width: '90%', textAlign: 'center', letterSpacing: 1 }}>खाने सुमारी </Text>
                 <Text style={{ color: '#2372B5', fontSize: 25, alignSelf: 'center', width: '90%', textAlign: 'center', letterSpacing: 1 }}>(२०२४)</Text>
                 

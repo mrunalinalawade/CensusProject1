@@ -73,33 +73,33 @@ const Form1 = (props) => {
 
 
   const Form1com = () => {
-    let fnameError = ValidateFullname(FName);
-    let mnameError = ValidateMiddlename(MName);
-    let snameError = ValidateSurname(SName);
-    let dateError = isValidDate(birthDate)
+    // let fnameError = ValidateFullname(FName);
+    // let mnameError = ValidateMiddlename(MName);
+    // let snameError = ValidateSurname(SName);
+    // let dateError = isValidDate(birthDate)
 
-    if (fnameError == '' && mnameError == '' && snameError == "" && Subcast !== null && Gender !== null && dateError !== null) {
+    // if (fnameError == '' && mnameError == '' && snameError == "" && Subcast !== null && Gender !== null && dateError !== null) {
       const formData1 = { FName, MName, SName, Subcast, Gender, birthDate };
       dispatch(setUserData(formData1));
 
       props.navigation.navigate('Form2')
 
-    } else {
-      setFNameError(fnameError);
-      setMNameError(mnameError);
-      setSNameError(snameError);
-      setSubcastError('Please select a Subcast')
-      setGenderError('Please select a gender')
-      setErrorMessage('Please select birth date')
-      setShowError({
-        FNameError: true,
-        MNameError: true,
-        SNameError: true,
-        GenderError: true,
-        SubcastError: true,
-        errorMessage:true
-      });
-    }
+    // } else {
+    //   setFNameError(fnameError);
+    //   setMNameError(mnameError);
+    //   setSNameError(snameError);
+    //   setSubcastError('Please select a Subcast')
+    //   setGenderError('Please select a gender')
+    //   setErrorMessage('Please select birth date')
+    //   setShowError({
+    //     FNameError: true,
+    //     MNameError: true,
+    //     SNameError: true,
+    //     GenderError: true,
+    //     SubcastError: true,
+    //     errorMessage:true
+    //   });
+    // }
 
   }
 
@@ -126,23 +126,25 @@ const Form1 = (props) => {
           placeholder={'Enter First Name'}
           MaxLength={256}
           value={FName}
-          onBlur={() => {
-            if (FName != '' || FName != undefined) {
-              setShowError(prevState => ({
-                ...prevState,
-                FNameError: true,
-              }));
-            }
-          }}
+          // onBlur={() => {
+          //   if (FName != '' || FName != undefined) {
+          //     setShowError(prevState => ({
+          //       ...prevState,
+          //       FNameError: true,
+          //     }));
+          //   }
+          // }}
           onChangeText={(text) => {
             if (FName != '' || FName != undefined) {
               setFName(text);
               setFNameError(ValidateFullname(text));
             }
+            
           }}
-          ShowError={ShowError.FNameError}
+          // ShowError={ShowError.FNameError}
           Error={FNameError}
         />
+         {/* <Text style={[styles.Errorstyle]}>{props.Error}</Text> */}
 
         <Text style={styles.firstname}>
           Middle Name (Father/Husband)
@@ -152,14 +154,14 @@ const Form1 = (props) => {
           placeholder={'Enter Middle Name'}
           MaxLength={256}
           value={MName}
-          onBlur={() => {
-            if (MName != '' || MName != undefined) {
-              setShowError((prevState) => ({
-                ...prevState,
-                MNameError: true,
-              }));
-            }
-          }}
+          // onBlur={() => {
+          //   if (MName != '' || MName != undefined) {
+          //     setShowError((prevState) => ({
+          //       ...prevState,
+          //       MNameError: true,
+          //     }));
+          //   }
+          // }}
           onChangeText={(text) => {
             if (MName != '' || MName != undefined) {
               setMName(text);
@@ -167,7 +169,7 @@ const Form1 = (props) => {
             }
 
           }}
-          ShowError={ShowError.MNameError}
+          // ShowError={ShowError.MNameError}
           Error={MNameError}
         />
 
@@ -178,21 +180,21 @@ const Form1 = (props) => {
           placeholder={'Enter Surname'}
           MaxLength={256}
           value={SName}
-          onBlur={() => {
-            if (SName.trim() !== '') {
-              setShowError((prevState) => ({
-                ...prevState,
-                SNameError: true,
-              }));
-            }
-          }}
+          // onBlur={() => {
+          //   if (SName.trim() !== '') {
+          //     setShowError((prevState) => ({
+          //       ...prevState,
+          //       SNameError: true,
+          //     }));
+          //   }
+          // }}
           onChangeText={(text) => {
             if (SName != '' || SName != undefined) {
               setSName(text);
               setSNameError(ValidateSurname(text));
             }
           }}
-          ShowError={ShowError.SNameError}
+          // ShowError={ShowError.SNameError}
           Error={SNameError}
         />
 

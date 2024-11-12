@@ -1,6 +1,6 @@
 import { ErrorMessages } from "./ErrorMessage";
 
-
+// const [ShowError, setShowError] = useState('')
 /************************************* Regex ***************************************************/
 export const EMAILREGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 export const PASSWORDREGEX = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
@@ -112,18 +112,23 @@ export const ValidateConfirmPassword = (ConfirmPassword, Password) => {
 export const ValidateFullname = (fullname) => {
   if (fullname !== '') {
     if (fullname.length >= 2 && name_REGEX.test(fullname)) {
+      // setShowError({ FNameError: false });
       return '';
     } else {
       if (fullname.length < 2) {
+        // setShowError({ FNameError: true });
         return ErrorMessages.FullnameError;
       } else {
+        // setShowError({ FNameError: true });
         return ErrorMessages.FullnameError1;
       }
     }
   } else {
+    // setShowError({ FNameError: true });
     return ErrorMessages.FullnameEmpty;
   }
 };
+
 
 export const ValidateFirmemployername = (firm) => {
   if (firm !== '') {
