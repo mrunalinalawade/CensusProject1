@@ -6,7 +6,7 @@ export const IMAGEPATH = {
   Apple:require('../Images/AuthImage/Apple.png'),
   Google:require('../Images/AuthImage/Google.png'),
   Face:require('../Images/KYCFlowImage/face.png'),
-  Frame:require('../Images/KYCFlowImage/Frame1.png'),
+  Frame1:require('../Images/KYCFlowImage/Frame1.png'),
   Headphone:require('../Images/KYCFlowImage/Headphone.png'),
   Identity:require('../Images/KYCFlowImage/Identity.png'),
   Vector:require('../Images/KYCFlowImage/Vector.png'),
@@ -35,7 +35,25 @@ export const IMAGEPATH = {
   Graphred:require('../Images/HomeFlowImage/Graph2.png'),
   Frame:require('../Images/WithdrawFlowImages/Frame.png'),
   Square:require('../Images/WithdrawFlowImages/Square.png'),
-  Vector:require('../Images/WithdrawFlowImages/Vector.png')
+  Vector:require('../Images/WithdrawFlowImages/Vector.png'),
+  Delete:require('../Images/DepositCrptoImages/Delete.png'),
+
+  BTC:require('../Images/DepositCrptoImages/BTC.png'),
+  DOT:require('../Images/DepositCrptoImages/DOT.png'),
+  EGLD:require('../Images/DepositCrptoImages/EGLD.png'),
+  ETH:require('../Images/DepositCrptoImages/ETH.png'),
+  JASMY:require('../Images/DepositCrptoImages/JASMY.png'),
+  LTC:require('../Images/DepositCrptoImages/LTC.png'),
+  MATIC:require('../Images/DepositCrptoImages/MATIC.png'),
+  SOL:require('../Images/DepositCrptoImages/SOL.png'),
+  Tether:require('../Images/DepositCrptoImages/Tether.png'),
+  Orange:require('../Images/DepositCrptoImages/OrangeSquare.png'),
+  Copy:require('../Images/DepositCrptoImages/Copy.png'),
+  CopyGay:require('../Images/DepositCrptoImages/Copygray.png'),
+
+
+  EmptyAddress:require('../Images/SaveAddress/EmptyAddress.png'),
+  EditAddress:require('../Images/SaveAddress/EditAddress.png')
   
 
 

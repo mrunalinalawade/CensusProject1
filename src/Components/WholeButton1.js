@@ -10,7 +10,7 @@ const WholeButton1 = (props) => {
             disabled={props.disabled}
             onPress={props.Action}
             style={[styles.WholeButtonStyle, styles.linearGradient, props.styles]}>
-            <Text style={styles.buttonText}>{props.Label}</Text>
+            <Text style={[styles.buttonText,props.buttonStyle]}>{props.Label}</Text>
 
         </TouchableOpacity>
     );

@@ -20,8 +20,8 @@ const Sendviacryptonetwork = () => {
 
     const [ShowError, setShowError] = useState({
         FNameError: false,
-        MNameError: false,
-        SNameError: false,
+        NetworkError: false,
+        MinimumError: false,
     
       });
     return (

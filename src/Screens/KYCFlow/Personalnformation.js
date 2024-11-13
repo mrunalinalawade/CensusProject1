@@ -170,14 +170,12 @@ const styles = StyleSheet.create({
   logintext: {
     fontSize: 32,
     fontWeight: '600',
-    // fontFamily: FONTS.semiBold,
     color: '#fff',
     marginTop: '20%',
     lineHeight: 32.97,
   },
   signStyle: {
     fontSize: 12,
-    // fontFamily: FONTS.Regular,
     fontWeight: '400',
     color: '#rgba(255, 255, 255, 0.6)',
     lineHeight: 20,
@@ -186,11 +184,5 @@ const styles = StyleSheet.create({
   inputStyle: {
     marginTop: 40,
   },
-  account:{
-    fontSize: 12,
-    // fontFamily: FONTS.Regular,
-    fontWeight: '400',
-    color: 'rgba(255, 255, 255, 0.6)',
-    marginTop:'1%'
-  }
+
 })

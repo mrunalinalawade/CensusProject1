@@ -22,13 +22,17 @@ import WithdrawSearchcoin from '../Screens/WithdrawFlow/WithdrawSearchcoin';
 import BottomTabbar from './BottomTabbar';
 import Sendviacryptonetwork from '../Screens/WithdrawFlow/Sendviacryptonetwork';
 import EnterOTP from '../Screens/AuthenticationFlow/EnterOTP';
+import Selectcurrency from '../Screens/DepositcryptoFlow/Selectcurrency';
+import Addressreveal from '../Screens/DepositcryptoFlow/Addressreveal';
+import ScanQRCode from '../Screens/WithdrawFlow/ScanQRCode';
+import Addnewaddress from '../Screens/Savedaddressess/Addnewaddress';
 
 const Stack = createNativeStackNavigator();
 const RouteNavigation = () => {
   return (
     <Stack.Navigator
       screenOptions={{ headerShown: false }}
-      initialRouteName="Splash">
+      initialRouteName="Addressreveal">
       {/* -----------------------Splash----------------------------- */}
       <Stack.Screen name="Splash" component={Splash} />
       <Stack.Screen name="Viewdata" component={Viewdata} />
@@ -58,7 +62,15 @@ const RouteNavigation = () => {
       <Stack.Screen name="WithdrawSearchcoin" component={WithdrawSearchcoin} />
       <Stack.Screen name="BottomTabbar" component={BottomTabbar} />
       <Stack.Screen name="Sendviacryptonetwork" component={Sendviacryptonetwork} />
+      <Stack.Screen name="ScanQRCode" component={ScanQRCode} />
 
+      {/* ---------------------------Deposit crypto ---------------------*/}
+      <Stack.Screen name="Selectcurrency" component={Selectcurrency} />
+      <Stack.Screen name="Addressreveal" component={Addressreveal} />
+
+
+        {/* ---------------------------Saved addressess / Add recipient ---------------------*/}
+        <Stack.Screen name="Addnewaddress" component={Addnewaddress} />
     </Stack.Navigator>
   );
 };

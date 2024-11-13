@@ -74,7 +74,7 @@ const Inputfield1 = (props) => {
               styles.InputFieldStyle,
               {
                 width:
-                  props.PasswordField || props.CorrectEmailTrue || props.vector || props.Network || props.withamount ? '88%' : '99%',
+                  props.PasswordField || props.CorrectEmailTrue || props.vector || props.Network || props.withamount || props.Rigtharrow || props.scann ? '88%' : '99%',
                 backgroundColor: props.backgroundColor,
                 paddingVertical: '4.2%',
                 paddingLeft: '3.2%',
@@ -109,31 +109,49 @@ const Inputfield1 = (props) => {
           ) : props.vector ?
 
 
-          (
-              <View style={{ flexDirection: 'row', alignItems: 'center',width:width*0.16,right:'8%',justifyContent:'space-between'}}>
+            (
+              <View style={{ flexDirection: 'row', alignItems: 'center', width: width * 0.16, right: '8%', justifyContent: 'space-between' }}>
                 <Image source={IMAGEPATH.Vector} style={{ width: 20, height: 20 }} />
                 <Image source={IMAGEPATH.Scanner} style={{ width: 30, height: 40 }} />
               </View>
 
 
 
-            ):props.Network ?
+            ) : props.Network ?
 
-            ( <TouchableOpacity onPress={props.NetworkPress}>
-              <VECTOR_ICONS.AntDesign name={'caretdown'} color={'#7F8082'}/>
-              </TouchableOpacity>):
-            props.withamount ?
+              (<TouchableOpacity onPress={props.NetworkPress}>
+                <VECTOR_ICONS.AntDesign name={'caretdown'} color={'#7F8082'}  size={15} />
+              </TouchableOpacity>) :
+              props.withamount ?
 
-            (
-              <View style={{ flexDirection: 'row', alignItems: 'center',width:width*0.19,right:'12%',justifyContent:'space-between'}}>
-            <Text style={styles.account1}>USDT</Text>
-            <Text  style={[styles.account1,{color:'#768C5C',}]}>Max</Text>
-            </View>
+                (
+                  <View style={{ flexDirection: 'row', alignItems: 'center', width: width * 0.19, right: '12%', justifyContent: 'space-between' }}>
+                    <Text style={styles.account1}>USDT</Text>
+                    <Text style={[styles.account1, { color: '#768C5C', }]}>Max</Text>
+                  </View>
 
-            ):null
-          
- 
-            
+                ) : props.Rigtharrow ? (
+                  <TouchableOpacity onPress={props.RigtharrowPress}>
+                    <VECTOR_ICONS.AntDesign
+                      name={'right'} color={'#7F8082'}  size={15}  />
+                  </TouchableOpacity>
+
+                ) : props.scann ?
+                (
+                  <TouchableOpacity onPress={props.scannPress}>
+                     <Image source={IMAGEPATH.Scanner} style={{ width: 30, height: 40 }} />
+
+                  </TouchableOpacity>
+                 
+                ):
+
+
+
+
+                  null
+
+
+
           }
         </View>
 
@@ -202,5 +220,5 @@ const styles = StyleSheet.create({
     color: '#fff',
     // lineHeight: 20,
     // marginVertical: '1.5%'
-},
+  },
 });

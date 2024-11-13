@@ -12,7 +12,7 @@ const WithdrawSearchcoin = (props) => {
     {
       id: 1,
 
-      img2: IMAGEPATH.BitCoin,
+      img2: IMAGEPATH.Tether,
       coinname: 'USDT',
       UiId: 'Tehter',
       price: '0.0264968',
@@ -20,7 +20,7 @@ const WithdrawSearchcoin = (props) => {
     },
     {
       id: 2,
-      img2: IMAGEPATH.Ethereum,
+      img2: IMAGEPATH.BTC,
       coinname: 'BTC',
       UiId: 'Bitcoin',
       price: '0.0264968',
@@ -28,7 +28,7 @@ const WithdrawSearchcoin = (props) => {
     },
     {
       id: 3,
-      img2: IMAGEPATH.Bitcoin2,
+      img2: IMAGEPATH.ETH,
       coinname: 'ETH',
       UiId: 'Ethereum',
       price: '0.0264968',
@@ -36,7 +36,7 @@ const WithdrawSearchcoin = (props) => {
     },
     {
       id: 4,
-      img2: IMAGEPATH.Bitcoin2,
+      img2: IMAGEPATH.LTC,
       coinname: 'LTC',
       UiId: 'Light coin',
       price: '0.0264968',
@@ -44,7 +44,7 @@ const WithdrawSearchcoin = (props) => {
     },
     {
       id: 5,
-      img2: IMAGEPATH.Bitcoin2,
+      img2: IMAGEPATH.MATIC,
       coinname: 'MATIC',
       UiId: 'Matic',
       price: '0.0264968',
@@ -52,7 +52,7 @@ const WithdrawSearchcoin = (props) => {
     },
     {
       id: 6,
-      img2: IMAGEPATH.Bitcoin2,
+      img2: IMAGEPATH.DOT,
       coinname: 'DOT',
       UiId: 'Polka dot',
       price: '0.0264968',
@@ -60,7 +60,7 @@ const WithdrawSearchcoin = (props) => {
     },
     {
       id: 7,
-      img2: IMAGEPATH.Ethereum,
+      img2: IMAGEPATH.BTC,
       coinname: 'BTC',
       UiId: 'Bitcoin',
       price: '0.0264968',

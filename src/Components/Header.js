@@ -30,7 +30,7 @@ const Header = (props) => {
 
             {props.label && (
                 <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                    <TouchableOpacity onPress={props.navigate3}><Image source={IMAGEPATH.Frame} /></TouchableOpacity>
+                    <TouchableOpacity onPress={props.navigate3}><Image source={IMAGEPATH.Frame1} style={{ width: 30, height: 30 }} /></TouchableOpacity>
                     <TouchableOpacity onPress={props.navigate4}><Image source={IMAGEPATH.Headphone} /></TouchableOpacity>
                 </View>
 
@@ -44,6 +44,19 @@ const Header = (props) => {
 
                 )
             }
+
+            {
+
+                props.Add &&
+
+                (<TouchableOpacity onPress={props.AddPress} style={{ borderWidth: 1, borderColor: '#343434', padding: '2.5%', width:width*0.2,alignItems:'center',borderRadius:5 }}>
+                    <Text style={styles.account1}>Add</Text>
+                </TouchableOpacity>)
+
+
+            }
+
+
         </View>
     );
 };
@@ -56,13 +69,21 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         width: width * 0.9,
         alignSelf: 'center',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        marginTop: '4%'
     },
     signStyle: {
         fontSize: 14,
         fontFamily: FONTS.medium,
         color: '#768C5C',
         fontWeight: '500'
+    },
+    account1: {
+        fontSize: 14,
+        fontWeight: '500',
+        color: '#fff',
+        // lineHeight: 20,
+        // marginVertical: '1.5%'
     },
 
 });
