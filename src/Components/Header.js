@@ -49,8 +49,21 @@ const Header = (props) => {
 
                 props.Add &&
 
-                (<TouchableOpacity onPress={props.AddPress} style={{ borderWidth: 1, borderColor: '#343434', padding: '2.5%', width:width*0.2,alignItems:'center',borderRadius:5 }}>
+                (<TouchableOpacity onPress={props.AddPress} style={{ borderWidth: 1, borderColor: '#343434', padding: '2.5%', width: width * 0.2, alignItems: 'center', borderRadius: 5 }}>
                     <Text style={styles.account1}>Add</Text>
+                </TouchableOpacity>)
+
+
+            }
+
+            {
+
+                props.INR &&
+
+                (<TouchableOpacity onPress={props.INRPress} style={{ borderWidth: 1, borderColor: '#343434', padding: '2%', width: width * 0.2, alignItems: 'center', borderRadius: 5 ,justifyContent:'space-evenly',flexDirection:'row'}}>
+                    <Text style={styles.account1}>INR</Text>
+
+                    <VECTOR_ICONS.AntDesign name={'down'} size={14} color={'#768C5C'} />
                 </TouchableOpacity>)
 
 

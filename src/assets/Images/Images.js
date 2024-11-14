@@ -53,7 +53,20 @@ export const IMAGEPATH = {
 
 
   EmptyAddress:require('../Images/SaveAddress/EmptyAddress.png'),
-  EditAddress:require('../Images/SaveAddress/EditAddress.png')
+  EditAddress:require('../Images/SaveAddress/EditAddress.png'),
+  BuyINR:require('../Images/AddFundImages/BuyINR.png'),
+  P2Puser:require('../Images/AddFundImages/P2Puser.png'),
+  Belldot:require('../Images/AddFundImages/Belldot.png'),
+  Clock:require('../Images/AddFundImages/Clock.png'),
+  CSquare:require('../Images/AddFundImages/CSquare.png'),
+  Filterdot:require('../Images/AddFundImages/Filterdot.png'),
+  likegray:require('../Images/AddFundImages/likegray.png'), 
+   RightStar:require('../Images/AddFundImages/RightStar.png'),
+   Visa:require('../Images/AddFundImages/Visa.png')
+ 
+
+  
+
   
 
 

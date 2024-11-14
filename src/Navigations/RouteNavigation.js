@@ -26,13 +26,15 @@ import Selectcurrency from '../Screens/DepositcryptoFlow/Selectcurrency';
 import Addressreveal from '../Screens/DepositcryptoFlow/Addressreveal';
 import ScanQRCode from '../Screens/WithdrawFlow/ScanQRCode';
 import Addnewaddress from '../Screens/Savedaddressess/Addnewaddress';
+import Addfundoptions from '../Screens/Addfund/Addfundoptions';
+import P2PMainPage from '../Screens/Addfund/home/P2PMainPage';
 
 const Stack = createNativeStackNavigator();
 const RouteNavigation = () => {
   return (
     <Stack.Navigator
       screenOptions={{ headerShown: false }}
-      initialRouteName="Addressreveal">
+      initialRouteName="P2PMainPage">
       {/* -----------------------Splash----------------------------- */}
       <Stack.Screen name="Splash" component={Splash} />
       <Stack.Screen name="Viewdata" component={Viewdata} />
@@ -71,6 +73,14 @@ const RouteNavigation = () => {
 
         {/* ---------------------------Saved addressess / Add recipient ---------------------*/}
         <Stack.Screen name="Addnewaddress" component={Addnewaddress} />
+
+
+        {/* --------------------------- AddfundCTA ---------------------*/}
+        <Stack.Screen name="Addfundoptions" component={Addfundoptions} />
+         <Stack.Screen name="P2PMainPage" component={P2PMainPage} />
+
+       
+        
     </Stack.Navigator>
   );
 };

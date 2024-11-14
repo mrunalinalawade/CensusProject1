@@ -10,6 +10,11 @@ const Addressreveal = (props) => {
     const refRBSheet1 = useRef();
     const refRBSheet2 = useRef();
 
+    
+    const openExchangeSheet = () => {
+     props.navigation.navigate('Addnewaddress')
+    };
+
     const [selectedTab, setSelectedTab] = useState('Address book');
     const tabs = ['Address book', 'Recently']
     return (
@@ -157,7 +162,7 @@ const Addressreveal = (props) => {
                 <View style={{ marginBottom: '5%', flex: 1, width: width * 0.9, alignSelf: 'center', alignItems: 'center' }}>
 
                     <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width: width * 0.9, }}>
-                        <Text style={[styles.logintext1, { textAlign: 'center', }]}>Select address</Text>
+                        <Text style={[styles.logintext1, { textAlign: 'center', }]}></Text>
                         <Image source={IMAGEPATH.EditAddress} style={{ width: 20, height: 20, marginTop: '5%' }} />
                     </View>
 
@@ -194,7 +199,7 @@ const Addressreveal = (props) => {
                     <Text style={styles.textStyel}>No saved addresses </Text>
 
 
-                    <WholeButton1 Label={'Add new address'} Action={() =>{props.navigation.naviagte('Addnewaddress')}} styles={{ width: width * 0.9, marginTop: height * 0.38 }} />
+                    <WholeButton1 Label={'Add new address'} Action={openExchangeSheet} styles={{ width: width * 0.9, marginTop: height * 0.38 }} />
 
 
                 </View>

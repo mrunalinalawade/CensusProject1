@@ -108,6 +108,9 @@ const Selectcurrency = () => {
 
   },
   ]
+
+
+  
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: '#1C1D22' }}>
       <View style={{ width: width * 0.9, alignSelf: 'center', flex: 1 }}>
