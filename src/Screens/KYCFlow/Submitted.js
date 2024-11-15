@@ -21,7 +21,7 @@ const Submitted = (props) => {
                             <Image source={IMAGEPATH.Telegram} style={{height:17,width:17,}} />
                             <Text style={styles.account3}>Stay informed about the latest money-making insights by  <Text style={[styles.account3,{color:'#2F9ED6'}]}>joining our telegram group</Text></Text>
                         </View>
-                    <WholeButton1 Label={'Next'} Action={() => props.navigation.navigate('BottomTabbar')} styles={{ width: width * 0.9 }} />
+                    <WholeButton1 Label={'Next'} Action={() => props.navigation.navigate('Home')} styles={{ width: width * 0.9 }} />
                 </View>
             </View>
         </SafeAreaView>

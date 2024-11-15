@@ -31,7 +31,7 @@ const KYCIdentityverification = (props) => {
                         <WholeButton1 Label={'Get Verified'} Action={() => { props.navigation.navigate('Startverification') }} styles={{ width: width * 0.8, }} />
 
                         <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', bottom: '5%', }}>
-                            <Image source={IMAGEPATH.Vector} />
+                            <Image source={IMAGEPATH.Vector1} />
                             <Text style={styles.account2}>Your information on BitTrans is encrypted</Text>
                         </View>
                     </View>
@@ -153,7 +153,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         width: width * 0.9,
         alignSelf: 'center',
-        marginVertical: '6%',
+        marginVertical: '1%',
     },
     logoStyle: {
         // marginTop: 84.43,

@@ -28,13 +28,18 @@ import ScanQRCode from '../Screens/WithdrawFlow/ScanQRCode';
 import Addnewaddress from '../Screens/Savedaddressess/Addnewaddress';
 import Addfundoptions from '../Screens/Addfund/Addfundoptions';
 import P2PMainPage from '../Screens/Addfund/home/P2PMainPage';
+import BuywiithINR from '../Screens/Addfund/home/AddfundCTA/BuywiithINR';
+import SwapScreen from '../Screens/SwapFlow/SwapScreen';
+import RecieveFund from '../Screens/SwapFlow/RecieveFund';
+import Tranfer from '../Screens/SwapFlow/TransferFromFundingwallettoWalletaddress/Tranfer';
+import SelectCoin from '../Screens/SwapFlow/TransferFromFundingwallettoWalletaddress/SelectCoin';
 
 const Stack = createNativeStackNavigator();
 const RouteNavigation = () => {
   return (
     <Stack.Navigator
       screenOptions={{ headerShown: false }}
-      initialRouteName="P2PMainPage">
+      initialRouteName="Login">
       {/* -----------------------Splash----------------------------- */}
       <Stack.Screen name="Splash" component={Splash} />
       <Stack.Screen name="Viewdata" component={Viewdata} />
@@ -78,6 +83,12 @@ const RouteNavigation = () => {
         {/* --------------------------- AddfundCTA ---------------------*/}
         <Stack.Screen name="Addfundoptions" component={Addfundoptions} />
          <Stack.Screen name="P2PMainPage" component={P2PMainPage} />
+         <Stack.Screen name="BuywiithINR" component={BuywiithINR} />
+         <Stack.Screen name="SwapScreen" component={SwapScreen} />
+         <Stack.Screen name="RecieveFund" component={RecieveFund} />
+         <Stack.Screen name="Tranfer" component={Tranfer} />
+         
+         <Stack.Screen name="SelectCoin" component={SelectCoin} />
 
        
         

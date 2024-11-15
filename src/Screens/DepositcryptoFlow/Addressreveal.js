@@ -4,6 +4,7 @@ import Header from '../../Components/Header'
 import { IMAGEPATH, VECTOR_ICONS } from '../../assets/Theme';
 import WholeButton1 from '../../Components/WholeButton1';
 import RBSheet from 'react-native-raw-bottom-sheet';
+import Header1 from '../../Components/Header1';
 
 const { height, width } = Dimensions.get('window');
 const Addressreveal = (props) => {
@@ -20,9 +21,9 @@ const Addressreveal = (props) => {
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: '#1C1D22' }}>
             <View style={styles.mainviewStyle}>
-                <Header
+                <Header1
                     label={true}
-                    navigate={() => props.navigation.goBack()}
+                   
                     navigate4={() => refRBSheet1.current.open()}
 
                 />

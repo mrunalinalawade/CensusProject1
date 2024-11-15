@@ -19,9 +19,14 @@ const Header = (props) => {
 
     return (
         <View style={[styles.logoStyle, ViewStyle]} {...props}>
+            <View style={{flexDirection:'row',alignItems:'center',justifyContent:'space-between',width:width*0.55,}}>
             <TouchableOpacity onPress={props?.navigate}>
                 <VECTOR_ICONS.AntDesign name="arrowleft" size={30} color={COLORS.WHITE} />
             </TouchableOpacity>
+            <Text style={styles.signStyle1}>{props.textlabel}</Text>
+
+            </View>
+           
             {props.sign && (
                 <TouchableOpacity onPress={props?.navigate1}>
                     <Text style={styles.signStyle}>Sign up</Text>
@@ -60,12 +65,22 @@ const Header = (props) => {
 
                 props.INR &&
 
-                (<TouchableOpacity onPress={props.INRPress} style={{ borderWidth: 1, borderColor: '#343434', padding: '2%', width: width * 0.2, alignItems: 'center', borderRadius: 5 ,justifyContent:'space-evenly',flexDirection:'row'}}>
+                (<TouchableOpacity onPress={props.INRPress} style={{ borderWidth: 1, borderColor: '#343434', padding: '2%', width: width * 0.2, alignItems: 'center', borderRadius: 5, justifyContent: 'space-evenly', flexDirection: 'row' }}>
                     <Text style={styles.account1}>INR</Text>
 
                     <VECTOR_ICONS.AntDesign name={'down'} size={14} color={'#768C5C'} />
                 </TouchableOpacity>)
 
+
+            }
+
+            {props.swap && (
+                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                    <TouchableOpacity onPress={props.navigate3}><Image source={IMAGEPATH.Frame1} style={{ width: 36, height: 35 }} /></TouchableOpacity>
+                    <TouchableOpacity><Image source={IMAGEPATH.Frame} style={{ width: 30, height: 38,  marginTop: '2%' }} /></TouchableOpacity>
+                </View>
+
+            )
 
             }
 
@@ -97,6 +112,13 @@ const styles = StyleSheet.create({
         color: '#fff',
         // lineHeight: 20,
         // marginVertical: '1.5%'
+    },
+    signStyle1: {
+        fontSize: 16,
+        fontFamily: FONTS.medium,
+        color:'#fff',
+        fontWeight: '500',
+
     },
 
 });

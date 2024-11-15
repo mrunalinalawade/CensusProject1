@@ -17,7 +17,7 @@ const Home = (props) => {
       img2: IMAGEPATH.BitCoin,
       coinname: 'Bitcoin',
       UiId: 'Bitcoin/USDT',
-      img3:IMAGEPATH.Graphgreen,
+      img3: IMAGEPATH.Graphgreen,
       price: '$1,270.10',
       percentage: '+2.76%',
     },
@@ -27,27 +27,27 @@ const Home = (props) => {
       img2: IMAGEPATH.Ethereum,
       coinname: 'Etherium',
       UiId: 'Eth/USDT',
-      img3:IMAGEPATH.Graphred,
+      img3: IMAGEPATH.Graphred,
       price: '$1,270.10',
       percentage: '-1.02%',
     },
     {
       id: 3,
       img1: IMAGEPATH.UnFavoriteStar,
-      img2:IMAGEPATH.Bitcoin2,
+      img2: IMAGEPATH.Bitcoin2,
       coinname: 'Bitcoin',
       UiId: '1 Inch/ USDT',
-      img3:IMAGEPATH.Graphgreen,
+      img3: IMAGEPATH.Graphgreen,
       price: '$1,270.10',
       percentage: '+2.76%',
     },
     {
       id: 4,
       img1: IMAGEPATH.UnFavoriteStar,
-      img2:IMAGEPATH.Bitcoin2,
+      img2: IMAGEPATH.Bitcoin2,
       coinname: 'Bitcoin',
       UiId: '1 Inch/ USDT',
-      img3:IMAGEPATH.Graphgreen,
+      img3: IMAGEPATH.Graphgreen,
       price: '$1,270.10',
       percentage: '+2.76%',
     },
@@ -92,30 +92,34 @@ const Home = (props) => {
             <Text style={styles.walletStyle}>Main Wallet</Text>
             <Text style={styles.walletStyle1}>$150.83</Text>
           </View>
-          <TouchableOpacity style={styles.fundStyle}><Text style={[styles.walletStyle1, { fontSize: 12 }]}>Add Fund</Text></TouchableOpacity>
+          <TouchableOpacity  onPress={()=>{props.navigation.navigate('Addfundoptions')}} style={styles.fundStyle}><Text style={{
+            fontSize: 12, fontWeight: '600',
+            color: '#FFFFFF'
+          }}>Add Fund</Text></TouchableOpacity>
         </View>
         <View style={styles.mainStyele} >
           <View style={styles.deStyle}>
-            <TouchableOpacity style={styles.loginWithGoogleViewIos}>
-              <Image source={IMAGEPATH.Deposit} style={{ width: 40, height: 40 }} />
+            <TouchableOpacity onPress={() => props.navigation.navigate('Selectcurrency')}
+              style={styles.loginWithGoogleViewIos}>
+              <Image source={IMAGEPATH.Deposit} style={{ width: 35, height: 35 }} />
             </TouchableOpacity>
             <Text style={styles.depoStyle}>Deposit</Text>
           </View>
           <View style={styles.deStyle}>
-            <TouchableOpacity onPress={()=>{props.navigation.navigate('WithdrawSearchcoin')}} style={styles.loginWithGoogleViewIos}>
-              <Image source={IMAGEPATH.Withdraw} style={{ width: 40, height: 40 }} />
+            <TouchableOpacity onPress={() => { props.navigation.navigate('WithdrawSearchcoin') }} style={styles.loginWithGoogleViewIos}>
+              <Image source={IMAGEPATH.Withdraw} style={{ width: 35, height: 35 }} />
             </TouchableOpacity>
             <Text style={styles.depoStyle}>Withdraw</Text>
           </View>
           <View style={styles.deStyle}>
-            <TouchableOpacity style={styles.loginWithGoogleViewIos}>
-              <Image source={IMAGEPATH.Swap} style={{ width: 40, height: 40 }} /> 
+            <TouchableOpacity onPress={()=>{props.navigation.navigate('SwapScreen')}} style={styles.loginWithGoogleViewIos}>
+              <Image source={IMAGEPATH.Swap} style={{ width: 35, height: 35 }} />
             </TouchableOpacity>
             <Text style={styles.depoStyle}>Swap</Text>
           </View>
           <View style={styles.deStyle}>
-            <TouchableOpacity style={styles.loginWithGoogleViewIos}>
-              <Image source={IMAGEPATH.P2P} style={{ width: 40, height: 40 }} />
+            <TouchableOpacity onPress={()=>{props.navigation.navigate('P2PMainPage')}} style={styles.loginWithGoogleViewIos}>
+              <Image source={IMAGEPATH.P2P} style={{ width: 35, height: 35 }} />
             </TouchableOpacity>
             <Text style={styles.depoStyle}>P2P</Text>
           </View>
@@ -125,7 +129,7 @@ const Home = (props) => {
 
         <View style={[styles.mainStyele, { backgroundColor: 'rgba(255, 255, 255, 0.08)', padding: '3%', borderRadius: 7 }]}>
           <View style={{ marginVertical: '3%' }}>
-            <Image source={IMAGEPATH.MegaOffer} style={{ width: 140, height: 50 ,marginLeft:'5%'}} />
+            <Image source={IMAGEPATH.MegaOffer} style={{ width: 140, height: 50, marginLeft: '5%' }} />
             <Text style={[styles.walletStyle, { color: 'rgba(255, 255, 255, 0.9)', width: width * 0.5, marginTop: '6%' }]} >In publishing and graphic design, Lorem ipsum is a placeholder</Text>
           </View>
           <Image source={IMAGEPATH.Gift} style={{ width: 130, height: 108, top: -29 }} />
@@ -156,27 +160,27 @@ const Home = (props) => {
         <FlatList
           showsVerticalScrollIndicator={false}
           data={filterData}
-          style={{marginTop:'5%',marginBottom:'2%'}}
+          style={{ marginTop: '5%', marginBottom: '2%' }}
           // refreshControl={
           //   <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
           // }
           ListEmptyComponent={() => (
-            <Text style={{ color: 'black', fontSize: 16, fontFamily: FONT.semiBold, textAlign: 'center', marginTop: '15%' }} >
+            <Text style={{ color: 'black', fontSize: 16, fontFamily: FONTS.semiBold, textAlign: 'center', marginTop: '15%' }} >
               No Data Found
             </Text>
           )}
           renderItem={(item) => (
             <View style={styles.FlatlistView}>
-              <Image source={item?.item?.img1} style={{width:20,height:20,top:-10}} />
-              <Image source={item?.item?.img2}  style={{width:50,height:50}} />
+              <Image source={item?.item?.img1} style={{ width: 20, height: 20, top: -10 }} />
+              <Image source={item?.item?.img2} style={{ width: 50, height: 50 }} />
               <View style={styles.TextView}>
                 <Text style={styles.Text11}>{item.item?.coinname}</Text>
                 <Text style={[styles.Text2]} > {item?.item?.UiId}</Text>
               </View>
-              <Image source={item?.item?.img3}  style={{width:68,height:30}} />
-              <View style={[styles.TextView,{alignItems:'flex-end'}]}>
+              <Image source={item?.item?.img3} style={{ width: 68, height: 30 }} />
+              <View style={[styles.TextView, { alignItems: 'flex-end' }]}>
                 <Text style={styles.Text3}>{item?.item?.price}</Text>
-                <Text style={[styles.Text3,{color:'rgba(66, 201, 161, 1)'}]} >{item?.item?.percentage} </Text>
+                <Text style={[styles.Text3, { color: 'rgba(66, 201, 161, 1)' }]} >{item?.item?.percentage} </Text>
               </View>
 
             </View>
@@ -245,12 +249,13 @@ const styles = StyleSheet.create({
   },
   fundStyle: {
     backgroundColor: '#768C5C',
-    padding: '6%', borderRadius: 25,
-    alignItems: 'center'
+    padding: '5.4%', borderRadius: 25,
+    alignItems: 'center',
+    width: width * 0.33,
   },
   loginWithGoogleViewIos: {
     backgroundColor: '#F6F6F633',
-    borderRadius: 8,
+    borderRadius: 13,
     alignItems: 'center',
     justifyContent: 'center',
     // padding: '10%',
@@ -280,7 +285,7 @@ const styles = StyleSheet.create({
     width: width,
     alignItems: 'center',
     alignSelf: 'center',
-    left: '3%',
+    left: '2%',
     // marginLeft:'2%',
     right: 4
   },
@@ -304,37 +309,37 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
     alignSelf: 'center',
   },
-  FlatlistView:{
+  FlatlistView: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    width: width*0.9,
+    width: width * 0.9,
     alignItems: 'center',
     alignSelf: 'center',
     // backgroundColor:'red',
-    marginTop:'5%'
+    marginTop: '5%'
   },
-  TextView:{
-    width:width*0.23
+  TextView: {
+    width: width * 0.23
     // ,backgroundColor:'red'
   },
-  Text11:{
+  Text11: {
     fontSize: 14,
     fontWeight: '500',
     color: 'rgba(255, 255, 255, 0.9)',
 
   },
-  Text2:{
+  Text2: {
     fontSize: 11,
     fontWeight: '400',
     color: 'rgba(255, 255, 255, 0.6)',
-    marginTop:'2%'
+    marginTop: '2%'
 
   },
-  Text3:{
+  Text3: {
     fontSize: 12,
     fontWeight: '400',
     color: 'rgba(255, 255, 255, 0.9)',
-    marginTop:'2%'
+    marginTop: '2%'
 
   }
 

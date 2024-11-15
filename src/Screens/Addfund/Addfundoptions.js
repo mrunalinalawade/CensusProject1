@@ -5,7 +5,7 @@ import { IMAGEPATH } from '../../assets/Theme';
 
 
 const { height, width } = Dimensions.get('window');
-const Addfundoptions = () => {
+const Addfundoptions = (props) => {
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: '#1C1D22' }}>
 

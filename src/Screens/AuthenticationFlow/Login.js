@@ -34,6 +34,10 @@ const Login = (props) => {
     }
   };
 
+  const OnLoginBtnPress1 = () => {
+    refRBSheet.current.close()
+    props.navigation.navigate('FaceIDpermission') 
+  }
 
 
   const ValidatePassword = (password) => {
@@ -197,7 +201,7 @@ const Login = (props) => {
                 <View style={{ marginBottom: '5%', flex: 1, width: width * 0.9, alignSelf: 'center', alignItems: 'center' }}>
                     <Text style={styles.logintext1}>Identify verification required</Text>
                     <Text style={styles.signStyle1}>To enjoy the full range of our products and services, we kindly request you complete the identity verification process.</Text>
-                    <WholeButton1 Label={'Okay'} Action={() => { props.navigation.navigate('FaceIDpermission') }} styles={{ width: width * 0.9, }} />
+                    <WholeButton1 Label={'Okay'} Action={OnLoginBtnPress1} styles={{ width: width * 0.9,marginTop:'15%' }} />
 
                 </View>
             </RBSheet>
@@ -326,7 +330,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     // fontFamily: FONTS.semiBold,
     color:'#fff',
-    marginTop: '6%',
+    marginTop: '8%',
     lineHeight: 32.97,
 
 },

@@ -120,7 +120,7 @@ const Inputfield1 = (props) => {
             ) : props.Network ?
 
               (<TouchableOpacity onPress={props.NetworkPress}>
-                <VECTOR_ICONS.AntDesign name={'caretdown'} color={'#7F8082'}  size={15} />
+                <VECTOR_ICONS.AntDesign name={'caretdown'} color={'#7F8082'} size={15} />
               </TouchableOpacity>) :
               props.withamount ?
 
@@ -133,22 +133,22 @@ const Inputfield1 = (props) => {
                 ) : props.Rigtharrow ? (
                   <TouchableOpacity onPress={props.RigtharrowPress}>
                     <VECTOR_ICONS.AntDesign
-                      name={'right'} color={'#7F8082'}  size={15}  />
+                      name={'right'} color={'#7F8082'} size={15} />
                   </TouchableOpacity>
 
                 ) : props.scann ?
-                (
-                  <TouchableOpacity onPress={props.scannPress}>
-                     <Image source={IMAGEPATH.Scanner} style={{ width: 30, height: 40 }} />
+                  (
+                    <TouchableOpacity onPress={props.scannPress}>
+                      <Image source={IMAGEPATH.Scanner} style={{ width: 30, height: 40 }} />
 
-                  </TouchableOpacity>
-                 
-                ):
+                    </TouchableOpacity>
 
-
+                  ) : 
 
 
-                  null
+
+
+                    null
 
 
 

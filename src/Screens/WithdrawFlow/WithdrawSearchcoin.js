@@ -69,6 +69,11 @@ const WithdrawSearchcoin = (props) => {
 
 
   ]
+
+  const Sendcrpto= ()=>{
+    props.navigation.navigate('Sendviacryptonetwork')
+
+  }
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: '#1C1D22' }}>
 
@@ -154,7 +159,7 @@ const WithdrawSearchcoin = (props) => {
       >
         <View style={{ marginBottom: '5%', flex: 1, width: width * 0.9, alignSelf: 'center', alignItems: 'center' }}>
           <Text style={styles.logintext1}>Withdraw</Text>
-          <View  style={{flexDirection:'row',marginTop:'9%',justifyContent:'space-between',alignItems:'center',width: width * 0.9,borderWidth:1,borderColor:'rgba(75, 77, 86, 1)',borderRadius:5,padding:'4%',marginVertical:'3%'}}>
+          <TouchableOpacity onPress={Sendcrpto} style={{flexDirection:'row',marginTop:'9%',justifyContent:'space-between',alignItems:'center',width: width * 0.9,borderWidth:1,borderColor:'rgba(75, 77, 86, 1)',borderRadius:5,padding:'4%',marginVertical:'3%'}}>
           <Image source={IMAGEPATH.Deposit} style={{ width: 30, height: 30 }} />
             <View>
             <Text style={styles.crptoStyle}>Send via crypto network</Text>
@@ -162,7 +167,7 @@ const WithdrawSearchcoin = (props) => {
             </View>
            
 
-          </View>
+          </TouchableOpacity>
 
           <View  style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center',width: width * 0.9,borderWidth:1,borderColor:'rgba(75, 77, 86, 1)',borderRadius:5,padding:'4%',marginVertical:'3%'}}>
           <Image source={IMAGEPATH.Deposit} style={{ width: 30, height: 30 }} />
