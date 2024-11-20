@@ -19,7 +19,7 @@ import IDphotoinfo from '../Screens/KYCFlow/IDphotoinfo';
 import Submitted from '../Screens/KYCFlow/Submitted';
 import Home from '../Screens/HomeFlow/Home';
 import WithdrawSearchcoin from '../Screens/WithdrawFlow/WithdrawSearchcoin';
-import BottomTabbar from './BottomTabbar';
+// import BottomTabbar from './BottomTabbar';
 import Sendviacryptonetwork from '../Screens/WithdrawFlow/Sendviacryptonetwork';
 import EnterOTP from '../Screens/AuthenticationFlow/EnterOTP';
 import Selectcurrency from '../Screens/DepositcryptoFlow/Selectcurrency';
@@ -33,6 +33,12 @@ import SwapScreen from '../Screens/SwapFlow/SwapScreen';
 import RecieveFund from '../Screens/SwapFlow/RecieveFund';
 import Tranfer from '../Screens/SwapFlow/TransferFromFundingwallettoWalletaddress/Tranfer';
 import SelectCoin from '../Screens/SwapFlow/TransferFromFundingwallettoWalletaddress/SelectCoin';
+import Selectpaytoken from '../Screens/SwapFlow/SelectFrom/Selectpaytoken';
+import Walletfunding from '../Screens/SwapFlow/TransferFromWalletaddresstoFunding/Walletfunding';
+import Coindropdown from '../Screens/SwapFlow/TransferFromWalletaddresstoFunding/Coindropdown';
+import AddfundpopupRecieve from '../Screens/SwapFlow/TransferFromWalletaddresstoFunding/AddfundpopupRecieve';
+import RateUSDTtoBTCB from '../Screens/Detailsareabottom/RateUSDTtoBTCB';
+import RateBTCBtoUSDT from '../Screens/Detailsareabottom/RateBTCBtoUSDT';
 
 const Stack = createNativeStackNavigator();
 const RouteNavigation = () => {
@@ -67,7 +73,7 @@ const RouteNavigation = () => {
 
       <Stack.Screen name="Home" component={Home} />
       <Stack.Screen name="WithdrawSearchcoin" component={WithdrawSearchcoin} />
-      <Stack.Screen name="BottomTabbar" component={BottomTabbar} />
+      {/* <Stack.Screen name="BottomTabbar" component={BottomTabbar} /> */}
       <Stack.Screen name="Sendviacryptonetwork" component={Sendviacryptonetwork} />
       <Stack.Screen name="ScanQRCode" component={ScanQRCode} />
 
@@ -88,7 +94,14 @@ const RouteNavigation = () => {
          <Stack.Screen name="RecieveFund" component={RecieveFund} />
          <Stack.Screen name="Tranfer" component={Tranfer} />
          
+
          <Stack.Screen name="SelectCoin" component={SelectCoin} />
+         <Stack.Screen name="Selectpaytoken" component={Selectpaytoken} />
+         <Stack.Screen name="Walletfunding" component={Walletfunding} />
+         <Stack.Screen name="Coindropdown" component={Coindropdown  } />
+         <Stack.Screen name="AddfundpopupRecieve" component={AddfundpopupRecieve} />
+         <Stack.Screen name="RateUSDTtoBTCB" component={RateUSDTtoBTCB} />
+         <Stack.Screen name="RateBTCBtoUSDT" component={RateBTCBtoUSDT} />
 
        
         

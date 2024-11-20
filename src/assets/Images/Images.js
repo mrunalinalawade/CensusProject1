@@ -78,6 +78,14 @@ export const IMAGEPATH = {
   ColorDoc: require('../Images/SwapImages/ColorDoc.png'),
   VerticalArrow: require('../Images/SwapImages/VerticalArrow.png'),
   checking: require('../Images/SwapImages/checking.png'),
+  BTCB: require('../Images/SwapImages/BTCB.png'),
+  DoubleBNB: require('../Images/SwapImages/DoubleBNB.png'),
+  DoubleETH: require('../Images/SwapImages/DoubleETH.png'),
+
+  All: require('../Images/SwapImages/All.png'),
+  GrayStar: require('../Images/SwapImages/GrayStar.png'),
+  
+
 
 
 

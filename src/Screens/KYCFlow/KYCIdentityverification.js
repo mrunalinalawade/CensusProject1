@@ -42,7 +42,43 @@ const KYCIdentityverification = (props) => {
                         <Text style={styles.textStyle6}>Unverified<Text style={[styles.textStyle6, { color: '#2F9ED6' }]}> Current</Text></Text>
                         <Text style={styles.textStyle6}>Verified</Text>
                     </View>
-                    <View style={[styles.inputStyle4, { marginTop: '2%' }]}>
+
+
+                    <View style={{flexDirection:'row',justifyContent:'space-between',width:width*0.9 ,marginVertical:'4%'}}>
+
+                        <View style={{alignItems:'flex-start',width:width*0.3}}>
+                        <Text style={styles.textStyle3}>Withdrawals</Text>
+                        <Text style={styles.textStyle3}>P2P</Text>
+                        <Text style={styles.textStyle3}>Trading</Text>
+                        <Text style={styles.textStyle3}>Deposits/crypto purchases</Text>
+                        <Text style={styles.textStyle3}>BitTrans earn</Text>
+                        <Text style={styles.textStyle3}>Futures leverage</Text>
+
+                        </View>
+
+                        <View style={{alignItems:'center',width:width*0.28}}>
+                        <Text style={[styles.textStyle3, { color: '#FFFFFF', textAlign: 'center' }]}>0USDT</Text>
+                        <Text style={[styles.textStyle3, { color: '#FFFFFF', textAlign: 'center' }]}>0USDT</Text>
+                        <VECTOR_ICONS.AntDesign name={'minus'} size={25} color={'#FFFFFF'} style={{marginTop: '7%'}} />
+                        <VECTOR_ICONS.AntDesign name={'minus'} size={25} color={'#FFFFFF'} style={{ right: '20%',marginTop: '7%' }} />
+                        <VECTOR_ICONS.AntDesign name={'minus'} size={25} color={'#FFFFFF'}  style={{marginTop: '7%'}}/>
+                        <VECTOR_ICONS.AntDesign name={'minus'} size={25} color={'#FFFFFF'} style={{marginTop: '7%'}} />
+                       
+
+                        </View>
+
+                        <View style={{alignItems:'flex-end',width:width*0.28,}}>
+                        <Text style={[styles.textStyle3, { color: '#FFFFFF', textAlign: 'right' }]}>999,000 USDT</Text>
+                        <Text style={[styles.textStyle3, { color: '#FFFFFF', textAlign: 'right' }]}>500,000 USD</Text>
+                        <VECTOR_ICONS.AntDesign name={'check'} size={15} color={'#FFFFFF'} style={{marginTop: '14%'}} />
+                        <VECTOR_ICONS.AntDesign name={'check'} size={15} color={'#FFFFFF'} style={{marginTop: '14%'}} />
+                        <VECTOR_ICONS.AntDesign name={'check'} size={15} color={'#FFFFFF'}  style={{marginTop: '14%'}}/>
+                        <Text style={[styles.textStyle3, { color: '#FFFFFF', textAlign: 'right',marginTop: '14%' }]}>Up to 125x</Text>
+
+                        </View>
+
+                    </View>
+                    {/* <View style={[styles.inputStyle4, { marginTop: '2%' }]}>
                         <Text style={styles.textStyle3}>Withdrawals</Text>
                         <Text style={[styles.textStyle3, { color: '#FFFFFF', textAlign: 'center' }]}>0USDT</Text>
                         <Text style={[styles.textStyle3, { color: '#FFFFFF', textAlign: 'right' }]}>999,000 USDT</Text>
@@ -72,7 +108,7 @@ const KYCIdentityverification = (props) => {
                         <Text style={styles.textStyle3}>Futures leverage</Text>
                         <VECTOR_ICONS.AntDesign name={'minus'} size={25} color={'#FFFFFF'} />
                         <Text style={[styles.textStyle3, { color: '#FFFFFF', textAlign: 'right' }]}>Up to 125x</Text>
-                    </View>
+                    </View> */}
 
 
 
@@ -153,7 +189,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         width: width * 0.9,
         alignSelf: 'center',
-        marginVertical: '1%',
+        // marginVertical: '1%',
     },
     logoStyle: {
         // marginTop: 84.43,
@@ -222,6 +258,7 @@ const styles = StyleSheet.create({
         width: width * 0.26,
         // backgroundColor:'red',
         alignItems: 'center',
+        marginTop: '7%'
 
 
     },

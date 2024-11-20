@@ -5,15 +5,16 @@ import COLORS from '../../assets/colors/Colors'
 import WholeButton1 from '../../Components/WholeButton1'
 import Header from '../../Components/Header'
 import Inputfield1 from '../../Components/Inputfields1'
+import { ValidateEmail, ValidateMobileNo } from '../../Components/ValidationConfig/Validations'
 const { height, width } = Dimensions.get('window');
 
 const Startverification = (props) => {
     const [Email, setEmail] = useState('');
-  const [EmailError, setEmailError] = useState('');
-  const [ShowError, setShowError] = useState({
-    EmailError: false,
-    PincodeError: false,
-  });
+    const [EmailError, setEmailError] = useState('');
+    const [ShowError, setShowError] = useState({
+        EmailError: false,
+      
+    });
 
     const [showBothCircles, setShowBothCircles] = useState(false);
     const [showBothCircles1, setShowBothCircles1] = useState(false);
@@ -28,14 +29,54 @@ const Startverification = (props) => {
     const toggleCircle2 = () => {
         setShowBothCircles2(!showBothCircles2);
     };
+
+
+    const OnSignupBtnPress = () => {
+        if (CheckValidation()) {
+          props.navigation.navigate("Personalnformation");
+        } else {
+          setShowError({
+            EmailError: EmailError !== '',
+           
+          });
+        }
+      };
+      const ValidateEmail = (email) => {
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        return emailRegex.test(email) ? "" : "Please enter a valid email address.";
+      };
+    
+      const ValidateMobileNo = (text) => {
+        const phoneRegex = /^([0-9]{10,14})$/;
+        return phoneRegex.test(text) ? "" : "Please enter a valid phone number (7-14 digits).";
+      };
+
+
+    const CheckValidation = () => {
+        let valid = true;
+        const emailError = ValidateEmail(Email) === "" || ValidateMobileNo(Email) === "";
+        setEmailError(emailError ? "" : "Please enter a valid email address or phone number.");
+        if (!emailError) valid = false;
+     
+      
+        return valid;
+      };
+
+
+
+
+
+
+
+
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: '#1C1D22' }}>
             <ScrollView style={{ flex: 1 }} showsVerticalScrollIndicator={false}>
 
-   
+
                 <View style={styles.mainviewStyle}>
-                <Header   navigate={() => props.navigation.goBack()}/>
-                 
+                    <Header navigate={() => props.navigation.goBack()} />
+
                     <Text style={styles.logintext}>Start verification</Text>
                     <Text style={styles.signStyle}>To ensure the security of your account and prevent fraud,Identity verification is required.</Text>
 
@@ -46,44 +87,44 @@ const Startverification = (props) => {
                         <VECTOR_ICONS.AntDesign name="questioncircleo" size={13} color={'#A4A5A7'} style={{ marginTop: '1%' }} />
                     </View>
                     <Inputfield1
-                PhoneField
-                placeholder={'Email or Phone number'}
-                MaxLength={256}
-                value={Email}
-                onBlur={() => {
+                        PhoneField
+                        placeholder={'Email or Phone number'}
+                        MaxLength={256}
+                        value={Email}
+                        onBlur={() => {
 
-                  setShowError((prevState) => ({
-                    ...prevState,
-                    EmailError: !!EmailError,
-                  }));
-                }}
-                onChangeText={(text) => {
-                  setEmail(text);
-                  const isEmailValid = ValidateEmail(text) === "";
-                  const isPhoneValid = ValidateMobileNo(text) === "";
-                  if (isEmailValid || isPhoneValid) {
-                    setEmailError("");
-                    setShowError((prevState) => ({
-                      ...prevState,
-                      EmailError: false,
-                    }));
-                  } else {
-                    setEmailError("Please enter a valid email address or phone number.");
-                    setShowError((prevState) => ({
-                      ...prevState,
-                      EmailError: true,
-                    }));
-                  }
-                }}
-                // Errorstyle={{ marginLeft: '5%' }}
-                ShowError={ShowError.EmailError}
-                Error={EmailError}
-                InputFieldStyle={{
-                  borderColor: ShowError.EmailError ? 'red' :'rgba(255, 255, 255, 0.06)',
-                  borderWidth: 1, 
-             
-                }}
-              />
+                            setShowError((prevState) => ({
+                                ...prevState,
+                                EmailError: !!EmailError,
+                            }));
+                        }}
+                        onChangeText={(text) => {
+                            setEmail(text);
+                            const isEmailValid = ValidateEmail(text) === "";
+                            const isPhoneValid = ValidateMobileNo(text) === "";
+                            if (isEmailValid || isPhoneValid) {
+                                setEmailError("");
+                                setShowError((prevState) => ({
+                                    ...prevState,
+                                    EmailError: false,
+                                }));
+                            } else {
+                                setEmailError("Please enter a valid email address or phone number.");
+                                setShowError((prevState) => ({
+                                    ...prevState,
+                                    EmailError: true,
+                                }));
+                            }
+                        }}
+                        // Errorstyle={{ marginLeft: '5%' }}
+                        ShowError={ShowError.EmailError}
+                        Error={EmailError}
+                        InputFieldStyle={{
+                            borderColor: ShowError.EmailError ? 'red' : 'rgba(255, 255, 255, 0.06)',
+                            borderWidth: 1,
+
+                        }}
+                    />
                     <Text style={[styles.account, { fontSize: 16, marginTop: '7%', color: '#FFF' }]}>Select ID type</Text>
                     <Text style={[styles.signStyle, { fontSize: 12, lineHeight: 17, }]}>You will need to provide you personal information, a photo of your ID, and complete face verification (the entire process should take about 3-4 minutes).</Text>
 
@@ -112,7 +153,7 @@ const Startverification = (props) => {
                                         name={'circle'}
                                         size={20}
                                         color={'#768C5C'}
-                                        style={{ position: 'absolute', top: 5.6, left: 5  }}
+                                        style={{ position: 'absolute', top: 5.6, left: 5 }}
                                     />
                                 )}
                             </View>
@@ -187,7 +228,7 @@ const Startverification = (props) => {
 
                     </View>
                     <Text style={[styles.signStyle, { textAlign: 'center', width: width * 0.9, marginVertical: '5%' }]}>Refer to the user identification statement and the jumbo privacy statement for more information on how we store and use your personal information and biometric data. by clicking the “next” button, you indicate that you have read and agree to the above statements and agreements.</Text>
-                    <WholeButton1 Label={'Next'} Action={() => {props.navigation.navigate('Personalnformation') }} styles={{ width: width * 0.9 }} />
+                    <WholeButton1 Label={'Next'} Action={OnSignupBtnPress} styles={{ width: width * 0.9 }} />
 
 
 
@@ -210,7 +251,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         width: width * 0.9,
         alignSelf: 'center',
-        marginVertical: '6%',
+        // marginVertical: '6%',
     },
     logoStyle: {
         // marginTop: 84.43,
@@ -225,7 +266,7 @@ const styles = StyleSheet.create({
         fontWeight: '600',
         // fontFamily: FONTS.semiBold,
         color: '#fff',
-        marginTop: '20%',
+        marginTop: '16%',
         lineHeight: 32.97,
     },
     logintext4: {

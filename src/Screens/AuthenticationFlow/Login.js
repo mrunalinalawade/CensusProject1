@@ -26,6 +26,7 @@ const Login = (props) => {
   const OnLoginBtnPress = () => {
     if (CheckValidation()) {
       refRBSheet.current.open()
+     
     } else {
       setShowError({
         EmailError: EmailError !== '',
@@ -37,6 +38,7 @@ const Login = (props) => {
   const OnLoginBtnPress1 = () => {
     refRBSheet.current.close()
     props.navigation.navigate('FaceIDpermission') 
+    // props.navigation.navigate('BottomTabbar')
   }
 
 
@@ -219,7 +221,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     width: width * 0.9,
     alignSelf: 'center',
-    marginVertical: '6%',
+   
   },
   logintext: {
     fontSize: 32,

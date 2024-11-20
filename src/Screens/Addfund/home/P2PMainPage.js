@@ -513,7 +513,7 @@ const P2PMainPage = () => {
                 ref={refRBSheet4}
                 closeOnDragDown={true}
                 closeOnPressMask={true}
-                height={630}
+                height={420}
                 animationType={"fade"}
                 customStyles={{
                     wrapper: {
@@ -536,7 +536,7 @@ const P2PMainPage = () => {
                     <View style={{ flexDirection: 'row', marginTop: '9%', justifyContent: 'space-between', alignItems: 'center', width: width * 0.9, borderWidth: 1, borderColor: 'rgba(75, 77, 86, 1)', borderRadius: 5, padding: '4%', marginVertical: '3%' }}>
 
                         <View>
-                            <Text style={[styles.accountstyle,{color:'rgba(255, 255, 255, 0.6)'}]}>Trade with</Text>
+                            <Text style={[styles.accountstyle, { color: 'rgba(255, 255, 255, 0.6)' }]}>Trade with</Text>
                             <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: width * 0.3 }}>
 
                                 <Text style={[styles.accountstyle, { color: '#FFF' }]}>Crypto-vendor</Text>
@@ -549,14 +549,14 @@ const P2PMainPage = () => {
                             </View>
 
 
-                            <Text style={[styles.signStyle1,{marginTop:'7%'}]}>Advertiser’s requirements</Text>
-                            <View style={{flexDirection:'row',justifyContent: 'space-between', alignItems: 'center', width: width * 0.8}}>
-                            <Text style={styles.signStyle1}>1. Open any of the UPI application </Text>
-                            <VECTOR_ICONS.AntDesign name={'right'} color={'rgba(255, 255, 255, 0.6)'} />
+                            <Text style={[styles.signStyle1, { marginTop: '7%' }]}>Advertiser’s requirements</Text>
+                            <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width: width * 0.8 }}>
+                                <Text style={styles.signStyle1}>1. Open any of the UPI application </Text>
+                                <VECTOR_ICONS.AntDesign name={'right'} color={'rgba(255, 255, 255, 0.6)'} />
 
 
                             </View>
-                           
+
                         </View>
 
 
@@ -565,13 +565,32 @@ const P2PMainPage = () => {
                     <View style={{ flexDirection: 'row', marginTop: '2%', justifyContent: 'space-between', alignItems: 'center', width: width * 0.9, borderWidth: 1, borderColor: 'rgba(75, 77, 86, 1)', borderRadius: 5, padding: '4%', marginVertical: '3%' }}>
 
                         <View>
-                            <Text style={styles.crptoStyle}>Tron (TRC20)</Text>
-                            <Text style={styles.signStyle1}>Fee 0.00 USDT ( ≈ $ 0.999999)</Text>
-                            <Text style={styles.signStyle1}>Minimum withdrawal 10 USDT</Text>
-                            <Text style={styles.signStyle1}>Arrival time ≈ 2 mins </Text>
+                            <View style={{ flexDirection: 'row', marginTop: '2%', justifyContent: 'space-between', alignItems: 'center', width: width * 0.8, }}>
+                                <Text style={styles.accountstyle1}>P2P Trading</Text>
+                                <Text style={styles.Text13}>₹ 1,200.00</Text>
+                            </View>
+                            <View style={{ flexDirection: 'row', marginTop: '2%', justifyContent: 'space-between', alignItems: 'center', width: width * 0.8, }}>
+
+                                <Text style={styles.accountstyle1}>You Receive</Text>
+                                <View style={{ flexDirection: 'row', alignItems: 'center', width: width * 0.26 }}>
+                                    <Text style={styles.Text13}>12.82 USDT </Text>
+                                    <VECTOR_ICONS.AntDesign name={'down'} size={14} color={'rgba(255, 255, 255, 0.6)'} />
+
+                                </View>
+
+
+                            </View>
+
                         </View>
 
 
+                    </View>
+
+
+                    <View style={{ flexDirection: 'row', marginTop: '6%', justifyContent: 'space-between', alignItems: 'center', width: width * 0.9 }}>
+
+                        <WholeButton1 Label={'Back'} Action={() => { }} styles={{ width: width * 0.43, padding: '3%', backgroundColor: 'rgba(36, 38, 42, 1)', }} />
+                        <WholeButton1 Label={'Refresh in 26s'} Action={() => { }} styles={{ width: width * 0.43, padding: '3%', }} />
                     </View>
 
 
@@ -635,7 +654,7 @@ const styles = StyleSheet.create({
     },
     accountstyle1: {
         color: 'rgba(255, 255, 255, 0.6)',
-        fontSize: 11,
+        fontSize: 12,
         fontWeight: '400',
 
     },

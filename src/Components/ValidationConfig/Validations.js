@@ -193,18 +193,18 @@ export const ValidateSurname = (sname) => {
     return ErrorMessages.snameEmpty;
   }
 };
-// export const OTPVerification = (Code) => {
-//   const codeStr = Code.toString();
-//   if (codeStr !== '') {
-//     if (codeStr.length !== 6) {
-//       return ErrorMessages.CodeLengthError;
-//     } else {
-//       return '';
-//     }
-//   } else {
-//     return ErrorMessages.CodeEmpty;
-//   }
-// };
+export const OTPVerification1 = (Code) => {
+  const codeStr = Code.toString();
+  if (codeStr !== '') {
+    if (codeStr.length !== 6) {
+      return ErrorMessages.CodeLengthError;
+    } else {
+      return '';
+    }
+  } else {
+    return ErrorMessages.CodeEmpty;
+  }
+};
 export const OTPVerification = (Code) => {
   // Check if Code is null or undefined
   if (Code == null) {
@@ -259,6 +259,19 @@ export const ValidateMobileNo = (MobileNumber) => {
     }
   } else {
     return ErrorMessages.PhoneNoEmpty;
+  }
+};
+export const ValidateMobileNo1 = (MobileNumber1) => {
+  if (MobileNumber1 !== '') {
+    const NumberStr1 = MobileNumber1.toString(); // Convert to string
+
+    if (PhoneRegex.test(NumberStr1)) {
+      return '';
+    } else {
+      return ErrorMessages.PhoneNumberError1;
+    }
+  } else {
+    return ErrorMessages.PhoneNoEmpty1;
   }
 };
 

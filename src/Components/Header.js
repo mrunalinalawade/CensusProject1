@@ -19,7 +19,7 @@ const Header = (props) => {
 
     return (
         <View style={[styles.logoStyle, ViewStyle]} {...props}>
-            <View style={{flexDirection:'row',alignItems:'center',justifyContent:'space-between',width:width*0.55,}}>
+            <View style={{flexDirection:'row',alignItems:'center',justifyContent:'space-between',width:width*0.54,}}>
             <TouchableOpacity onPress={props?.navigate}>
                 <VECTOR_ICONS.AntDesign name="arrowleft" size={30} color={COLORS.WHITE} />
             </TouchableOpacity>

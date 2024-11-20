@@ -198,15 +198,15 @@ import WholeButton1 from '../../Components/WholeButton1';
 import OTPTextInput from 'react-native-otp-textinput';
 import COLORS from '../../assets/colors/Colors';
 import ResendOtp from '../../Components/ResendOtp';
-import { OTPVerification } from '../../Components/ValidationConfig/Validations';
+import { OTPVerification, OTPVerification1 } from '../../Components/ValidationConfig/Validations';
 import RBSheet from 'react-native-raw-bottom-sheet';
 
 const { height, width } = Dimensions.get('window');
 
-const EnterOTP = () => {
+const EnterOTP = (props) => {
     const refRBSheet1 = useRef();
     const [otp, setOtp] = useState("");
-    const [eOtp, setEotp] = useState();
+    const [errorMsg, setErrorMsg] = useState("");
     const [second, setSecond] = useState(60);
     const [enableResend, setEnableResend] = useState(false);
     const [isFocused, setIsFocused] = useState(false);
@@ -214,7 +214,8 @@ const EnterOTP = () => {
 
     const handleContinue = () => {
         if (CheckValidation()) {
-            navigation.navigate("SetPassword");
+            setErrorMsg(""); // Clear any error message
+            props.navigation.navigate("SetPassword"); // Navigate to the next screen
         }
     };
 
@@ -228,43 +229,38 @@ const EnterOTP = () => {
     };
 
     const CheckValidation = () => {
-        const valid = OTPVerification(otp);
+        const valid = OTPVerification1(otp); // Replace with your OTP validation logic
         setIsValidOtp(valid);
         if (!valid) {
-            setEotp("Please enter a valid OTP");
+            setErrorMsg("Please enter a valid OTP");
             return false;
         }
-        setEotp("");
         return true;
     };
 
-    useEffect(() => {
-        setIsValidOtp(OTPVerification(otp));
-    }, [otp]);
-
-
     const handleOtpChange = (value) => {
         setOtp(value);
-        // Validate OTP and update `isValidOtp` accordingly
-        setIsValidOtp(OTPVerification(value));
+        const valid = OTPVerification1(value); 
+        setIsValidOtp(valid);
+        if (valid || value.length !== 6) setErrorMsg(""); 
     };
 
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: '#1C1D22' }}>
-            <View style={{ flex: 1 }}>
-                <KeyboardAwareScrollView showsVerticalScrollIndicator={false} bounces={false}>
-                    <View style={styles.mainviewStyle}>
-                        <Header
+            {/* <View style={{ flex: 1 }}> */}
+                {/* <KeyboardAwareScrollView showsVerticalScrollIndicator={false} bounces={false}> */}
+                    {/* <View style={styles.mainviewStyle}> */}
+                        {/* <Header
                             sign={true}
                             navigate={() => props.navigation.goBack()}
                             navigate1={() => props.navigation.navigate('Signup')}
                         />
 
                         <Text style={styles.logintext}>Enter OTP</Text>
-                        <Text style={styles.signStyle}>To secure your account, we need to verify your identity.</Text>
+                        <Text style={styles.signStyle}>To secure your account, we need to verify your identity.</Text> */}
 
-                        <View>
-                            <OTPTextInput
+                        {/* <View>a */}
+                            {/* <OTPTextInput
                                 tintColor={isFocused ? 'rgba(118, 140, 92, 1)' : 'rgba(180, 89, 88, 1)'}
                                 handleTextChange={handleOtpChange}
                                 inputCount={6}
@@ -286,12 +282,12 @@ const EnterOTP = () => {
                                 ]}
                                 onFocus={() => setIsFocused(true)}
                                 onBlur={() => setIsFocused(false)}
-                            />
+                            /> */}
 
 
                             {/* RINSSSHIDOTOKATAKI */}
 
-                            <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginTop: 10, }}>
+                            {/* <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginTop: 10, }}>
                                 {eOtp ? <Text style={styles.errorText}>{eOtp}</Text> : <Text></Text>}
                                 <View style={{ justifyContent: 'flex-end' }}>
                                     {enableResend ? (
@@ -308,21 +304,101 @@ const EnterOTP = () => {
                                         />
                                     )}
                                 </View>
-                            </View>
-                        </View>
+                            </View> */}
+                        {/* </View> */}
 
-                        <View style={styles.CheakBoxEntireVIEW}>
+                        {/* <View style={styles.CheakBoxEntireVIEW}>
                             <TouchableOpacity onPress={() => { refRBSheet1.current.open() }}>
                                 <Text style={styles.Forgotpass}>Cannot receive SMS?</Text>
                             </TouchableOpacity>
-                        </View>
+                        </View> */}
 
-                        {otp.length === 6 && (
+                        {/* {otp.length === 6 && (
                             <WholeButton1 Label={'Continue'} Action={handleContinue} styles={{ width: width * 0.9 }} />
+                        )} */}
+                    {/* </View> */}
+                {/* </KeyboardAwareScrollView> */}
+            {/* </View> */}
+
+            <View style={{ flex: 1 }}>
+                <KeyboardAwareScrollView showsVerticalScrollIndicator={false} bounces={false}>
+                    <View style={styles.mainviewStyle}>
+                        <Header
+                            sign={true}
+                            navigate={() => props.navigation.goBack()}
+                            navigate1={() => props.navigation.navigate("Signup")}
+                        />
+                        <Text style={styles.logintext}>Enter OTP</Text>
+                        <Text style={styles.signStyle}>To secure your account, we need to verify your identity.</Text>
+                        <View>
+                            <OTPTextInput
+                                tintColor={isFocused ? "#768C5C" : "#B45958"}
+                                handleTextChange={handleOtpChange}
+                                inputCount={6}
+                                containerStyle={[
+                                    styles.otpContainerStyle,
+                                    {
+                                        borderColor: isFocused
+                                            ? "#768C5C"
+                                            : isValidOtp === null
+                                            ? "transparent"
+                                            : isValidOtp
+                                            ? "#768C5C"
+                                            : "#B45958",
+                                    },
+                                ]}
+                                textInputStyle={[
+                                    styles.otpTextInputStyle,
+                                    {
+                                        borderColor: isFocused
+                                            ? "#768C5C"
+                                            : isValidOtp === null
+                                            ? "transparent"
+                                            : isValidOtp
+                                            ? "#768C5C"
+                                            : "#B45958",
+                                    },
+                                ]}
+                                onFocus={() => setIsFocused(true)}
+                                onBlur={() => setIsFocused(false)}
+                            />
+                            <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between", marginTop: 10 }}>
+                                {errorMsg ? <Text style={styles.errorText}>{errorMsg}</Text> : <Text></Text>}
+                                <View style={{ justifyContent: "flex-end" }}>
+                                    {enableResend ? (
+                                        <View style={styles.resendTextContainer}>
+                                            <TouchableOpacity onPress={restartTimer} disabled={!enableResend}>
+                                                <Text style={styles.resendSubText}>Resend</Text>
+                                            </TouchableOpacity>
+                                        </View>
+                                    ) : (
+                                        <ResendOtp second={second} setSecond={setSecond} handleTimer={handleOtpTimer} />
+                                    )}
+                                </View>
+                            </View>
+                        </View>
+                        <View style={styles.CheakBoxEntireVIEW}>
+                            <TouchableOpacity onPress={() => refRBSheet1.current.open()}>
+                                <Text style={styles.Forgotpass}>Cannot receive SMS?</Text>
+                            </TouchableOpacity>
+                        </View>
+                        {otp.length === 6 && (
+                            <WholeButton1 Label={"Continue"} Action={handleContinue} styles={{ width: width * 0.9 }} />
                         )}
                     </View>
                 </KeyboardAwareScrollView>
             </View>
+
+
+
+
+
+
+
+
+
+
+
 
 
             <RBSheet
@@ -389,7 +465,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         width: width * 0.9,
         alignSelf: 'center',
-        marginVertical: '6%',
+      
     },
     logintext: {
         fontSize: 32,

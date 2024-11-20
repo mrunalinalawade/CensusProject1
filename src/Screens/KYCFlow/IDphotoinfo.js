@@ -36,7 +36,7 @@ const IDphotoinfo = (props) => {
                         <Text style={styles.account2}>Your ID is in good condition and not damaged.</Text>
                     </View>
                     <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginTop:height*0.2 }}>
-                            <Image source={IMAGEPATH.Vector} style={{height:20,width:16,}} />
+                            <Image source={IMAGEPATH.Vector1} style={{height:20,width:16,}} />
                             <Text style={styles.account3}>Rest assured that safeguarding information and ansuring you remain in control of it is our utmost priority,</Text>
                         </View>
 
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         width: width * 0.9,
         alignSelf: 'center',
-        marginVertical: '6%',
+        // marginVertical: '6%',
     },
     logoStyle: {
         // marginTop: 84.43,

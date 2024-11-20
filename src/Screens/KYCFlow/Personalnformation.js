@@ -5,7 +5,7 @@ import { VECTOR_ICONS } from '../../assets/Theme'
 import COLORS from '../../assets/colors/Colors'
 import Inputfield1 from '../../Components/Inputfields1'
 import WholeButton1 from '../../Components/WholeButton1'
-import { ValidateFullname, ValidateMiddlename, ValidateMobileNo, ValidateSurname } from '../../Components/ValidationConfig/Validations'
+import { ValidateFullname, ValidateMiddlename, ValidateMobileNo, ValidateMobileNo1, ValidateSurname } from '../../Components/ValidationConfig/Validations'
 import FONTS from '../../assets/Fonts'
 import Header from '../../Components/Header'
 const { height, width } = Dimensions.get('window');
@@ -26,23 +26,23 @@ const Personalnformation = (props) => {
   });
   const Form1com = () => {
     let fnameError = ValidateFullname(FName);
-    let PhoneError = ValidateMobileNo(phone);
+    let PhoneError = ValidateMobileNo1(phone);
     let snameError = ValidateSurname(SName);
-  
+
 
     if (fnameError == '' && PhoneError == '' && snameError == "") {
-       props.navigation.navigate('IDphotoinfo')
+      props.navigation.navigate('IDphotoinfo')
 
     } else {
       setFNameError(fnameError);
       setPhoneError(PhoneError);
       setSNameError(snameError);
-    
+
       setShowError({
         FNameError: true,
         phoneError: true,
         SNameError: true,
-  
+
       });
     }
 
@@ -52,7 +52,7 @@ const Personalnformation = (props) => {
       <View style={{ flex: 1 }}>
         <KeyboardAwareScrollView showsVerticalScrollIndicator={false} bounces={false}>
           <View style={styles.mainviewStyle}>
-          <Header   navigate={() => props.navigation.goBack()}/>
+            <Header navigate={() => props.navigation.goBack()} />
             <Text style={styles.logintext}>Personal Information</Text>
             <Text style={styles.signStyle}>We’re so excited to see you again!</Text>
 
@@ -82,29 +82,29 @@ const Personalnformation = (props) => {
                 ShowError={ShowError.FNameError}
                 Error={FNameError} />
               <Text style={styles.account}>Last name</Text>
-   
 
-<Inputfield1
-          placeholder={'Enter last name'}
-          MaxLength={256}
-          value={SName}
-          onBlur={() => {
-            if (SName.trim() !== '') {
-              setShowError((prevState) => ({
-                ...prevState,
-                SNameError: true,
-              }));
-            }
-          }}
-          onChangeText={(text) => {
-            if (SName != '' || SName != undefined) {
-              setSName(text);
-              setSNameError(ValidateSurname(text));
-            }
-          }}
-          ShowError={ShowError.SNameError}
-          Error={SNameError}
-        />
+
+              <Inputfield1
+                placeholder={'Enter last name'}
+                MaxLength={256}
+                value={SName}
+                onBlur={() => {
+                  if (SName.trim() !== '') {
+                    setShowError((prevState) => ({
+                      ...prevState,
+                      SNameError: true,
+                    }));
+                  }
+                }}
+                onChangeText={(text) => {
+                  if (SName != '' || SName != undefined) {
+                    setSName(text);
+                    setSNameError(ValidateSurname(text));
+                  }
+                }}
+                ShowError={ShowError.SNameError}
+                Error={SNameError}
+              />
               <Text style={styles.account}>ID number</Text>
 
               <Inputfield1
@@ -124,7 +124,7 @@ const Personalnformation = (props) => {
                 onChangeText={(num) => {
                   if (phone != '' || phone != undefined) {
                     setPhone(num);
-                    setPhoneError(ValidateMobileNo(num));
+                    setPhoneError(ValidateMobileNo1(num));
                   }
                 }}
                 ShowError={ShowError.phoneError}
@@ -157,7 +157,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     width: width * 0.9,
     alignSelf: 'center',
-    marginVertical: '6%',
+    // marginVertical: '6%',
   },
   logoStyle: {
     // marginTop: 84.43,
@@ -171,7 +171,7 @@ const styles = StyleSheet.create({
     fontSize: 32,
     fontWeight: '600',
     color: '#fff',
-    marginTop: '20%',
+    marginTop: '15%',
     lineHeight: 32.97,
   },
   signStyle: {

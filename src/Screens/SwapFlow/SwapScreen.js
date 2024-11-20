@@ -69,7 +69,7 @@ const SwapScreen = (props) => {
 
           <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width: width * 0.82, marginLeft: '3%', marginVertical: '3%' }}>
             <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width: width * 0.33, }}>
-              <Text style={styles.signStyle}>From</Text>
+              <Text style={styles.signStyle}>To</Text>
               <Image source={IMAGEPATH.BNBChain} style={{ width: 25, height: 25 }} />
               <Text style={styles.signStyle}>BNB Chain</Text>
             </View>
