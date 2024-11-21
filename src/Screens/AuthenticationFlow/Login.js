@@ -330,6 +330,7 @@ const styles = StyleSheet.create({
   logintext1: {
     fontSize: 22,
     fontWeight: '600',
+    alignSelf:'flex-start',
     // fontFamily: FONTS.semiBold,
     color:'#fff',
     marginTop: '8%',

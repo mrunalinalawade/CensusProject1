@@ -20,12 +20,15 @@ import FONTS from '../assets/Fonts';
 import COLORS from '../assets/colors/Colors';
 import Coutry from './ValidationConfig/Country';
 import { IMAGEPATH, VECTOR_ICONS } from '../assets/Theme';
+import { CountryPicker } from 'react-native-country-codes-picker';
 
 const { height, width } = Dimensions.get('window');
 
 const Inputfield1 = (props) => {
   const { LabelStyle, ContainerStyle } = styles;
-  const { CountryCode, setCountryCode } = useState('+91')
+  // const { CountryCode, setCountryCode } = useState('+91')
+  const [show, setShow] = useState(false);
+  const [countryCode, setCountryCode] = useState('+91');
 
   return (
     <>
@@ -41,29 +44,55 @@ const Inputfield1 = (props) => {
             props.PhoneField &&
 
 
-            <View style={{ width: '20%', flexDirection: 'row', height: 50, alignItems: 'center', marginRight: '3%', justifyContent: 'space-between' }} >
-              <Coutry
-                setCountrycode={setCountryCode} style={{}} />
+            //   <View style={{ width: '20%', flexDirection: 'row', height: 50, alignItems: 'center', marginRight: '3%', justifyContent: 'space-between' }} >
+            //     {/* <Coutry
+            //       setCountrycode={setCountryCode} style={{}} /> */}
 
+            //   </View>
+            // }
+
+            <View style={{ width: '25%', flexDirection: 'row', height: 50, alignItems: 'center', justifyContent: 'center', marginRight: '6%' ,alignSelf:'center'}} >
+              <TouchableOpacity
+                onPress={() => setShow(true)}
+                style={{flexDirection:'row',alignItems:'center'}}
+              >
+                <Text style={{
+                  color: 'rgba(255, 255, 255, 0.4)',
+                  fontSize: 12,
+                  fontWeight: '400',
+                }}>
+                  {countryCode } </Text>
+
+                <VECTOR_ICONS.AntDesign name={'down'} color={'rgba(255, 255, 255, 0.4)'} size={14} />
+              </TouchableOpacity>
+
+              <CountryPicker
+                show={show}
+                style={{ color: 'rgba(255, 255, 255, 0.4)',
+                  fontSize: 12,
+                  fontWeight: '400',
+                  backgroundColor: 'rgba(255, 255, 255, 0.06)',
+                }}
+                pickerButtonOnPress={(item) => {
+
+                  const flag = item?.flag || '';
+                  const dialCode = item?.dial_code || '';
+                  // const name = item?.name || ''; 
+
+
+                  const formattedCountry = `${flag} ${dialCode}`;
+
+
+                  setCountryCode(formattedCountry);
+
+                  // Close the picker
+                  setShow(false);
+                }}
+              />
             </View>
           }
 
-          {/* {
-            props.PhoneField &&
-
-            <View
-              style={{
-                height: 30,
-                // borderWidth: 1,
-                // borderColor:'#rgba(255, 255, 255, 0.06)',
-                marginTop: '1%',
-                marginRight: '2%',
-                // backgroundColor: 'rgba(255, 255, 255, 0.06)'
-
-              }}
-            />
-
-          } */}
+       
           <TextInput
             editable={props.edit}
             placeholder={props.placeholder}
@@ -74,10 +103,11 @@ const Inputfield1 = (props) => {
               styles.InputFieldStyle,
               {
                 width:
-                  props.PasswordField || props.CorrectEmailTrue || props.vector || props.Network || props.withamount || props.Rigtharrow || props.scann ? '88%' : '99%',
+                  props.PasswordField || props.CorrectEmailTrue || props.vector || props.Network || props.withamount || props.Rigtharrow || props.scann ? '88%' : props.PhoneField ? '71%' : '99%',
                 backgroundColor: props.backgroundColor,
                 paddingVertical: '4.2%',
-                paddingLeft: '3.2%',
+                paddingLeft: props.PhoneField ? null : '3.2%',
+               
               },
             ]}
             {...props}
@@ -143,12 +173,12 @@ const Inputfield1 = (props) => {
 
                     </TouchableOpacity>
 
-                  ) : 
+                  ) :
 
 
 
 
-                    null
+                  null
 
 
 

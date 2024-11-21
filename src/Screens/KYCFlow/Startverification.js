@@ -6,6 +6,7 @@ import WholeButton1 from '../../Components/WholeButton1'
 import Header from '../../Components/Header'
 import Inputfield1 from '../../Components/Inputfields1'
 import { ValidateEmail, ValidateMobileNo } from '../../Components/ValidationConfig/Validations'
+import { CountryPicker } from 'react-native-country-codes-picker'
 const { height, width } = Dimensions.get('window');
 
 const Startverification = (props) => {
@@ -15,6 +16,8 @@ const Startverification = (props) => {
         EmailError: false,
       
     });
+    const [show, setShow] = useState(false);
+    const [countryCode, setCountryCode] = useState('🇮🇳');
 
     const [showBothCircles, setShowBothCircles] = useState(false);
     const [showBothCircles1, setShowBothCircles1] = useState(false);
@@ -31,36 +34,7 @@ const Startverification = (props) => {
     };
 
 
-    const OnSignupBtnPress = () => {
-        if (CheckValidation()) {
-          props.navigation.navigate("Personalnformation");
-        } else {
-          setShowError({
-            EmailError: EmailError !== '',
-           
-          });
-        }
-      };
-      const ValidateEmail = (email) => {
-        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-        return emailRegex.test(email) ? "" : "Please enter a valid email address.";
-      };
-    
-      const ValidateMobileNo = (text) => {
-        const phoneRegex = /^([0-9]{10,14})$/;
-        return phoneRegex.test(text) ? "" : "Please enter a valid phone number (7-14 digits).";
-      };
 
-
-    const CheckValidation = () => {
-        let valid = true;
-        const emailError = ValidateEmail(Email) === "" || ValidateMobileNo(Email) === "";
-        setEmailError(emailError ? "" : "Please enter a valid email address or phone number.");
-        if (!emailError) valid = false;
-     
-      
-        return valid;
-      };
 
 
 
@@ -80,51 +54,64 @@ const Startverification = (props) => {
                     <Text style={styles.logintext}>Start verification</Text>
                     <Text style={styles.signStyle}>To ensure the security of your account and prevent fraud,Identity verification is required.</Text>
 
-
-
                     <View style={styles.inputStyle}>
                         <Text style={styles.account}>Issuing country  </Text>
                         <VECTOR_ICONS.AntDesign name="questioncircleo" size={13} color={'#A4A5A7'} style={{ marginTop: '1%' }} />
                     </View>
-                    <Inputfield1
-                        PhoneField
-                        placeholder={'Email or Phone number'}
-                        MaxLength={256}
-                        value={Email}
-                        onBlur={() => {
 
-                            setShowError((prevState) => ({
-                                ...prevState,
-                                EmailError: !!EmailError,
-                            }));
-                        }}
-                        onChangeText={(text) => {
-                            setEmail(text);
-                            const isEmailValid = ValidateEmail(text) === "";
-                            const isPhoneValid = ValidateMobileNo(text) === "";
-                            if (isEmailValid || isPhoneValid) {
-                                setEmailError("");
-                                setShowError((prevState) => ({
-                                    ...prevState,
-                                    EmailError: false,
-                                }));
-                            } else {
-                                setEmailError("Please enter a valid email address or phone number.");
-                                setShowError((prevState) => ({
-                                    ...prevState,
-                                    EmailError: true,
-                                }));
-                            }
-                        }}
-                        // Errorstyle={{ marginLeft: '5%' }}
-                        ShowError={ShowError.EmailError}
-                        Error={EmailError}
-                        InputFieldStyle={{
-                            borderColor: ShowError.EmailError ? 'red' : 'rgba(255, 255, 255, 0.06)',
-                            borderWidth: 1,
 
-                        }}
-                    />
+                    <View style={{ width: '25%', flexDirection: 'row', height: 50, alignItems: 'center', justifyContent: 'center', marginRight: '6%' ,alignSelf:'center'}} >
+              <TouchableOpacity
+                onPress={() => setShow(true)}
+                style={{flexDirection:'row',alignItems:'center', backgroundColor:'rgba(255, 255, 255, 0.06)',width:width*0.9,alignSelf:'center',padding:'7%',borderRadius:8}}
+              >
+                <Text style={{
+                  color: 'rgba(255, 255, 255, 0.4)',
+                  fontSize: 25,
+                  fontWeight: '400',
+                  marginLeft:'4%'
+                }}>
+                  {countryCode.flag ?countryCode.flag:'IN'} </Text>
+
+                <VECTOR_ICONS.AntDesign name={'down'} color={'#C7C7C7'} size={14} />
+
+                <View style={{ backgroundColor: '#C7C7C7', width: 1, height: 40, marginLeft:'4%' }} />
+
+                <Text style={{
+                  color: 'rgba(255, 255, 255, 1)',
+                  fontSize: 12,
+                  fontWeight: '400',
+                   marginLeft:'4%'
+                  
+                }}>
+                  {countryCode?.name?.en  ? countryCode?.name?.en  :'India'} </Text>
+              </TouchableOpacity>
+
+              <CountryPicker
+                show={show}
+                style={{ color: 'rgba(255, 255, 255, 0.4)',
+                  fontSize: 12,
+                  fontWeight: '400',
+                  backgroundColor: 'rgba(255, 255, 255, 0.06)',
+                }}
+                pickerButtonOnPress={(item) => {
+
+                //   const flag = item?.flag || '';
+                
+                //   const name = item?.name.en || ''; 
+
+
+                //   const formattedCountry = `${flag} ${name}`;
+
+
+                  setCountryCode(item);
+              
+                  setShow(false);
+                }}
+              />
+            </View>
+
+                 
                     <Text style={[styles.account, { fontSize: 16, marginTop: '7%', color: '#FFF' }]}>Select ID type</Text>
                     <Text style={[styles.signStyle, { fontSize: 12, lineHeight: 17, }]}>You will need to provide you personal information, a photo of your ID, and complete face verification (the entire process should take about 3-4 minutes).</Text>
 
@@ -228,7 +215,7 @@ const Startverification = (props) => {
 
                     </View>
                     <Text style={[styles.signStyle, { textAlign: 'center', width: width * 0.9, marginVertical: '5%' }]}>Refer to the user identification statement and the jumbo privacy statement for more information on how we store and use your personal information and biometric data. by clicking the “next” button, you indicate that you have read and agree to the above statements and agreements.</Text>
-                    <WholeButton1 Label={'Next'} Action={OnSignupBtnPress} styles={{ width: width * 0.9 }} />
+                    <WholeButton1 Label={'Next'} Action={()=>{ props.navigation.navigate("Personalnformation")}} styles={{ width: width * 0.9 }} />
 
 
 

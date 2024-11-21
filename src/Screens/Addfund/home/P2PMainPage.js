@@ -6,13 +6,13 @@ import RBSheet from 'react-native-raw-bottom-sheet';
 import WholeButton1 from '../../../Components/WholeButton1';
 
 const { height, width } = Dimensions.get('window');
-const P2PMainPage = () => {
+const P2PMainPage = (props) => {
     const [selected, setselected] = useState('Buy')
     const [searchQuery, setSearchQuery] = useState("");
     const refRBSheet = useRef();
     const refRBSheet1 = useRef();
-    const refRBSheet2 = useRef();
-    const refRBSheet4 = useRef();
+   
+    
     const [selected1, setSelected1] = useState(false);
     const [selected2, setSelected2] = useState(null);
 
@@ -135,7 +135,7 @@ const P2PMainPage = () => {
                         </View>
 
                     </View>
-                    <TouchableOpacity onPress={() => { refRBSheet4.current.open() }}>
+                    <TouchableOpacity>
                         <Image source={IMAGEPATH.Filterdot} style={{ width: 17, height: 21, right: 8 }} />
                     </TouchableOpacity>
 
@@ -208,7 +208,8 @@ const P2PMainPage = () => {
                                         <Text style={[styles.accountstyle1, { color: '#fff' }]}>USDT</Text>
                                     </View>
                                 </View>
-                                <TouchableOpacity onPress={() => { refRBSheet2.current.open() }} style={[styles.text1, { backgroundColor: '#42C9A1', width: width * 0.26, padding: '4%', }]}>
+                                {/* BuywiithINR */}
+                                <TouchableOpacity onPress={() => {props.navigation.navigate('BuywiithINR')}} style={[styles.text1, { backgroundColor: '#42C9A1', width: width * 0.26, padding: '4%', }]}>
                                     <Text style={styles.account1}>Buy</Text></TouchableOpacity>
 
                             </View>
@@ -407,204 +408,6 @@ const P2PMainPage = () => {
                 </View>
             </RBSheet>
 
-
-
-            <RBSheet
-                ref={refRBSheet2}
-                closeOnDragDown={true}
-                closeOnPressMask={true}
-                height={680}
-                animationType={"fade"}
-                customStyles={{
-                    wrapper: {
-                        backgroundColor: "rgba(0, 0, 0, 0.4)",
-                    },
-                    draggableIcon: {
-                        backgroundColor: '#fff',
-                        width: width * 0.2
-                    },
-                    container: {
-                        borderTopEndRadius: 30,
-                        borderTopStartRadius: 30,
-                        backgroundColor: "#1C1D22",
-                    },
-                }}
-            >
-                <View style={{ marginBottom: '5%', flex: 1, width: width * 0.9, alignSelf: 'center', alignItems: 'center' }}>
-
-                    <Text style={styles.logintext1}>Pay with</Text>
-                    <View style={{ width: width * 0.9, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', alignSelf: 'center', marginTop: '10%' }}>
-                        <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
-                            <Text style={[styles.Text2, { fontSize: 14, marginTop: '0%' }]}>P2P Trading </Text>
-                            <VECTOR_ICONS.AntDesign name={'questioncircle'} color={'rgba(255, 255, 255, 0.6)'} size={12} style={{ marginTop: '5%' }} />
-                        </View>
-                        <Text style={[styles.Text2, { fontSize: 14, marginTop: '0%' }]}>Price</Text>
-
-                    </View>
-                    <View style={{ flexDirection: 'row', marginTop: '9%', justifyContent: 'space-between', alignItems: 'center', width: width * 0.9, borderWidth: 1, borderColor: 'rgba(75, 77, 86, 1)', borderRadius: 5, padding: '6%', marginVertical: '3%' }}>
-
-                        <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
-                            <View style={{ backgroundColor: '#CD85E9', width: 2, height: 15, }} />
-                            <Text style={styles.account1}>  Lightning </Text>
-                            <Text style={styles.account1}>UPI</Text>
-
-                        </View>
-                        <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
-                            <Text style={styles.Text13}>86.4</Text>
-                            <Text style={styles.Text13}> INR</Text>
-
-                        </View>
-
-                    </View>
-
-                    <View style={{ flexDirection: 'row', marginTop: '2%', justifyContent: 'space-between', alignItems: 'center', width: width * 0.9, borderWidth: 1, borderColor: 'rgba(75, 77, 86, 1)', borderRadius: 5, padding: '6%', marginVertical: '3%' }}>
-
-                        <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
-                            <View style={{ backgroundColor: '#0084FF', width: 2, height: 15, }} />
-                            {/* <Text style={styles.account1}>  Lightning </Text> */}
-                            <Text style={styles.account1}>  UPI</Text>
-
-                        </View>
-                        <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
-                            <Text style={styles.Text13}>86.4</Text>
-                            <Text style={styles.Text13}> INR</Text>
-                        </View>
-                    </View>
-
-                    <View style={{ width: width * 0.9, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', alignSelf: 'center', marginTop: '10%' }}>
-                        <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
-                            <Text style={[styles.Text2, { fontSize: 14, marginTop: '0%' }]}>P2P Trading </Text>
-                            <VECTOR_ICONS.AntDesign name={'questioncircle'} color={'rgba(255, 255, 255, 0.6)'} size={12} style={{ marginTop: '5%' }} />
-                        </View>
-                        <Text style={[styles.Text2, { fontSize: 14, marginTop: '0%' }]}>Price</Text>
-
-                    </View>
-
-
-                    <View style={{ flexDirection: 'row', marginTop: '9%', justifyContent: 'space-between', alignItems: 'center', width: width * 0.9, borderWidth: 1, borderColor: 'rgba(75, 77, 86, 1)', borderRadius: 5, padding: '6%', marginVertical: '3%' }}>
-
-                        <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
-                            <Image source={IMAGEPATH.Visa} style={{ height: 30, width: 30 }} />
-                            {/* <Text style={styles.account1}>  Lightning </Text> */}
-                            <Text style={styles.account1}>  Card (VISA/Mastercard)</Text>
-
-                        </View>
-                        <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
-                            <Text style={styles.Text13}>86.4</Text>
-                            <Text style={styles.Text13}> INR</Text>
-                        </View>
-                    </View>
-
-                    <WholeButton1 Label={'Confirm'} Action={() => { }} styles={{ width: width * 0.9, marginTop: height * 0.22 }} />
-
-
-
-
-
-
-
-                </View>
-            </RBSheet>
-
-
-
-
-            <RBSheet
-                ref={refRBSheet4}
-                closeOnDragDown={true}
-                closeOnPressMask={true}
-                height={420}
-                animationType={"fade"}
-                customStyles={{
-                    wrapper: {
-                        backgroundColor: "rgba(0, 0, 0, 0.4)",
-                    },
-                    draggableIcon: {
-                        backgroundColor: '#fff',
-                        width: width * 0.2
-                    },
-                    container: {
-                        borderTopEndRadius: 30,
-                        borderTopStartRadius: 30,
-                        backgroundColor: "#1C1D22",
-                    },
-                }}
-            >
-                <View style={{ marginBottom: '5%', flex: 1, width: width * 0.9, alignSelf: 'center', alignItems: 'center' }}>
-                    <Text style={styles.logintext1}>Preview order</Text>
-
-                    <View style={{ flexDirection: 'row', marginTop: '9%', justifyContent: 'space-between', alignItems: 'center', width: width * 0.9, borderWidth: 1, borderColor: 'rgba(75, 77, 86, 1)', borderRadius: 5, padding: '4%', marginVertical: '3%' }}>
-
-                        <View>
-                            <Text style={[styles.accountstyle, { color: 'rgba(255, 255, 255, 0.6)' }]}>Trade with</Text>
-                            <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: width * 0.3 }}>
-
-                                <Text style={[styles.accountstyle, { color: '#FFF' }]}>Crypto-vendor</Text>
-                                <Image source={IMAGEPATH.RightStar} style={{ width: 20, height: 20 }} />
-                            </View>
-
-                            <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: width * 0.34, marginTop: '2%' }}>
-                                <Text style={[styles.accountstyle1]}>Trade(s)</Text>
-                                <Text style={styles.accountstyle1}>1451 (99.80%)</Text>
-                            </View>
-
-
-                            <Text style={[styles.signStyle1, { marginTop: '7%' }]}>Advertiser’s requirements</Text>
-                            <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width: width * 0.8 }}>
-                                <Text style={styles.signStyle1}>1. Open any of the UPI application </Text>
-                                <VECTOR_ICONS.AntDesign name={'right'} color={'rgba(255, 255, 255, 0.6)'} />
-
-
-                            </View>
-
-                        </View>
-
-
-                    </View>
-
-                    <View style={{ flexDirection: 'row', marginTop: '2%', justifyContent: 'space-between', alignItems: 'center', width: width * 0.9, borderWidth: 1, borderColor: 'rgba(75, 77, 86, 1)', borderRadius: 5, padding: '4%', marginVertical: '3%' }}>
-
-                        <View>
-                            <View style={{ flexDirection: 'row', marginTop: '2%', justifyContent: 'space-between', alignItems: 'center', width: width * 0.8, }}>
-                                <Text style={styles.accountstyle1}>P2P Trading</Text>
-                                <Text style={styles.Text13}>₹ 1,200.00</Text>
-                            </View>
-                            <View style={{ flexDirection: 'row', marginTop: '2%', justifyContent: 'space-between', alignItems: 'center', width: width * 0.8, }}>
-
-                                <Text style={styles.accountstyle1}>You Receive</Text>
-                                <View style={{ flexDirection: 'row', alignItems: 'center', width: width * 0.26 }}>
-                                    <Text style={styles.Text13}>12.82 USDT </Text>
-                                    <VECTOR_ICONS.AntDesign name={'down'} size={14} color={'rgba(255, 255, 255, 0.6)'} />
-
-                                </View>
-
-
-                            </View>
-
-                        </View>
-
-
-                    </View>
-
-
-                    <View style={{ flexDirection: 'row', marginTop: '6%', justifyContent: 'space-between', alignItems: 'center', width: width * 0.9 }}>
-
-                        <WholeButton1 Label={'Back'} Action={() => { }} styles={{ width: width * 0.43, padding: '3%', backgroundColor: 'rgba(36, 38, 42, 1)', }} />
-                        <WholeButton1 Label={'Refresh in 26s'} Action={() => { }} styles={{ width: width * 0.43, padding: '3%', }} />
-                    </View>
-
-
-
-
-
-
-                </View>
-            </RBSheet>
-
-
-
-
-
         </SafeAreaView>
     )
 }
@@ -684,16 +487,7 @@ const styles = StyleSheet.create({
 
 
     },
-    logintext1: {
-        fontSize: 22,
-        fontWeight: '600',
-        // fontFamily: FONTS.semiBold,
-        alignSelf: 'flex-start',
-        color: '#fff',
-        marginTop: '6%',
-        lineHeight: 32.97,
 
-    },
     InputViewFiled: {
         backgroundColor: "rgba(42, 43, 47, 1)",
         alignSelf: "center",
@@ -738,6 +532,16 @@ const styles = StyleSheet.create({
         fontWeight: '400',
         color: 'rgba(255, 255, 255, 0.6)',
         marginTop: '2%'
+
+    },
+    logintext1: {
+        fontSize: 22,
+        fontWeight: '600',
+        // fontFamily: FONTS.semiBold,
+        // alignSelf: 'flex-start',
+        color: '#fff',
+        marginTop: '6%',
+        lineHeight: 32.97,
 
     },
 })

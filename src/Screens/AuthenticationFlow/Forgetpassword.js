@@ -45,7 +45,7 @@ const Forgetpassword = (props) => {
   const CheckValidation = () => {
     let valid = true;
 
-    // Validate email or phone
+    
     const emailError = ValidateEmail(Email) === "" || ValidateMobileNo(Email) === "";
     setEmailError(emailError ? "" : "Please enter a valid email address or phone number.");
     if (!emailError) valid = false;
@@ -95,10 +95,15 @@ const Forgetpassword = (props) => {
 
 
               <Inputfield1
-                PhoneField
-                placeholder={'Email or Phone number'}
-                MaxLength={256}
+                // PhoneField
+                // placeholder={'Email or Phone number'}
+                // MaxLength={256}
+
+                {...(selected === 'phone' && { PhoneField: true })} 
+                placeholder={selected === 'phone' ? 'Email or Phone number' : 'Email or Phone number'}
+                MaxLength={selected === 'phone' ? 14 : 256}
                 value={Email}
+                keyboardType={selected === 'phone' ? 'number-pad' : 'email-address'}
                 onBlur={() => {
 
                   setShowError((prevState) => ({

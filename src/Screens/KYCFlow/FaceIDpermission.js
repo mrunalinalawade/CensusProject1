@@ -9,8 +9,8 @@ const FaceIDpermission = (props) => {
     <View style={{ flex: 1 }}>
         <View style={styles.mainviewStyle}>
           <Text style={styles.logintext}>Login with Face ID</Text>
-          <Image source={IMAGEPATH.Face} style={{height:100,width:100,alignSelf:'center',marginTop:height*0.25}}/>
-          <WholeButton1 Label={'Enable now'} Action={()=>{props.navigation.navigate('KYCIdentityverification')}} styles={{ width: width * 0.9 , marginVertical: '5%',marginTop:height*0.32,}} />
+          <Image source={IMAGEPATH.Face} style={{height:80,width:80,alignSelf:'center',marginTop:height*0.25}}/>
+          <WholeButton1 Label={'Enable now'} Action={()=>{props.navigation.navigate('KYCIdentityverification')}} styles={{ width: width * 0.9 , marginVertical: '5%',marginTop:height*0.34,}} />
           <TouchableOpacity onPress={()=>{props.navigation.navigate('Login')}}><Text style={styles.logintext1}>Maybe later</Text></TouchableOpacity> 
         </View>
     

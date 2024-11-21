@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity, Dimensions, Image ,Animated} from 'react-native'
+import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity, Dimensions, Image, Animated } from 'react-native'
 import React, { useState } from 'react'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import { IMAGEPATH, VECTOR_ICONS } from '../../assets/Theme'
@@ -8,7 +8,9 @@ import Inputfield1 from '../../Components/Inputfields1'
 import { OTPVerification, ValidateEmail } from '../../Components/ValidationConfig/Validations'
 import WholeButton1 from '../../Components/WholeButton1'
 import Header from '../../Components/Header'
+import { CountryPicker } from 'react-native-country-codes-picker'
 const { height, width } = Dimensions.get('window');
+
 
 const Signup = (props) => {
   const [Email, setEmail] = useState('');
@@ -17,16 +19,17 @@ const Signup = (props) => {
   const [Pincode, setPincode] = useState(null);
   const [PincodeError, setPincodeError] = useState('');
   const [isInputVisible, setIsInputVisible] = useState(false);
-  const [rotateAnim] = useState(new Animated.Value(0)); 
+  const [rotateAnim] = useState(new Animated.Value(0));
   const [ShowError, setShowError] = useState({
     EmailError: false,
     PincodeError: false,
   });
 
+
   const handleIconPress = () => {
     setIsInputVisible(!isInputVisible);
     Animated.timing(rotateAnim, {
-      toValue: isInputVisible ? 0 : 1, 
+      toValue: isInputVisible ? 0 : 1,
       duration: 200,
       useNativeDriver: true,
     }).start();
@@ -68,7 +71,7 @@ const Signup = (props) => {
     } else {
       setPincodeError("");
     }
-  
+
     return valid;
   };
   return (
@@ -76,13 +79,14 @@ const Signup = (props) => {
       <View style={{ flex: 1 }}>
         <KeyboardAwareScrollView showsVerticalScrollIndicator={false} bounces={false}>
           <View style={styles.mainviewStyle}>
-           <Header navigate={() => props.navigation.goBack()}/>
+            <Header navigate={() => props.navigation.goBack()} />
             <Text style={styles.logintext}>Sign</Text>
           </View>
           <View style={styles.inputStyle}>
             <Text style={styles.account}>Phone Number or email</Text>
 
             <Inputfield1
+            PhoneField
               placeholder={'Email or Phone number'}
               MaxLength={256}
               value={Email}
@@ -115,56 +119,59 @@ const Signup = (props) => {
               ShowError={ShowError.EmailError}
               Error={EmailError}
               InputFieldStyle={{
-                borderColor: ShowError.EmailError ? 'red' :'rgba(255, 255, 255, 0.06)',
-                borderWidth: 1, 
-           
+                borderColor: ShowError.EmailError ? 'red' : 'rgba(255, 255, 255, 0.06)',
+                borderWidth: 1,
+
               }}
             />
+
+          
+       
 
             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
               <Text style={styles.account}>Referral Code (Optional) </Text>
               <TouchableOpacity onPress={handleIconPress}>
-              <Animated.View style={{ transform: [{ rotate: rotateIcon }] }}>
-          <VECTOR_ICONS.AntDesign name="down" size={15} color={'rgba(255, 255, 255, 0.6)'} />
-        </Animated.View>
-        </TouchableOpacity>
+                <Animated.View style={{ transform: [{ rotate: rotateIcon }] }}>
+                  <VECTOR_ICONS.AntDesign name="down" size={15} color={'rgba(255, 255, 255, 0.6)'} />
+                </Animated.View>
+              </TouchableOpacity>
             </View>
 
             {isInputVisible && (
-            <Inputfield1
-              placeholder={'Enter referral code'}
-              MaxLength={6}
-              keyboardType="number-pad"
-              value={Pincode}
-              onBlur={() => {
-                if (Pincode) {
-                  setShowError((prevState) => ({
-                    ...prevState,
-                    PincodeError: true,
-                  }));
-                }
-              }}
-              onChangeText={(text) => {
-                setPincode(text);
-                if (text) {
-                  setPincodeError(OTPVerification(text));
-                } else {
-                  setPincodeError("");
-                  setShowError((prevState) => ({
-                    ...prevState,
-                    PincodeError: false,
-                  }));
-                }
-              }}
-              Errorstyle={{ marginLeft: '5%' }}
-              ShowError={ShowError.PincodeError}
-              Error={PincodeError}
-              InputFieldStyle={{
-                borderColor: ShowError.PincodeError ? 'red' :'rgba(255, 255, 255, 0.06)',
-                borderWidth: 1, 
-           
-              }}
-            />
+              <Inputfield1
+                placeholder={'Enter referral code'}
+                MaxLength={6}
+                keyboardType="number-pad"
+                value={Pincode}
+                onBlur={() => {
+                  if (Pincode) {
+                    setShowError((prevState) => ({
+                      ...prevState,
+                      PincodeError: true,
+                    }));
+                  }
+                }}
+                onChangeText={(text) => {
+                  setPincode(text);
+                  if (text) {
+                    setPincodeError(OTPVerification(text));
+                  } else {
+                    setPincodeError("");
+                    setShowError((prevState) => ({
+                      ...prevState,
+                      PincodeError: false,
+                    }));
+                  }
+                }}
+                Errorstyle={{ marginLeft: '5%' }}
+                ShowError={ShowError.PincodeError}
+                Error={PincodeError}
+                InputFieldStyle={{
+                  borderColor: ShowError.PincodeError ? 'red' : 'rgba(255, 255, 255, 0.06)',
+                  borderWidth: 1,
+
+                }}
+              />
             )}
 
           </View>
@@ -179,7 +186,7 @@ const Signup = (props) => {
 
 
           <View style={{ justifyContent: 'space-between', flexDirection: 'row', width: width * 0.34, alignSelf: 'center', marginTop: '10%', }}>
-            <TouchableOpacity  style={styles.loginWithGoogleViewIos}>
+            <TouchableOpacity style={styles.loginWithGoogleViewIos}>
               <Image
                 source={IMAGEPATH.Apple} style={{ width: 25, height: 32, marginHorizontal: '1%' }} />
             </TouchableOpacity>

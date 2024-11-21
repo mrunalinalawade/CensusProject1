@@ -84,6 +84,7 @@ export const IMAGEPATH = {
 
   All: require('../Images/SwapImages/All.png'),
   GrayStar: require('../Images/SwapImages/GrayStar.png'),
+  Union: require('../Images/SwapImages/Union.png'),
   
 
 
