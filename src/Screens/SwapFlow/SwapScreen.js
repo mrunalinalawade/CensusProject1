@@ -97,6 +97,24 @@ const SwapScreen = (props) => {
         </View>
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width: width * 0.9,marginVertical:'3%' }}>
           <Text style={styles.signStyle}>Rate</Text>
           <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', }}>

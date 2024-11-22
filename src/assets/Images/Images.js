@@ -85,7 +85,18 @@ export const IMAGEPATH = {
   All: require('../Images/SwapImages/All.png'),
   GrayStar: require('../Images/SwapImages/GrayStar.png'),
   Union: require('../Images/SwapImages/Union.png'),
-  
+  SwapConfirm: require('../Images/SwapImages/SwapConfirm.png'),
+  Camera1: require('../Images/WithdrawFlowImages/camera1.png'),
+  Cameraball:require('../Images/KYCFlowImage/Cameraball.png'),
+
+
+
+
+  News:require('../Images/BottomTabbarImages/News.png'),
+  Market:require('../Images/BottomTabbarImages/Market.png'),
+  Assets:require('../Images/BottomTabbarImages/Assets.png'),
+  Trade:require('../Images/BottomTabbarImages/Trade.png'),
+
 
 
 

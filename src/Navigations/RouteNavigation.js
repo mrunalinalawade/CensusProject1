@@ -19,7 +19,7 @@ import IDphotoinfo from '../Screens/KYCFlow/IDphotoinfo';
 import Submitted from '../Screens/KYCFlow/Submitted';
 import Home from '../Screens/HomeFlow/Home';
 import WithdrawSearchcoin from '../Screens/WithdrawFlow/WithdrawSearchcoin';
-// import BottomTabbar from './BottomTabbar';
+import BottomTabbar from './BottomTabbar';
 import Sendviacryptonetwork from '../Screens/WithdrawFlow/Sendviacryptonetwork';
 import EnterOTP from '../Screens/AuthenticationFlow/EnterOTP';
 import Selectcurrency from '../Screens/DepositcryptoFlow/Selectcurrency';
@@ -39,7 +39,18 @@ import Coindropdown from '../Screens/SwapFlow/TransferFromWalletaddresstoFunding
 import AddfundpopupRecieve from '../Screens/SwapFlow/TransferFromWalletaddresstoFunding/AddfundpopupRecieve';
 import RateUSDTtoBTCB from '../Screens/Detailsareabottom/RateUSDTtoBTCB';
 import RateBTCBtoUSDT from '../Screens/Detailsareabottom/RateBTCBtoUSDT';
+import FrontimageofID from '../Screens/KYCFlow/FrontimageofID';
+import BackimageofID from '../Screens/KYCFlow/BackimageofID';
+import Warning from '../Screens/WithdrawFlow/Warning';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import ConfirmSwap from '../Screens/SwappingconfirmationSuccessfully/ConfirmSwap';
+import TwoFAverification from '../Screens/SwappingconfirmationSuccessfully/TwoFAverification';
+import SubmittedSwap from '../Screens/SwappingconfirmationSuccessfully/SubmittedSwap';
+import Successfullywithdrawal from '../Screens/SwapFlow/TransferFromWalletaddresstoFunding/Successfullywithdrawal ';
+import P2PMain from '../Screens/P2PFlow/P2PMain';
 
+
+const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 const RouteNavigation = () => {
   return (
@@ -68,14 +79,18 @@ const RouteNavigation = () => {
       <Stack.Screen name="Personalnformation" component={Personalnformation} />
       <Stack.Screen name="IDphotoinfo" component={IDphotoinfo} />
       <Stack.Screen name="Submitted" component={Submitted} />
+      <Stack.Screen name="FrontimageofID" component={FrontimageofID} />
+      <Stack.Screen name="BackimageofID" component={BackimageofID} />
 
       {/* -----------------------Home Flow----------------------------- */} 
 
       <Stack.Screen name="Home" component={Home} />
       <Stack.Screen name="WithdrawSearchcoin" component={WithdrawSearchcoin} />
-      {/* <Stack.Screen name="BottomTabbar" component={BottomTabbar} /> */}
+      <Stack.Screen name="BottomTabbar" component={BottomTabbar} />
       <Stack.Screen name="Sendviacryptonetwork" component={Sendviacryptonetwork} />
       <Stack.Screen name="ScanQRCode" component={ScanQRCode} />
+      <Stack.Screen name="Successfullywithdrawal" component={Successfullywithdrawal} />
+      <Stack.Screen name="Warning" component={Warning} />
 
       {/* ---------------------------Deposit crypto ---------------------*/}
       <Stack.Screen name="Selectcurrency" component={Selectcurrency} />
@@ -95,6 +110,7 @@ const RouteNavigation = () => {
          <Stack.Screen name="Tranfer" component={Tranfer} />
          
 
+        {/* --------------------------- Swap flow ---------------------*/}
          <Stack.Screen name="SelectCoin" component={SelectCoin} />
          <Stack.Screen name="Selectpaytoken" component={Selectpaytoken} />
          <Stack.Screen name="Walletfunding" component={Walletfunding} />
@@ -102,6 +118,15 @@ const RouteNavigation = () => {
          <Stack.Screen name="AddfundpopupRecieve" component={AddfundpopupRecieve} />
          <Stack.Screen name="RateUSDTtoBTCB" component={RateUSDTtoBTCB} />
          <Stack.Screen name="RateBTCBtoUSDT" component={RateBTCBtoUSDT} />
+
+
+           {/* --------------------------- Swap flow  successfully---------------------*/}
+           <Stack.Screen name="ConfirmSwap" component={ConfirmSwap} />
+           <Stack.Screen name="TwoFAverification" component={TwoFAverification} />
+           <Stack.Screen name="SubmittedSwap" component={SubmittedSwap} />
+
+             {/* --------------------------- P2P flow ---------------------*/}
+             <Stack.Screen name="P2PMain" component={P2PMain} />
 
        
         

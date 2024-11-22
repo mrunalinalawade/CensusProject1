@@ -19,14 +19,14 @@ const Header = (props) => {
 
     return (
         <View style={[styles.logoStyle, ViewStyle]} {...props}>
-            <View style={{flexDirection:'row',alignItems:'center',justifyContent:'space-between',width:width*0.54,}}>
-            <TouchableOpacity onPress={props?.navigate}>
-                <VECTOR_ICONS.AntDesign name="arrowleft" size={30} color={COLORS.WHITE} />
-            </TouchableOpacity>
-            <Text style={styles.signStyle1}>{props.textlabel}</Text>
+            <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: width * 0.54, }}>
+                <TouchableOpacity onPress={props?.navigate}>
+                    <VECTOR_ICONS.AntDesign name="arrowleft" size={30} color={COLORS.WHITE} />
+                </TouchableOpacity>
+                <Text style={styles.signStyle1}>{props.textlabel}</Text>
 
             </View>
-           
+
             {props.sign && (
                 <TouchableOpacity onPress={props?.navigate1}>
                     <Text style={styles.signStyle}>Sign up</Text>
@@ -77,7 +77,18 @@ const Header = (props) => {
             {props.swap && (
                 <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                     <TouchableOpacity onPress={props.navigate3}><Image source={IMAGEPATH.Frame1} style={{ width: 36, height: 35 }} /></TouchableOpacity>
-                    <TouchableOpacity><Image source={IMAGEPATH.Frame} style={{ width: 30, height: 38,  marginTop: '2%' }} /></TouchableOpacity>
+                    <TouchableOpacity><Image source={IMAGEPATH.Frame} style={{ width: 30, height: 38, marginTop: '2%' }} /></TouchableOpacity>
+                </View>
+
+            )
+
+            }
+
+
+            {props.camera && (
+                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                    <VECTOR_ICONS.AntDesign name={'questioncircleo'} color={'rgba(255, 255, 255, 0.6)'} size={20} style={{ marginTop: '5%', right: 10 }} />
+                    <TouchableOpacity><Image source={IMAGEPATH.Camera1} style={{ width: 25, height: 21, marginTop: '2%' }} /></TouchableOpacity>
                 </View>
 
             )
@@ -116,7 +127,7 @@ const styles = StyleSheet.create({
     signStyle1: {
         fontSize: 16,
         fontFamily: FONTS.medium,
-        color:'#fff',
+        color: '#fff',
         fontWeight: '500',
 
     },

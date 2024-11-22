@@ -1,14 +1,14 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-const News = () => {
+const WithdrawTwoFAverification = () => {
   return (
     <View>
-      <Text>News</Text>
+      <Text>WithdrawTwoFAverification</Text>
     </View>
   )
 }
 
-export default News
+export default WithdrawTwoFAverification
 
 const styles = StyleSheet.create({})

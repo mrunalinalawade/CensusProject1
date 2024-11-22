@@ -5,7 +5,7 @@ import RBSheet from 'react-native-raw-bottom-sheet';
 
 
 const { height, width } = Dimensions.get('window');
-const Selectcurrency = () => {
+const Selectcurrency = (props) => {
   const [searchQuery, setSearchQuery] = useState("");
   const refRBSheet = useRef();
   const filterData = [
@@ -109,6 +109,9 @@ const Selectcurrency = () => {
   },
   ]
 
+  const Selectnet = () =>{
+    props.navigation.navigate('Addressreveal')
+  }
 
   
   return (
@@ -194,7 +197,7 @@ const Selectcurrency = () => {
             </Text>
           )}
           renderItem={(item) => (
-            <TouchableOpacity onPress={() => { refRBSheet.current.open() }} style={styles.FlatlistView}>
+            <TouchableOpacity onPress={() => {refRBSheet.current.open() }} style={styles.FlatlistView}>
               <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: width * 0.4 }}>
                 <Image source={item?.item?.img2} style={{ width: 45, height: 45 }} />
                 <View style={styles.TextView}>
@@ -252,14 +255,14 @@ const Selectcurrency = () => {
             <Text style={[styles.account, { color: 'rgba(255, 125, 0, 1)', width: width * 0.70, marginLeft: '2%' }]}>IMPORTANT: Please be careful when checking payment proofs in the order chat during P@P transactions. Do not</Text>
             <VECTOR_ICONS.Entypo name={'cross'} color={'rgba(255, 255, 255, 0.6)'} size={25} />
           </View>
-          <View style={[styles.TextView1,{marginTop:'10%'}]}>
+          <TouchableOpacity onPress={Selectnet} style={[styles.TextView1,{marginTop:'10%'}]}>
             <Text style={styles.Text11}>ERC20</Text>
             <Text style={[styles.Text2]} >Ethereum(ETH)</Text>
-          </View>
-          <View style={[styles.TextView1]}>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={Selectnet()} style={[styles.TextView1]}>
             <Text style={styles.Text11}>TRC20</Text>
             <Text style={[styles.Text2]} >Tron(TRX)</Text>
-          </View>
+          </TouchableOpacity>
           <View style={[styles.TextView1]}>
             <Text style={styles.Text11}>TON</Text>
             <Text style={[styles.Text2]} >TON(TON)</Text>

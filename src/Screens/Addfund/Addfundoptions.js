@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, SafeAreaView, Dimensions, Image } from 'react-native'
+import { StyleSheet, Text, View, SafeAreaView, Dimensions, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
 import Header from '../../Components/Header'
 import { IMAGEPATH } from '../../assets/Theme';
@@ -19,22 +19,22 @@ const Addfundoptions = (props) => {
                 <Text style={styles.logintext}>Add fund</Text>
                 <Text style={styles.logintext1}>I don’t have crypto assets</Text>
 
-                <View style={styles.flexStyle}>
+                <TouchableOpacity onPress={()=>{props.navigation.navigate('P2PMainPage')}} style={styles.flexStyle}>
                     <Image source={IMAGEPATH.P2Puser} style={{ width: 32, height: 28 }} />
                     <View style={{marginVertical:'2.5%'}}>
                         <Text style={styles.crptoStyle}>P2P Trading</Text>
                         <Text style={styles.signStyle1}>Buy from users. Competitive prices. Local payments</Text>
                     </View>
-                </View>
+                </TouchableOpacity>
 
 
-                <View style={[styles.flexStyle,{ marginTop: '2%',}]}>
+                <TouchableOpacity onPress={()=>{props.navigation.navigate('BuywiithINR')}} style={[styles.flexStyle,{ marginTop: '2%',}]}>
                     <Image source={IMAGEPATH.BuyINR} style={{ width: 32, height: 33 }} />
                     <View style={{marginVertical:'2.5%'}}>
                         <Text style={styles.crptoStyle}>Buy with INR</Text>
                         <Text style={styles.signStyle1}>Buy from users. Competitive prices. Local payments</Text>
                     </View>
-                </View>
+                </TouchableOpacity>
 
                 <Text style={styles.logintext1}>I have crypto assets</Text>
                 <View style={[styles.flexStyle]}>
@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         width: width * 0.9,
         alignSelf: 'center',
-        marginVertical: '2%',
+        // marginVertical: '2%',
     },
     logintext: {
         fontSize: 32,

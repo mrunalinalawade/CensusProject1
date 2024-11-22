@@ -177,12 +177,18 @@ const styles = StyleSheet.create({
   signStyle: {
     fontSize: 12,
     fontWeight: '400',
-    color: '#rgba(255, 255, 255, 0.6)',
+    color: 'rgba(255, 255, 255, 0.6)',
     lineHeight: 20,
     marginTop: 9,
   },
   inputStyle: {
     marginTop: 40,
   },
+  account:{
+    fontSize: 12,
+    fontWeight: '400',
+    color:'rgba(255, 255, 255, 0.6)'
+
+  }
 
 })
