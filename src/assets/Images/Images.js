@@ -97,6 +97,14 @@ export const IMAGEPATH = {
   Assets:require('../Images/BottomTabbarImages/Assets.png'),
   Trade:require('../Images/BottomTabbarImages/Trade.png'),
 
+  Indicator:require('../Images/P2PFlowImages/Indicator.png'),
+  Google:require('../Images/P2PFlowImages/Google.png'),
+  Arti:require('../Images/P2PFlowImages/Arti.png'),
+  Crpto5:require('../Images/P2PFlowImages/Crpto5.png'),
+
+
+
+
 
 
 

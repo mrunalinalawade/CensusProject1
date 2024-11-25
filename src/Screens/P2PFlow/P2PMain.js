@@ -5,6 +5,7 @@ import React, { useRef, useState } from 'react'
 import RBSheet from 'react-native-raw-bottom-sheet';
 import Header from '../../Components/Header';
 import { IMAGEPATH, VECTOR_ICONS } from '../../assets/Theme';
+import WholeButton1 from '../../Components/WholeButton1';
 
 
 const { height, width } = Dimensions.get('window');
@@ -13,12 +14,23 @@ const P2PMain = (props) => {
     const [searchQuery, setSearchQuery] = useState("");
     const refRBSheet = useRef();
     const refRBSheet1 = useRef();
-   
-    
+    const refRBSheet2 = useRef();
+    const refRBSheet3 = useRef();
+
+
     const [selected1, setSelected1] = useState(false);
     const [selected2, setSelected2] = useState(null);
 
 
+    const [selectedPercentage, setSelectedPercentage] = useState(1); // Default selected percentage
+    const [inputValue, setInputValue] = useState('e.g 200'); // Default value for the input field
+
+    const percentages = [400, 2, 10, 20];
+
+    const handleSelectPercentage = (percentage) => {
+        setSelectedPercentage(percentage);
+        setInputValue(percentage.toString()); // Update the input field value
+    };
 
     const filterData = [
         {
@@ -74,6 +86,65 @@ const P2PMain = (props) => {
     ]
 
 
+    const filterData1 = [
+        {
+            id: 1,
+            coinname: 'All',
+        },
+        {
+            id: 2,
+            coinname: 'Lightning UPI',
+        },
+        {
+            id: 3,
+            coinname: 'UPI',
+        },
+        {
+            id: 4,
+            coinname: 'IMPS',
+        },
+        {
+            id: 5,
+            coinname: 'Bank Transfer(India)',
+        },
+        {
+            id: 6,
+            coinname: 'Digital eRupee',
+        },
+        {
+            id: 7,
+            coinname: 'Google Pay (GPay)',
+        },
+        {
+            id: 8,
+            coinname: 'IMPS - PAN',
+        },
+        {
+            id: 9,
+            coinname: 'International Wire (Swift)',
+        },
+        {
+            id: 10,
+            coinname: 'Paytm',
+        },
+        {
+            id: 11,
+            coinname: 'PhonePe',
+        },
+        {
+            id: 12,
+            coinname: 'Skrill(Moneybookers)',
+        },
+        {
+            id: 13,
+            coinname: 'UPI-PAN',
+        },
+        {
+            id: 14,
+            coinname: 'Western Union',
+        },
+    ]
+
 
     const handlePress = () => {
         setSelected1(!selected1);
@@ -105,7 +176,7 @@ const P2PMain = (props) => {
                             <Text style={styles.account1}>Sell</Text></TouchableOpacity>
                     </View>
                     <TouchableOpacity>
-                        <Image source={IMAGEPATH.Belldot} style={{ width: 17, height: 21, right: 8 }} />
+                        <Image source={IMAGEPATH.Belldot} style={{ width: 19, height: 21, right: 8 }} />
                     </TouchableOpacity>
 
                 </View>
@@ -114,9 +185,9 @@ const P2PMain = (props) => {
                         width: width * 0.67,
                         marginTop: '0%',
                     }]}>
-                        <View style={[styles.allitemStyle, { width: width * 0.25, }]}>
+                        <View style={[styles.allitemStyle, { width: width * 0.24, }]}>
                             <Image source={IMAGEPATH.Tether} style={{ width: 30, height: 30 }} />
-                            <View style={{ flexDirection: 'row', alignItems: 'baseline', width: width * 0.13, justifyContent: 'space-between' }}>
+                            <View style={{ flexDirection: 'row', alignItems: 'center', width: width * 0.13, justifyContent: 'space-between' }}>
                                 <Text style={styles.accountstyle}>USDT</Text>
                                 <TouchableOpacity onPress={() => { refRBSheet.current.open() }}>
                                     <VECTOR_ICONS.AntDesign name={'caretdown'} color={'#FFFFFF'} size={12} />
@@ -129,16 +200,16 @@ const P2PMain = (props) => {
                                 <VECTOR_ICONS.AntDesign name={'caretdown'} color={'#FFFFFF'} size={12} />
                             </TouchableOpacity>
                         </View>
-                        <View style={styles.allitemStyle}>
+                        <TouchableOpacity onPress={() => { refRBSheet3.current.open() }} style={styles.allitemStyle}>
                             <Text style={styles.accountstyle}>Payment</Text>
                             <TouchableOpacity>
                                 <VECTOR_ICONS.AntDesign name={'caretdown'} color={'#FFFFFF'} size={12} />
                             </TouchableOpacity>
-                        </View>
+                        </TouchableOpacity>
 
                     </View>
                     <TouchableOpacity>
-                        <Image source={IMAGEPATH.Filterdot} style={{ width: 17, height: 21, right: 8 }} />
+                        <Image source={IMAGEPATH.Filterdot} style={{ width: 19, height: 21, right: 10 }} />
                     </TouchableOpacity>
 
                 </View>
@@ -211,8 +282,17 @@ const P2PMain = (props) => {
                                     </View>
                                 </View>
                                 {/* BuywiithINR */}
-                                <TouchableOpacity onPress={() => {props.navigation.navigate('BuywiithINR')}} style={[styles.text1, { backgroundColor: '#42C9A1', width: width * 0.26, padding: '4%', }]}>
-                                    <Text style={styles.account1}>Buy</Text></TouchableOpacity>
+                                {selected === 'Buy' ?
+                                    <TouchableOpacity onPress={() => { refRBSheet2.current.open() }} style={[styles.text1, { backgroundColor: '#42C9A1', width: width * 0.26, padding: '4%', }]}>
+                                        <Text style={styles.account1}>Buy</Text></TouchableOpacity>
+                                    :
+                                    <TouchableOpacity onPress={() => { refRBSheet2.current.open() }} style={[styles.text1, { backgroundColor: '#42C9A1', width: width * 0.26, padding: '4%', }]}>
+                                        <Text style={styles.account1}>Sell</Text></TouchableOpacity>
+
+
+
+                                }
+
 
                             </View>
 
@@ -410,7 +490,157 @@ const P2PMain = (props) => {
                 </View>
             </RBSheet>
 
-        </SafeAreaView>
+
+
+            <RBSheet
+                ref={refRBSheet2}
+                closeOnDragDown={true}
+                closeOnPressMask={true}
+                height={295}
+                animationType={"fade"}
+                customStyles={{
+                    wrapper: {
+                        backgroundColor: "rgba(0, 0, 0, 0.4)",
+                    },
+                    draggableIcon: {
+                        backgroundColor: '#fff',
+                        width: width * 0.2
+                    },
+                    container: {
+                        borderTopEndRadius: 30,
+                        borderTopStartRadius: 30,
+                        backgroundColor: "#1C1D22",
+                    },
+                }}
+            >
+                <View style={{ marginBottom: '5%', flex: 1, width: width * 0.9, alignSelf: 'center', alignItems: 'center', padding: '3%', }}>
+                    <Text style={[styles.logintext3, { alignSelf: 'flex-start' }]}>I want to buy</Text>
+
+                    <View style={styles.inputContainer}>
+                        <TextInput
+                            placeholder='e.g 200'
+                            style={styles.input}
+                            value={inputValue}
+                            editable={false}
+                        />
+                        <Text style={styles.percentageSymbol}>INR</Text>
+                    </View>
+
+                    <View style={styles.optionsContainer}>
+                        {percentages.map((percentage) => (
+                            <TouchableOpacity
+                                key={percentage}
+                                style={[
+                                    styles.option,
+                                    selectedPercentage === percentage && styles.selectedOption,
+                                ]}
+                                onPress={() => handleSelectPercentage(percentage)}
+                            >
+                                <Text
+                                    style={[
+                                        styles.optionText,
+                                        selectedPercentage === percentage && styles.selectedOptionText,
+                                    ]}
+                                >
+                                    ₹{percentage}k
+                                </Text>
+                            </TouchableOpacity>
+                        ))}
+                    </View>
+
+
+                    <View style={{ flexDirection: 'row', marginTop: '3%', justifyContent: 'space-between', alignItems: 'center', width: width * 0.9 }}>
+
+                        <WholeButton1 Label={'Reset'} Action={() => { }} styles={{ width: width * 0.43, padding: '3%', backgroundColor: 'rgba(36, 38, 42, 1)', }} />
+                        <WholeButton1 Label={'Confirm'} Action={() => { }} styles={{ width: width * 0.43, padding: '3%', }} />
+                    </View>
+                </View>
+            </RBSheet>
+
+
+
+            <RBSheet
+                ref={refRBSheet3}
+                closeOnDragDown={true}
+                closeOnPressMask={true}
+                height={710}
+                animationType={"fade"}
+                customStyles={{
+                    wrapper: {
+                        backgroundColor: "rgba(0, 0, 0, 0.4)",
+                    },
+                    draggableIcon: {
+                        backgroundColor: '#fff',
+                        width: width * 0.2
+                    },
+                    container: {
+                        borderTopEndRadius: 30,
+                        borderTopStartRadius: 30,
+                        backgroundColor: "#1C1D22",
+                    },
+                }}
+            >
+                <View style={{ width: width * 0.9, alignSelf: 'center', alignItems: 'center', padding: '3%', }}>
+                    <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', alignSelf: 'flex-start' }}>
+                        <Text style={[styles.logintext3, { alignSelf: 'flex-start' }]}>Payment methods</Text>
+                        <Image source={IMAGEPATH.Square} style={{ width: 25, height: 25, marginLeft: '3%', marginTop: '7%', }} />
+                    </View>
+
+                    <View style={[styles.InputViewFiled, { marginTop: '10%', width: width * 0.9, }]}>
+                        <TouchableOpacity
+                            style={{ alignSelf: "center", marginLeft: '4%' }} >
+                            <VECTOR_ICONS.AntDesign
+                                name="search1"
+                                color={"rgba(127, 128, 130, 1)"}
+                                size={19}
+                            />
+                        </TouchableOpacity>
+                        <TextInput
+                            placeholder="Search Coin"
+                            style={{
+                                width: width * 0.6,
+                                color: 'rgba(255, 255, 255, 0.4)',
+                                marginLeft: '3%',
+                                fontSize: 12, fontWeight: '400'
+                            }}
+                            placeholderTextColor={"rgba(255, 255, 255, 0.4)"}
+                            value={searchQuery}
+                            onChangeText={(text) => setSearchQuery(text)}
+                        />
+                    </View>
+
+                    <FlatList
+                        numColumns={2}
+                        data={filterData1}
+                        style={{ marginBottom: '2%',marginTop:'8%' }}
+                        ListEmptyComponent={() => (
+                            <Text style={{ color: 'black', fontSize: 16, fontFamily: FONT.semiBold, textAlign: 'center', marginTop: '10%' }} >
+                                No Data Found
+                            </Text>
+                        )}
+                        renderItem={(item) => (
+                            <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center', 
+                            justifyContent:'center', width: width * 0.40, borderWidth: 1, borderColor: '#2A2B2F',alignSelf:'center',padding:'4%',borderRadius:7,margin:2}}>
+                                <Text style={[styles.Text11,{textAlign:'center'}]}>{item.item?.coinname}</Text>
+                            </TouchableOpacity>
+                        )}
+                    />
+
+                    <View style={{ flexDirection: 'row', marginTop: '3%', justifyContent: 'space-between', alignItems: 'center', width: width * 0.9 }}>
+
+                        <WholeButton1 Label={'Reset'} Action={() => { }} styles={{ width: width * 0.43, padding: '3%', backgroundColor: 'rgba(36, 38, 42, 1)', }} />
+                        <WholeButton1 Label={'Confirm'} Action={() => { }} styles={{ width: width * 0.43, padding: '3%', }} />
+                    </View>
+                </View>
+            </RBSheet >
+
+            
+
+
+
+
+
+        </SafeAreaView >
     )
 }
 
@@ -546,4 +776,66 @@ const styles = StyleSheet.create({
         lineHeight: 32.97,
 
     },
+
+
+
+    inputContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        backgroundColor: 'rgba(255, 255, 255, 0.06)',
+        paddingHorizontal: 14,
+        marginTop: '6%',
+        borderRadius: 8,
+        height: 50,
+        marginBottom: 16,
+
+    },
+    input: {
+        width: width * 0.76,
+        color: '#FFFFFF',
+        fontSize: 12,
+    },
+    percentageSymbol: {
+        color: 'rgba(255, 255, 255, 0.6)',
+        fontSize: 12,
+        fontWeight: '500'
+    },
+    optionsContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        width: width * 0.9
+    },
+    option: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        paddingVertical: 10,
+        marginHorizontal: 4,
+
+        borderRadius: 8,
+        backgroundColor: 'rgba(118, 140, 92, 0.1)',
+    },
+    selectedOption: {
+        backgroundColor: '#768C5C',
+
+    },
+    optionText: {
+        color: '#768C5C',
+
+        fontSize: 16,
+    },
+    selectedOptionText: {
+        color: '#FFFFFF',
+
+    },
+    logintext3: {
+        fontSize: 22,
+        fontWeight: '600',
+
+        color: '#fff',
+        marginTop: '6%',
+        lineHeight: 32.97,
+
+    },
+
 })

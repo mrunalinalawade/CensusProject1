@@ -141,8 +141,6 @@ const P2PMainPage = (props) => {
 
                 </View>
 
-
-
                 <FlatList
                     showsVerticalScrollIndicator={false}
                     data={[1, 2, 3, 4, 5]}
@@ -208,23 +206,22 @@ const P2PMainPage = (props) => {
                                         <Text style={[styles.accountstyle1, { color: '#fff' }]}>USDT</Text>
                                     </View>
                                 </View>
-                                {/* BuywiithINR */}
-                                <TouchableOpacity onPress={() => {props.navigation.navigate('BuywiithINR')}} style={[styles.text1, { backgroundColor: '#42C9A1', width: width * 0.26, padding: '4%', }]}>
+                                { selected === 'Buy' ?
+                                <TouchableOpacity onPress={() => { props.navigation.navigate('BuywiithINR') }} style={[styles.text1, { backgroundColor: '#42C9A1', width: width * 0.26, padding: '4%', }]}>
                                     <Text style={styles.account1}>Buy</Text></TouchableOpacity>
+                                    :
+                                    <TouchableOpacity onPress={() => { props.navigation.navigate('BuywiithINR') }} style={[styles.text1, { backgroundColor: '#42C9A1', width: width * 0.26, padding: '4%', }]}>
+                                    <Text style={styles.account1}>Sell</Text></TouchableOpacity>
 
+
+
+                                }
+                                
                             </View>
 
                         </View>
                     )}
                 />
-
-
-
-
-
-
-
-
 
             </View>
 
@@ -422,7 +419,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         width: width * 0.9,
         alignSelf: 'center',
-        marginVertical: '2%',
+        // marginVertical: '2%',
     },
     logintext: {
         fontSize: 32,

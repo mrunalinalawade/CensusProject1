@@ -48,6 +48,8 @@ import TwoFAverification from '../Screens/SwappingconfirmationSuccessfully/TwoFA
 import SubmittedSwap from '../Screens/SwappingconfirmationSuccessfully/SubmittedSwap';
 import Successfullywithdrawal from '../Screens/SwapFlow/TransferFromWalletaddresstoFunding/Successfullywithdrawal ';
 import P2PMain from '../Screens/P2PFlow/P2PMain';
+import BuyUSDT from '../Screens/P2PFlow/BuyUSDT';
+import Ordercreated from '../Screens/P2PFlow/Ordercreated';
 
 
 const Tab = createBottomTabNavigator();
@@ -56,7 +58,7 @@ const RouteNavigation = () => {
   return (
     <Stack.Navigator
       screenOptions={{ headerShown: false }}
-      initialRouteName="Login">
+      initialRouteName="Ordercreated">
       {/* -----------------------Splash----------------------------- */}
       <Stack.Screen name="Splash" component={Splash} />
       <Stack.Screen name="Viewdata" component={Viewdata} />
@@ -127,6 +129,8 @@ const RouteNavigation = () => {
 
              {/* --------------------------- P2P flow ---------------------*/}
              <Stack.Screen name="P2PMain" component={P2PMain} />
+             <Stack.Screen name="BuyUSDT" component={BuyUSDT} />
+             <Stack.Screen name="Ordercreated" component={Ordercreated} />
 
        
         

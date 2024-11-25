@@ -95,6 +95,14 @@ const Header = (props) => {
 
             }
 
+            {
+                props.order && (
+                    <TouchableOpacity style={{backgroundColor:'rgba(255, 102, 102, 0.1)',borderRadius:7,padding:'2.3%',alignItems:'center'}}>
+                        <Text style={{color:'rgba(255, 102, 102, 1)',fontSize:12,fontWeight:'500',marginHorizontal:'3%'}}>Cancel the order</Text>
+                    </TouchableOpacity>
+                )
+            }
+
 
         </View>
     );
