@@ -466,4 +466,9 @@ const styles = StyleSheet.create({
         fontWeight: '500',
         color: '#fff',
     },
+    selectedTabText: {
+        fontSize: 16,
+        fontWeight: '600',
+        color: '#FFFFFF',
+      },
 })

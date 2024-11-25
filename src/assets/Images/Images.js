@@ -101,6 +101,14 @@ export const IMAGEPATH = {
   Google:require('../Images/P2PFlowImages/Google.png'),
   Arti:require('../Images/P2PFlowImages/Arti.png'),
   Crpto5:require('../Images/P2PFlowImages/Crpto5.png'),
+  Line:require('../Images/P2PFlowImages/Line.png'),
+  One:require('../Images/P2PFlowImages/One.png'),
+  Two:require('../Images/P2PFlowImages/Two.png'),
+  Copy:require('../Images/P2PFlowImages/Copy.png'),
+  Alert:require('../Images/P2PFlowImages/Alert.png'),
+  correct:require('../Images/P2PFlowImages/correct.png'),
+  Wrong:require('../Images/P2PFlowImages/Wrong.png'),
+
 
 
 
