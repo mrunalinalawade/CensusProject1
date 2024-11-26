@@ -134,7 +134,7 @@ const styles = StyleSheet.create({
     },
     signStyle1: {
         fontSize: 16,
-        fontFamily: FONTS.medium,
+        // fontFamily: FONTS.medium,
         color: '#fff',
         fontWeight: '500',
 

@@ -196,7 +196,7 @@ const P2PMain = (props) => {
                         </View>
                         <View style={styles.allitemStyle}>
                             <Text style={styles.accountstyle}>Amount</Text>
-                            <TouchableOpacity>
+                            <TouchableOpacity onPress={()=>{props.navigation.navigate('BuyUSDT')}}>
                                 <VECTOR_ICONS.AntDesign name={'caretdown'} color={'#FFFFFF'} size={12} />
                             </TouchableOpacity>
                         </View>

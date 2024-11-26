@@ -118,7 +118,7 @@ const Home = (props) => {
             <Text style={styles.depoStyle}>Swap</Text>
           </View>
           <View style={styles.deStyle}>
-            <TouchableOpacity onPress={()=>{props.navigation.navigate('P2PMainPage')}} style={styles.loginWithGoogleViewIos}>
+            <TouchableOpacity onPress={()=>{props.navigation.navigate('P2PMain')}} style={styles.loginWithGoogleViewIos}>
               <Image source={IMAGEPATH.P2P} style={{ width: 35, height: 35 }} />
             </TouchableOpacity>
             <Text style={styles.depoStyle}>P2P</Text>

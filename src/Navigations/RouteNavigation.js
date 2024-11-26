@@ -51,6 +51,12 @@ import P2PMain from '../Screens/P2PFlow/P2PMain';
 import BuyUSDT from '../Screens/P2PFlow/BuyUSDT';
 import Ordercreated from '../Screens/P2PFlow/Ordercreated';
 import Chats from '../Screens/P2PFlow/ViewpaymentdetailsCTA/Chats';
+import Cancelorder from '../Screens/P2PFlow/Cancelorder';
+import CloseAds from '../Screens/PostAds/CloseAds';
+import SetTypeandPrice from '../Screens/PostAds/SetTypeandPrice';
+import SetAmountandmethods from '../Screens/PostAds/SetAmountandmethods';
+import Setconditions from '../Screens/PostAds/Setconditions';
+import AdSuccessfullyPosted from '../Screens/PostAds/AdSuccessfullyPosted';
 
 
 const Tab = createBottomTabNavigator();
@@ -59,7 +65,7 @@ const RouteNavigation = () => {
   return (
     <Stack.Navigator
       screenOptions={{ headerShown: false }}
-      initialRouteName="Chats">
+      initialRouteName="Login">
       {/* -----------------------Splash----------------------------- */}
       <Stack.Screen name="Splash" component={Splash} />
       <Stack.Screen name="Viewdata" component={Viewdata} />
@@ -85,7 +91,7 @@ const RouteNavigation = () => {
       <Stack.Screen name="FrontimageofID" component={FrontimageofID} />
       <Stack.Screen name="BackimageofID" component={BackimageofID} />
 
-      {/* -----------------------Home Flow----------------------------- */} 
+      {/* -----------------------Home Flow----------------------------- */}
 
       <Stack.Screen name="Home" component={Home} />
       <Stack.Screen name="WithdrawSearchcoin" component={WithdrawSearchcoin} />
@@ -100,42 +106,50 @@ const RouteNavigation = () => {
       <Stack.Screen name="Addressreveal" component={Addressreveal} />
 
 
-        {/* ---------------------------Saved addressess / Add recipient ---------------------*/}
-        <Stack.Screen name="Addnewaddress" component={Addnewaddress} />
+      {/* ---------------------------Saved addressess / Add recipient ---------------------*/}
+      <Stack.Screen name="Addnewaddress" component={Addnewaddress} />
 
 
-        {/* --------------------------- AddfundCTA ---------------------*/}
-        <Stack.Screen name="Addfundoptions" component={Addfundoptions} />
-         <Stack.Screen name="P2PMainPage" component={P2PMainPage} />
-         <Stack.Screen name="BuywiithINR" component={BuywiithINR} />
-         <Stack.Screen name="SwapScreen" component={SwapScreen} />
-         <Stack.Screen name="RecieveFund" component={RecieveFund} />
-         <Stack.Screen name="Tranfer" component={Tranfer} />
-         
-
-        {/* --------------------------- Swap flow ---------------------*/}
-         <Stack.Screen name="SelectCoin" component={SelectCoin} />
-         <Stack.Screen name="Selectpaytoken" component={Selectpaytoken} />
-         <Stack.Screen name="Walletfunding" component={Walletfunding} />
-         <Stack.Screen name="Coindropdown" component={Coindropdown  } />
-         <Stack.Screen name="AddfundpopupRecieve" component={AddfundpopupRecieve} />
-         <Stack.Screen name="RateUSDTtoBTCB" component={RateUSDTtoBTCB} />
-         <Stack.Screen name="RateBTCBtoUSDT" component={RateBTCBtoUSDT} />
+      {/* --------------------------- AddfundCTA ---------------------*/}
+      <Stack.Screen name="Addfundoptions" component={Addfundoptions} />
+      <Stack.Screen name="P2PMainPage" component={P2PMainPage} />
+      <Stack.Screen name="BuywiithINR" component={BuywiithINR} />
+      <Stack.Screen name="SwapScreen" component={SwapScreen} />
+      <Stack.Screen name="RecieveFund" component={RecieveFund} />
+      <Stack.Screen name="Tranfer" component={Tranfer} />
 
 
-           {/* --------------------------- Swap flow  successfully---------------------*/}
-           <Stack.Screen name="ConfirmSwap" component={ConfirmSwap} />
-           <Stack.Screen name="TwoFAverification" component={TwoFAverification} />
-           <Stack.Screen name="SubmittedSwap" component={SubmittedSwap} />
+      {/* --------------------------- Swap flow ---------------------*/}
+      <Stack.Screen name="SelectCoin" component={SelectCoin} />
+      <Stack.Screen name="Selectpaytoken" component={Selectpaytoken} />
+      <Stack.Screen name="Walletfunding" component={Walletfunding} />
+      <Stack.Screen name="Coindropdown" component={Coindropdown} />
+      <Stack.Screen name="AddfundpopupRecieve" component={AddfundpopupRecieve} />
+      <Stack.Screen name="RateUSDTtoBTCB" component={RateUSDTtoBTCB} />
+      <Stack.Screen name="RateBTCBtoUSDT" component={RateBTCBtoUSDT} />
 
-             {/* --------------------------- P2P flow ---------------------*/}
-             <Stack.Screen name="P2PMain" component={P2PMain} />
-             <Stack.Screen name="BuyUSDT" component={BuyUSDT} />
-             <Stack.Screen name="Ordercreated" component={Ordercreated} />
-             <Stack.Screen name="Chats" component={Chats} />
 
-       
-        
+      {/* --------------------------- Swap flow  successfully---------------------*/}
+      <Stack.Screen name="ConfirmSwap" component={ConfirmSwap} />
+      <Stack.Screen name="TwoFAverification" component={TwoFAverification} />
+      <Stack.Screen name="SubmittedSwap" component={SubmittedSwap} />
+
+      {/* --------------------------- P2P flow ---------------------*/}
+      <Stack.Screen name="P2PMain" component={P2PMain} />
+      <Stack.Screen name="BuyUSDT" component={BuyUSDT} />
+      <Stack.Screen name="Ordercreated" component={Ordercreated} />
+      <Stack.Screen name="Chats" component={Chats} />
+      <Stack.Screen name="Cancelorder" component={Cancelorder} />
+
+      {/* --------------------------- Post Ads flow ---------------------*/}
+      <Stack.Screen name="CloseAds" component={CloseAds} />
+      <Stack.Screen name="SetTypeandPrice" component={SetTypeandPrice} />
+      <Stack.Screen name="SetAmountandmethods" component={SetAmountandmethods} />
+      <Stack.Screen name="Setconditions" component={Setconditions} />
+      <Stack.Screen name="AdSuccessfullyPosted" component={AdSuccessfullyPosted} />
+
+
+
     </Stack.Navigator>
   );
 };

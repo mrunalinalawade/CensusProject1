@@ -92,7 +92,7 @@ const Ordercreated = (props) => {
 
           </ScrollView>
                 <View style={[styles.viewStyle]}></View>
-                <WholeButton1 Label={'View payment details'} Action={() => { }} styles={{ width: width * 0.9, bottom: '16%' }} />
+                <WholeButton1 Label={'View payment details'} Action={() => {props.navigation.navigate('Chats') }} styles={{ width: width * 0.9, bottom: '16%' }} />
       </View>
     </SafeAreaView>
   )

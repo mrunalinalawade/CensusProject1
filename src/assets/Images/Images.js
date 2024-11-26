@@ -108,6 +108,10 @@ export const IMAGEPATH = {
   Alert:require('../Images/P2PFlowImages/Alert.png'),
   correct:require('../Images/P2PFlowImages/correct.png'),
   Wrong:require('../Images/P2PFlowImages/Wrong.png'),
+  line2:require('../Images/P2PFlowImages/line2.png'),
+  line3:require('../Images/P2PFlowImages/line3.png'),
+  line4:require('../Images/P2PFlowImages/line4.png'),
+  Online:require('../Images/P2PFlowImages/Online.png'),
 
 
 

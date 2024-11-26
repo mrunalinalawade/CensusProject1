@@ -257,7 +257,7 @@ const BuyUSDT = (props) => {
                     </View>
                 </ScrollView>
                 <View style={[styles.viewStyle]}></View>
-                <WholeButton1 Label={'Okay'} Action={() => { }} styles={{ width: width * 0.9, bottom: '7%' }} />
+                <WholeButton1 Label={'Okay'} Action={() => {props.navigation.navigate('Ordercreated') }} styles={{ width: width * 0.9, bottom: '7%' }} />
             </View>
 
 
