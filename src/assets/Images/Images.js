@@ -112,6 +112,7 @@ export const IMAGEPATH = {
   line3:require('../Images/P2PFlowImages/line3.png'),
   line4:require('../Images/P2PFlowImages/line4.png'),
   Online:require('../Images/P2PFlowImages/Online.png'),
+  extramark:require('../Images/P2PFlowImages/extramark.png'),
 
 
 

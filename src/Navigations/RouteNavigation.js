@@ -57,6 +57,9 @@ import SetTypeandPrice from '../Screens/PostAds/SetTypeandPrice';
 import SetAmountandmethods from '../Screens/PostAds/SetAmountandmethods';
 import Setconditions from '../Screens/PostAds/Setconditions';
 import AdSuccessfullyPosted from '../Screens/PostAds/AdSuccessfullyPosted';
+import OrdercancelReorder from '../Screens/P2PFlow/OrdercancelReorder';
+import Paymenthelp from '../Screens/P2PFlow/Paymenthelp';
+import ChatScreen from '../Screens/P2PFlow/ChatScreen';
 
 
 const Tab = createBottomTabNavigator();
@@ -65,7 +68,7 @@ const RouteNavigation = () => {
   return (
     <Stack.Navigator
       screenOptions={{ headerShown: false }}
-      initialRouteName="Login">
+      initialRouteName="ChatScreen">
       {/* -----------------------Splash----------------------------- */}
       <Stack.Screen name="Splash" component={Splash} />
       <Stack.Screen name="Viewdata" component={Viewdata} />
@@ -127,6 +130,7 @@ const RouteNavigation = () => {
       <Stack.Screen name="AddfundpopupRecieve" component={AddfundpopupRecieve} />
       <Stack.Screen name="RateUSDTtoBTCB" component={RateUSDTtoBTCB} />
       <Stack.Screen name="RateBTCBtoUSDT" component={RateBTCBtoUSDT} />
+     
 
 
       {/* --------------------------- Swap flow  successfully---------------------*/}
@@ -139,7 +143,10 @@ const RouteNavigation = () => {
       <Stack.Screen name="BuyUSDT" component={BuyUSDT} />
       <Stack.Screen name="Ordercreated" component={Ordercreated} />
       <Stack.Screen name="Chats" component={Chats} />
+      <Stack.Screen name="OrdercancelReorder" component={OrdercancelReorder} />
+      <Stack.Screen name="Paymenthelp" component={Paymenthelp} />
       <Stack.Screen name="Cancelorder" component={Cancelorder} />
+      <Stack.Screen name="ChatScreen" component={ChatScreen} />
 
       {/* --------------------------- Post Ads flow ---------------------*/}
       <Stack.Screen name="CloseAds" component={CloseAds} />
