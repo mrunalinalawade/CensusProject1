@@ -19,7 +19,7 @@ const Chats = (props) => {
                 />
                 <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginTop: '10%' }}>
                     <Text style={styles.logintext}>Pay the seller</Text>
-                    <TouchableOpacity style={{ backgroundColor: 'rgba(118, 140, 92, 1)', borderRadius: 8, padding: '3%', alignItems: 'center' }}>
+                    <TouchableOpacity onPress={()=>{props.navigation.navigate('ChatScreen')}}  style={{ backgroundColor: 'rgba(118, 140, 92, 1)', borderRadius: 8, padding: '3%', alignItems: 'center' }}>
                         <Text style={styles.chatStyle}>Chat</Text>
                     </TouchableOpacity>
                 </View>

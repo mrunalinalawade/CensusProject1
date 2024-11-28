@@ -207,7 +207,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         width: width * 0.9,
         alignSelf: 'center',
-        marginVertical: '2%',
+        // marginVertical: '2%',
     },
     logintext: {
         fontSize: 32,

@@ -12,8 +12,9 @@ const Ordercreated = (props) => {
         <Header
           order={true}
           navigate={() => props.navigation.goBack()}
-
+          orderPress={()=>props.navigation.navigate('Cancelorder')}
         />
+        
        <ScrollView showsVerticalScrollIndicator={false} style={{ marginBottom:'40%' }} >
         <Text style={styles.logintext}>Ordered created</Text>
         <View style={{ flexDirection: 'row', alignItems: 'center', marginVertical: '2%' }}>
@@ -33,7 +34,7 @@ const Ordercreated = (props) => {
                 <Text style={styles.text}>Escrowed Crypto</Text>
               </View>
             </View>
-            <TouchableOpacity style={{ backgroundColor: 'rgba(118, 140, 92, 1)', borderRadius: 8, padding: '3%', alignItems: 'center' }}>
+            <TouchableOpacity onPress={()=>{props.navigation.navigate('ChatScreen')}} style={{ backgroundColor: 'rgba(118, 140, 92, 1)', borderRadius: 8, padding: '3%', alignItems: 'center' }}>
               <Text style={styles.chatStyle}>Chat</Text>
             </TouchableOpacity>
           </View>

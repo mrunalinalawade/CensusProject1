@@ -58,7 +58,8 @@ const Home = (props) => {
     <SafeAreaView style={{ flex: 1, backgroundColor: '#1C1D22' }}>
       <ScrollView showsVerticalScrollIndicator={false} >
         <View style={styles.HeaderStyle}>
-          <Image source={IMAGEPATH.BT} style={{ width: 42, height: 19 }} />
+          <TouchableOpacity onPress={()=>{props.navigation.navigate('Settings')}}><Image source={IMAGEPATH.BT} style={{ width: 42, height: 19 }} /></TouchableOpacity>
+         
           <View style={styles.InputViewFiled}>
             <TouchableOpacity
               style={{ alignSelf: "center", marginLeft: '4%' }} >
@@ -101,7 +102,7 @@ const Home = (props) => {
           <View style={styles.deStyle}>
             <TouchableOpacity onPress={() => props.navigation.navigate('Selectcurrency')}
               style={styles.loginWithGoogleViewIos}>
-              <Image source={IMAGEPATH.Deposit} style={{ width: 35, height: 35 }} />
+              <Image source={IMAGEPATH.Deposit} style={{ width: 35, height: 35  }} />
             </TouchableOpacity>
             <Text style={styles.depoStyle}>Deposit</Text>
           </View>

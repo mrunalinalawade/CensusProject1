@@ -23,7 +23,7 @@ const Header = (props) => {
                 <TouchableOpacity onPress={props?.navigate}>
                     <VECTOR_ICONS.AntDesign name="arrowleft" size={30} color={COLORS.WHITE} />
                 </TouchableOpacity>
-                <Text style={styles.signStyle1}>{props.textlabel}</Text>
+                <Text style={[styles.signStyle1,props.text]}>{props.textlabel}</Text>
 
             </View>
 
@@ -97,10 +97,16 @@ const Header = (props) => {
 
             {
                 props.order && (
-                    <TouchableOpacity style={{backgroundColor:'rgba(255, 102, 102, 0.1)',borderRadius:7,padding:'2.3%',alignItems:'center'}}>
+                    <TouchableOpacity onPress={props.orderPress} style={{backgroundColor:'rgba(255, 102, 102, 0.1)',borderRadius:7,padding:'2.3%',alignItems:'center'}}>
                         <Text style={{color:'rgba(255, 102, 102, 1)',fontSize:12,fontWeight:'500',marginHorizontal:'3%'}}>Cancel the order</Text>
                     </TouchableOpacity>
                 )
+            }
+            {
+                 props.label4 && (
+                    
+                        <TouchableOpacity onPress={props.navigate3}><Image source={IMAGEPATH.Frame1} style={{ width: 30, height: 35,marginTop:'2%' }} /></TouchableOpacity>
+                 )
             }
 
 

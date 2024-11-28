@@ -6,7 +6,7 @@ import React, { useState } from 'react'
 const { height, width } = Dimensions.get('window');
 const GroupModal = (props) => {
     // const [modalVisible, setModalVisible] = useState(false)
-    const Height1=Platform.OS === 'android' ? height * 0.12 :height * 0.17
+    const Height1=Platform.OS === 'android' ? height * 0.16 :height * 0.17
     const Height2=Platform.OS === 'android'  ? height * 0.17 :height * 0.2
     return (
         <View>
@@ -50,11 +50,13 @@ const GroupModal = (props) => {
                                 flex: 1,
                                 borderColor: '#000',
                                 borderWidth: 1,
+                                
                             }}
                         >
 
                             {
-                                props?.CreateGroup &&
+                              
+                                props?.CreateGroup &&(<>
                                 <TouchableOpacity
                                     onPress={() => {
                                         props?.Gmember();
@@ -68,13 +70,33 @@ const GroupModal = (props) => {
                                 >
                                     <Text style={styles.TextStyle_1}>{props?.message}</Text>
                                 </TouchableOpacity>
-                            }
 
-                            {
+
+<TouchableOpacity
+onPress={() => {
+    props?.Gmember();
+
+}}
+style={{
+    flexDirection: "row",
+    alignItems: "center",
+    marginVertical: 4,
+}}
+>
+<Text style={styles.TextStyle_1}>{props?.message}</Text>
+</TouchableOpacity>
+                                </>
+                                
+
+
+
+                            )}
+
+                            {/* {
                                 props?.line &&
                                 <View style={{ width: width * 0.45, backgroundColor: '#000', height: height * 0.001, alignSelf: 'center', marginRight: '1%', }}></View>
-                            }
-                            {
+                            } */}
+                            {/* {
                                 props?.DeleteChat &&
                                 <TouchableOpacity
                                     onPress={() => {
@@ -89,7 +111,7 @@ const GroupModal = (props) => {
                                 >
                                     <Text style={styles.TextStyle_1}>Delete Chat</Text>
                                 </TouchableOpacity>
-                            }
+                            } */}
                         </View>
                     }
                 </SafeAreaView>

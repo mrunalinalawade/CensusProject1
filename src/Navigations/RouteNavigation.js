@@ -60,6 +60,20 @@ import AdSuccessfullyPosted from '../Screens/PostAds/AdSuccessfullyPosted';
 import OrdercancelReorder from '../Screens/P2PFlow/OrdercancelReorder';
 import Paymenthelp from '../Screens/P2PFlow/Paymenthelp';
 import ChatScreen from '../Screens/P2PFlow/ChatScreen';
+import Transactionhistoryscreen from '../Screens/TransactionhistoryFlow/DepositHistory/Transactionhistoryscreen';
+import Deposithistory from '../Screens/TransactionhistoryFlow/DepositHistory/Deposithistory';
+import AboutUs from '../Screens/SettingsFlow/AboutUs';
+import Termsofuse from '../Screens/SettingsFlow/Termsofuse';
+import PrivacyPolicy from '../Screens/SettingsFlow/PrivacyPolicy';
+import System from '../Screens/SettingsFlow/System';
+import Settings from '../Screens/SettingsFlow/Settings';
+import Language from '../Screens/SettingsFlow/Language';
+import Currency from '../Screens/SettingsFlow/Currency';
+import Soundsandvibration from '../Screens/SettingsFlow/Soundsandvibration';
+import Clipboard from '../Screens/SettingsFlow/Clipboard';
+import Systempermissions from '../Screens/SettingsFlow/Systempermissions';
+import Changepassword from '../Screens/Passwordchangeflow/Changepassword';
+import PasswordchangedSuccessfully from '../Screens/Passwordchangeflow/PasswordchangedSuccessfully';
 
 
 const Tab = createBottomTabNavigator();
@@ -68,7 +82,7 @@ const RouteNavigation = () => {
   return (
     <Stack.Navigator
       screenOptions={{ headerShown: false }}
-      initialRouteName="ChatScreen">
+      initialRouteName="Login">
       {/* -----------------------Splash----------------------------- */}
       <Stack.Screen name="Splash" component={Splash} />
       <Stack.Screen name="Viewdata" component={Viewdata} />
@@ -130,7 +144,7 @@ const RouteNavigation = () => {
       <Stack.Screen name="AddfundpopupRecieve" component={AddfundpopupRecieve} />
       <Stack.Screen name="RateUSDTtoBTCB" component={RateUSDTtoBTCB} />
       <Stack.Screen name="RateBTCBtoUSDT" component={RateBTCBtoUSDT} />
-     
+
 
 
       {/* --------------------------- Swap flow  successfully---------------------*/}
@@ -155,6 +169,25 @@ const RouteNavigation = () => {
       <Stack.Screen name="Setconditions" component={Setconditions} />
       <Stack.Screen name="AdSuccessfullyPosted" component={AdSuccessfullyPosted} />
 
+      {/* --------------------------- Transaction history flow---------------------*/}
+      <Stack.Screen name="Transactionhistoryscreen" component={Transactionhistoryscreen} />
+      <Stack.Screen name="Deposithistory" component={Deposithistory} />
+
+       {/* --------------------------- Settings flow---------------------*/}
+       <Stack.Screen name="AboutUs" component={AboutUs} />
+       <Stack.Screen name="Termsofuse" component={Termsofuse} />
+       <Stack.Screen name="PrivacyPolicy" component={PrivacyPolicy} />
+       <Stack.Screen name="System" component={System} />
+       <Stack.Screen name="Settings" component={Settings} />
+       <Stack.Screen name="Language" component={Language} />
+       <Stack.Screen name="Currency" component={Currency} />
+       <Stack.Screen name="Soundsandvibration" component={Soundsandvibration} />
+       <Stack.Screen name="Clipboard" component={Clipboard} />
+       <Stack.Screen name="Systempermissions" component={Systempermissions} />
+       <Stack.Screen name="Changepassword" component={Changepassword} />
+       <Stack.Screen name="PasswordchangedSuccessfully" component={PasswordchangedSuccessfully} />
+       
+       
 
 
     </Stack.Navigator>

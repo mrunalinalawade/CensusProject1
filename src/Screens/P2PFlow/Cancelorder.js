@@ -13,6 +13,9 @@ const Cancelorder = (props) => {
   const Confirm = () => {
     refRBSheet3.current.open()
   }
+  const cancleorder =() =>{
+    props.navigation.navigate('OrdercancelReorder')
+  }
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: '#1C1D22' }}>
       <View style={{ flex: 1 }}>
@@ -125,7 +128,7 @@ const Cancelorder = (props) => {
               <Text style={styles.tips}>Do not show again for 7 days</Text>
 
           </View>
-          <WholeButton1 Label={'Cancel order'} Action={() => { }} styles={{ width: width * 0.9, padding: '3%', }} />
+          <WholeButton1 Label={'Cancel order'} Action={cancleorder} styles={{ width: width * 0.9, padding: '3%', }} />
 
 
 
