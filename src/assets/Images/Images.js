@@ -114,7 +114,11 @@ export const IMAGEPATH = {
   Online:require('../Images/P2PFlowImages/Online.png'),
   extramark:require('../Images/P2PFlowImages/extramark.png'),
   Txncopy:require('../Images/P2PFlowImages/Txncopy.png'),
-  filter:require('../Images/P2PFlowImages/filter.png')
+  filter:require('../Images/P2PFlowImages/filter.png'),
+  bank:require('../Images/P2PFlowImages/bank.png'),
+  editext:require('../Images/P2PFlowImages/edit-text.png'),
+  verified:require('../Images/P2PFlowImages/verified.png')
+
 
 
 

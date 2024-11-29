@@ -129,6 +129,26 @@ export const ValidateFullname = (fullname) => {
   }
 };
 
+export const ValidateFullname2 = (fullname1) => {
+  if (fullname1 !== '') {
+    if (fullname1.length >= 2 && name_REGEX.test(fullname1)) {
+      // setShowError({ FNameError: false });
+      return '';
+    } else {
+      if (fullname1.length < 2) {
+        // setShowError({ FNameError: true });
+        return ErrorMessages.FullnameError3;
+      } else {
+        // setShowError({ FNameError: true });
+        return ErrorMessages.FullnameError2;
+      }
+    }
+  } else {
+    // setShowError({ FNameError: true });
+    return ErrorMessages.FullnameEmpty5;
+  }
+};
+
 
 export const ValidateFirmemployername = (firm) => {
   if (firm !== '') {
@@ -272,6 +292,35 @@ export const ValidateMobileNo1 = (MobileNumber1) => {
     }
   } else {
     return ErrorMessages.PhoneNoEmpty1;
+  }
+};
+
+
+export const ValidateBankDeposit = (MobileNum) => {
+  if (MobileNum !== '') {
+    const NumberSt = MobileNum.toString(); // Convert to string
+
+    if (PhoneRegex.test(NumberSt)) {
+      return '';
+    } else {
+      return ErrorMessages.BankDepositError;
+    }
+  } else {
+    return ErrorMessages.BankDepositEmpty1;
+  }
+};
+
+export const ValidateAccountnumber = (bankNum) => {
+  if (bankNum !== '') {
+    const NumberStrr = bankNum.toString(); // Convert to string
+
+    if (PhoneRegex.test(NumberStrr)) {
+      return '';
+    } else {
+      return ErrorMessages.BankAccountError;
+    }
+  } else {
+    return ErrorMessages.BankAccountEmpty1;
   }
 };
 
