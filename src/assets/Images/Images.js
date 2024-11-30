@@ -117,7 +117,12 @@ export const IMAGEPATH = {
   filter:require('../Images/P2PFlowImages/filter.png'),
   bank:require('../Images/P2PFlowImages/bank.png'),
   editext:require('../Images/P2PFlowImages/edit-text.png'),
-  verified:require('../Images/P2PFlowImages/verified.png')
+  verified:require('../Images/P2PFlowImages/verified.png'),
+  GoogleAu:require('../Images/GoogleAuthenticator/GoogleAu.png'),
+  Lamp:require('../Images/GoogleAuthenticator/lamp.png'),
+  Trash:require('../Images/GoogleAuthenticator/trash.png'),
+  Coloring:require('../Images/GoogleAuthenticator/coloring.png'),
+  india:require('../Images/GoogleAuthenticator/india.png'),
 
 
 

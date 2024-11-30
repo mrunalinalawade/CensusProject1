@@ -83,6 +83,16 @@ import EmptyTradingPassword from '../Screens/2FASecurityFlow/EmptyTradingPasswor
 import AddTradingPassword from '../Screens/2FASecurityFlow/AddTradingPassword';
 import ChangetradingpasswordSuccessfully from '../Screens/2FASecurityFlow/ChangetradingpasswordSuccessfully';
 import TradingEnterOtp from '../Screens/2FASecurityFlow/TradingEnterOtp';
+import AddAuthenticatorAppverification from '../Screens/2FASecurityFlow/GoogleAuthenticator/AddAuthenticatorAppverification';
+import Set2FAAuthenticator from '../Screens/2FASecurityFlow/GoogleAuthenticator/Set2FAAuthenticator';
+import EnableAuthenticator from '../Screens/2FASecurityFlow/GoogleAuthenticator/EnableAuthenticator';
+import VerifyAuthenticator from '../Screens/2FASecurityFlow/GoogleAuthenticator/VerifyAuthenticator';
+import EmptyEmailVerification from '../Screens/2FASecurityFlow/Email2FA/EmptyEmailVerification';
+import SetEmailVerification from '../Screens/2FASecurityFlow/Email2FA/SetEmailVerification';
+import VerifyEmailVerificator from '../Screens/2FASecurityFlow/Email2FA/VerifyEmailVerificator';
+import AddPhoneverification from '../Screens/2FASecurityFlow/Phone2FA/AddPhoneverification';
+import SetPhonenumberverification from '../Screens/2FASecurityFlow/Phone2FA/SetPhonenumberverification';
+import VerifyPhoneNumber from '../Screens/2FASecurityFlow/Phone2FA/VerifyPhoneNumber';
 
 
 const Tab = createBottomTabNavigator();
@@ -91,7 +101,7 @@ const RouteNavigation = () => {
   return (
     <Stack.Navigator
       screenOptions={{ headerShown: false }}
-      initialRouteName="TradingEnterOtp">
+      initialRouteName="VerifyPhoneNumber">
       {/* -----------------------Splash----------------------------- */}
       <Stack.Screen name="Splash" component={Splash} />
       <Stack.Screen name="Viewdata" component={Viewdata} />
@@ -215,6 +225,20 @@ const RouteNavigation = () => {
       <Stack.Screen name="AddTradingPassword" component={AddTradingPassword} />
       <Stack.Screen name="ChangetradingpasswordSuccessfully" component={ChangetradingpasswordSuccessfully} />
       <Stack.Screen name="TradingEnterOtp" component={TradingEnterOtp} />
+      <Stack.Screen name="AddAuthenticatorAppverification" component={AddAuthenticatorAppverification} />
+      <Stack.Screen name="Set2FAAuthenticator" component={Set2FAAuthenticator} />
+      <Stack.Screen name="EnableAuthenticator" component={EnableAuthenticator} />
+      <Stack.Screen name="VerifyAuthenticator" component={VerifyAuthenticator} />
+      <Stack.Screen name="EmptyEmailVerification" component={EmptyEmailVerification} />
+      <Stack.Screen name="SetEmailVerification" component={SetEmailVerification} />
+      <Stack.Screen name="VerifyEmailVerificator" component={VerifyEmailVerificator} />
+      <Stack.Screen name="AddPhoneverification" component={AddPhoneverification} />
+      <Stack.Screen name="SetPhonenumberverification" component={SetPhonenumberverification} />
+      <Stack.Screen name="VerifyPhoneNumber" component={VerifyPhoneNumber} />
+      
+      
+      
+      
 
 
 

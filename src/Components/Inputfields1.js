@@ -103,7 +103,7 @@ const Inputfield1 = (props) => {
               styles.InputFieldStyle,
               {
                 width:
-                  props.PasswordField || props.CorrectEmailTrue || props.vector || props.Network || props.withamount || props.Rigtharrow || props.scann ||props.SendCode  ? '88%' : props.PhoneField ? '71%' : '99%',
+                  props.PasswordField || props.CorrectEmailTrue || props.vector || props.Network || props.withamount || props.Rigtharrow || props.scann ||props.SendCode || props.GetCode ? '88%' : props.PhoneField ? '71%' : '99%',
                 backgroundColor: props.backgroundColor,
                 paddingVertical: '4.2%',
                 paddingLeft: props.PhoneField ? null : '3.2%',
@@ -178,6 +178,11 @@ const Inputfield1 = (props) => {
                       <Text style={[styles.account1,{color:'#768C5C'}]}>Send Code</Text>
                      
                     </TouchableOpacity>):
+                    props.GetCode ? (
+                      <TouchableOpacity style={{right: '90%'}} onPress={props.SendCodePress}>
+                        <Text style={[styles.account1,{color:'#768C5C'}]}>Get Code</Text>
+                       
+                      </TouchableOpacity>):
 
 
 
