@@ -123,6 +123,14 @@ export const IMAGEPATH = {
   Trash:require('../Images/GoogleAuthenticator/trash.png'),
   Coloring:require('../Images/GoogleAuthenticator/coloring.png'),
   india:require('../Images/GoogleAuthenticator/india.png'),
+  Authentcate:require('../Images/GoogleAuthenticator/Authentcate.png'),
+  phoneapp:require('../Images/GoogleAuthenticator/phoneapp.png'),
+  setting:require('../Images/GoogleAuthenticator/setting.png'),
+  rightcircle:require('../Images/GoogleAuthenticator/rightcircle.png'),
+  loginPassword:require('../Images/GoogleAuthenticator/loginPassword.png'),
+  paymentmethod:require('../Images/GoogleAuthenticator/paymentmethod.png'),
+  deleteaccount:require('../Images/GoogleAuthenticator/deleteaccount.png'),
+  stepverification:require('../Images/GoogleAuthenticator/stepverification.png'),
 
 
 

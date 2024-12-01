@@ -1,14 +1,15 @@
 import { StyleSheet, Text, View, SafeAreaView, Dimensions, ScrollView, TouchableOpacity, FlatList, Image, TextInput } from 'react-native'
 import React, { useRef, useState } from 'react'
 
-import Header from '../../../Components/Header'
-import { IMAGEPATH, VECTOR_ICONS } from '../../../assets/Theme';
 import RBSheet from 'react-native-raw-bottom-sheet';
-import WholeButton1 from '../../../Components/WholeButton1';
+
+import Header from '../../Components/Header';
+import WholeButton1 from '../../Components/WholeButton1';
+import { IMAGEPATH, VECTOR_ICONS } from '../../assets/Theme';
 
 
 const { height, width } = Dimensions.get('window');
-const Transactionhistoryscreen = (props) => {
+const Withdrawalhistory = (props) => {
     const refRBSheet1 = useRef();
     const refRBSheet = useRef();
     const [selectedTab, setSelectedTab] = useState('Deposits');
@@ -83,39 +84,12 @@ const Transactionhistoryscreen = (props) => {
         <SafeAreaView style={{ flex: 1, backgroundColor: '#1C1D22' }}>
 
             <View style={styles.mainviewStyle}>
-                <Header
-                    textlabel={'Transaction history'}
-                    navigate={() => props.navigation.goBack()}
-                />
-
-                <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{}}>
-                    <View style={styles.tabContainer}>
-                        {tabs.map((tab) => (
-                            <TouchableOpacity
-                                key={tab}
-                                onPress={() => setSelectedTab(tab)}
-                                style={styles.tabButton}
-                            >
-                                <Text
-                                    style={[
-                                        styles.tabText,
-                                        selectedTab === tab && styles.selectedTabText,
-                                    ]}
-                                >
-                                    {tab}
-                                </Text>
-                                {selectedTab === tab && <View style={styles.underline} />}
-                            </TouchableOpacity>
-                        ))}
-                    </View>
-                </ScrollView>
-
-
+             
                 <View style={styles.viewStyle}>
                     <View style={{ flexDirection: 'row', alignItems: 'center', width: width * 0.52, }}>
                         <TouchableOpacity onPress={() => { setselected('Crypto') }}
-                            style={[styles.text1, selected === 'Crypto' ? { backgroundColor: 'rgba(118, 140, 92, 0.1)' } : null, { padding: '6%', alignItems: 'center', width: width * 0.23, borderRadius: 9 }]}>
-                            <Text style={[styles.account1, { color: selected === 'Crypto' ? '#768C5C' : 'rgba(255, 255, 255, 0.6)' }]}>Crypto</Text></TouchableOpacity>
+                            style={[styles.text1, selected === 'Crypto' ? { backgroundColor: 'rgba(118, 140, 92, 0.1)' } : null, { padding: '6%', alignItems: 'center', width: width * 0.36, borderRadius: 9 }]}>
+                            <Text style={[styles.account1, { color: selected === 'Crypto' ? '#768C5C' : 'rgba(255, 255, 255, 0.6)' }]}>Crypto address</Text></TouchableOpacity>
                         <TouchableOpacity onPress={() => { setselected('Cash') }} style={[styles.text1, selected === 'Cash' ? { backgroundColor: 'rgba(118, 140, 92, 0.1)' } : null, { padding: '6%', alignItems: 'center', width: width * 0.23, borderRadius: 9 }]}>
                             <Text style={[styles.account1, { color: selected === 'Cash' ? '#768C5C' : 'rgba(255, 255, 255, 0.6)' }]}>Cash</Text></TouchableOpacity>
                     </View>
@@ -201,18 +175,23 @@ const Transactionhistoryscreen = (props) => {
                     <Text style={[styles.account, { alignSelf: 'flex-start', }]}>Status</Text>
 
                     <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: width * 0.8, alignSelf: 'flex-start', marginVertical: '2%' }}>
-                        <TouchableOpacity onPress={() => { setSelected1('All') }} style={[styles.inputStyle1, { backgroundColor: selected1 === 'All' ? 'rgba(118, 140, 92, 0.1)' : 'rgba(37, 38, 45, 1)' }]}>
+                        <TouchableOpacity onPress={() => { setSelected1('All') }} style={[styles.inputStyle1, { backgroundColor: selected1 === 'All' ? 'rgba(118, 140, 92, 0.1)' : null,borderWidth:1,borderColor:'#25262D',}]}>
                             <Text style={[styles.exStyle, selected1 === 'All' ? { color: 'rgba(118, 140, 92, 1)' } : { color: 'rgba(255, 255, 255, 0.6)' }]}>All</Text></TouchableOpacity>
 
                         <TouchableOpacity onPress={() => { setSelected1('Processing') }}
-                            style={[styles.inputStyle1, { backgroundColor: selected1 === 'Processing' ? 'rgba(118, 140, 92, 0.1)' : 'rgba(37, 38, 45, 1)' }]}>
+                            style={[styles.inputStyle1, { backgroundColor: selected1 === 'Processing' ? 'rgba(118, 140, 92, 0.1)' : null,borderWidth:1,borderColor:'#25262D', }]}>
                             <Text style={[styles.exStyle, selected1 === 'Processing' ? { color: 'rgba(118, 140, 92, 1)' } : { color: 'rgba(255, 255, 255, 0.6)' }]}>Processing</Text></TouchableOpacity>
 
 
-                        <TouchableOpacity onPress={() => { setSelected1('Completed') }} style={[styles.inputStyle1, { backgroundColor: selected1 === 'Completed' ? 'rgba(118, 140, 92, 0.1)' : 'rgba(37, 38, 45, 1)' }]}>
+                        <TouchableOpacity onPress={() => { setSelected1('Completed') }} style={[styles.inputStyle1, { backgroundColor: selected1 === 'Completed' ? 'rgba(118, 140, 92, 0.1)' : null,borderWidth:1,borderColor:'#25262D', }]}>
                             <Text style={[styles.exStyle, selected1 === 'Completed' ? { color: 'rgba(118, 140, 92, 1)' } : { color: 'rgba(255, 255, 255, 0.6)' }]}>Completed</Text></TouchableOpacity>
 
                     </View>
+                    <TouchableOpacity onPress={() => { setSelected1('Failure') }} style={[styles.inputStyle1, { backgroundColor: selected1 === 'Failure' ? 'rgba(118, 140, 92, 0.1)' :null,borderWidth:1,borderColor:'#25262D',alignSelf:'flex-start',marginTop:'1%'}]}>
+                    <Text style={[styles.exStyle, selected1 === 'Failure' ? { color: 'rgba(118, 140, 92, 1)' } : { color: 'rgba(255, 255, 255, 0.6)' }]}>Failure</Text>
+                        </TouchableOpacity>
+
+
                     <Text style={[styles.account, { alignSelf: 'flex-start' }]}>Date</Text>
 
                     <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: width * 0.9, alignSelf: 'flex-start', marginVertical: '2%' }}>
@@ -335,7 +314,7 @@ const Transactionhistoryscreen = (props) => {
     )
 }
 
-export default Transactionhistoryscreen
+export default Withdrawalhistory
 
 const styles = StyleSheet.create({
     mainviewStyle: {
@@ -414,7 +393,7 @@ const styles = StyleSheet.create({
     number: {
         fontSize: 14,
         fontWeight: '500',
-        color: '#42C9A1',
+        color: '#FF6666',
 
     },
     complte: {
@@ -445,7 +424,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         // width: width * 0.25,
 
-        padding: '6%',
+        padding: '5%',
 
         borderRadius: 5
 

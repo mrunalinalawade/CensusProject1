@@ -93,6 +93,8 @@ import VerifyEmailVerificator from '../Screens/2FASecurityFlow/Email2FA/VerifyEm
 import AddPhoneverification from '../Screens/2FASecurityFlow/Phone2FA/AddPhoneverification';
 import SetPhonenumberverification from '../Screens/2FASecurityFlow/Phone2FA/SetPhonenumberverification';
 import VerifyPhoneNumber from '../Screens/2FASecurityFlow/Phone2FA/VerifyPhoneNumber';
+import Security from '../Screens/2FASecurityFlow/Security';
+import Withdrawalhistory from '../Screens/TransactionhistoryFlow/Withdrawalhistory';
 
 
 const Tab = createBottomTabNavigator();
@@ -101,7 +103,7 @@ const RouteNavigation = () => {
   return (
     <Stack.Navigator
       screenOptions={{ headerShown: false }}
-      initialRouteName="VerifyPhoneNumber">
+      initialRouteName="Withdrawalhistory">
       {/* -----------------------Splash----------------------------- */}
       <Stack.Screen name="Splash" component={Splash} />
       <Stack.Screen name="Viewdata" component={Viewdata} />
@@ -191,6 +193,8 @@ const RouteNavigation = () => {
       {/* --------------------------- Transaction history flow---------------------*/}
       <Stack.Screen name="Transactionhistoryscreen" component={Transactionhistoryscreen} />
       <Stack.Screen name="Deposithistory" component={Deposithistory} />
+      <Stack.Screen name="Withdrawalhistory" component={Withdrawalhistory} />
+      
 
       {/* --------------------------- Settings flow---------------------*/}
       <Stack.Screen name="AboutUs" component={AboutUs} />
@@ -235,6 +239,9 @@ const RouteNavigation = () => {
       <Stack.Screen name="AddPhoneverification" component={AddPhoneverification} />
       <Stack.Screen name="SetPhonenumberverification" component={SetPhonenumberverification} />
       <Stack.Screen name="VerifyPhoneNumber" component={VerifyPhoneNumber} />
+      <Stack.Screen name="Security" component={Security} />
+
+      
       
       
       
