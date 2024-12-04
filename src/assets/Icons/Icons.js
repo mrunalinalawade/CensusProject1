@@ -11,6 +11,7 @@ import Feather from "react-native-vector-icons/Feather";
 import EvilIcons from "react-native-vector-icons/EvilIcons";
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 import FontAwesome6 from "react-native-vector-icons/FontAwesome6";
+import Fontisto from "react-native-vector-icons/Fontisto"
 
 
 
@@ -27,6 +28,7 @@ export const VECTOR_ICONS  = {
     EvilIcons: EvilIcons,
     FontAwesome5:FontAwesome5,
     FontAwesome6:FontAwesome6,
+    Fontisto:Fontisto,
  
 
 }

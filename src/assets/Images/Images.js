@@ -1,3 +1,5 @@
+import Home from '../../Screens/HomeFlow/Home';
+
 export const IMAGEPATH = {
   // ------------------ splash ------------------
   Logo: require('../Images/Logo.jpeg'),
@@ -96,6 +98,7 @@ export const IMAGEPATH = {
   Market:require('../Images/BottomTabbarImages/Market.png'),
   Assets:require('../Images/BottomTabbarImages/Assets.png'),
   Trade:require('../Images/BottomTabbarImages/Trade.png'),
+  Home:require('../Images/BottomTabbarImages/Home.png'),
 
   Indicator:require('../Images/P2PFlowImages/Indicator.png'),
   Google:require('../Images/P2PFlowImages/Google.png'),
@@ -131,6 +134,15 @@ export const IMAGEPATH = {
   paymentmethod:require('../Images/GoogleAuthenticator/paymentmethod.png'),
   deleteaccount:require('../Images/GoogleAuthenticator/deleteaccount.png'),
   stepverification:require('../Images/GoogleAuthenticator/stepverification.png'),
+  onlinesupport:require('../Images/ProfileFlowImg/onlinesupport.png'),
+  starsun:require('../Images/ProfileFlowImg/starsun.png'),
+  verifiedred:require('../Images/ProfileFlowImg/verifiedred.png'),
+  Reds:require('../Images/ProfileFlowImg/Reds.png'),
+  eye:require('../Images/ProfileFlowImg/eye.png'),
+  Convert:require('../Images/AssetFlowImages/Convert.png'),
+  Arrowwhite:require('../Images/AssetFlowImages/Arrowwhite.png')
+
+
 
 
 

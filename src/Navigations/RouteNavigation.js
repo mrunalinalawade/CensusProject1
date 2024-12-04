@@ -95,6 +95,15 @@ import SetPhonenumberverification from '../Screens/2FASecurityFlow/Phone2FA/SetP
 import VerifyPhoneNumber from '../Screens/2FASecurityFlow/Phone2FA/VerifyPhoneNumber';
 import Security from '../Screens/2FASecurityFlow/Security';
 import Withdrawalhistory from '../Screens/TransactionhistoryFlow/Withdrawalhistory';
+import P2PHistory from '../Screens/TransactionhistoryFlow/P2PHistory';
+import Tradehistory from '../Screens/TransactionhistoryFlow/Tradehistory';
+import TransferHistory from '../Screens/TransactionhistoryFlow/TransferHistory';
+import Profile from '../Screens/Profile/Profile';
+import Deleteaccount from '../Screens/Deleteaccount/Deleteaccount';
+import KycIdentityverification from '../Screens/Verificationstatus/KycIdentityverification';
+import Assets from '../Screens/HomeFlow/Assets';
+import USDTBalance from '../Screens/HomeFlow/NavbarAssetsFlow/USDTBalance';
+import Info from '../Screens/HomeFlow/NavbarMarketflow/Info';
 
 
 const Tab = createBottomTabNavigator();
@@ -103,7 +112,7 @@ const RouteNavigation = () => {
   return (
     <Stack.Navigator
       screenOptions={{ headerShown: false }}
-      initialRouteName="Withdrawalhistory">
+      initialRouteName="Login">
       {/* -----------------------Splash----------------------------- */}
       <Stack.Screen name="Splash" component={Splash} />
       <Stack.Screen name="Viewdata" component={Viewdata} />
@@ -132,6 +141,12 @@ const RouteNavigation = () => {
       {/* -----------------------Home Flow----------------------------- */}
 
       <Stack.Screen name="Home" component={Home} />
+      <Stack.Screen name="Assets" component={Assets} />
+      <Stack.Screen name="USDTBalance" component={USDTBalance} />
+      <Stack.Screen name="Info" component={Info} />
+      
+
+
       <Stack.Screen name="WithdrawSearchcoin" component={WithdrawSearchcoin} />
       <Stack.Screen name="BottomTabbar" component={BottomTabbar} />
       <Stack.Screen name="Sendviacryptonetwork" component={Sendviacryptonetwork} />
@@ -146,7 +161,9 @@ const RouteNavigation = () => {
 
       {/* ---------------------------Saved addressess / Add recipient ---------------------*/}
       <Stack.Screen name="Addnewaddress" component={Addnewaddress} />
-
+      <Stack.Screen name="Profile" component={Profile} />
+      <Stack.Screen name="Deleteaccount" component={Deleteaccount} />
+      <Stack.Screen name="KycIdentityverification" component={KycIdentityverification} />
 
       {/* --------------------------- AddfundCTA ---------------------*/}
       <Stack.Screen name="Addfundoptions" component={Addfundoptions} />
@@ -194,6 +211,10 @@ const RouteNavigation = () => {
       <Stack.Screen name="Transactionhistoryscreen" component={Transactionhistoryscreen} />
       <Stack.Screen name="Deposithistory" component={Deposithistory} />
       <Stack.Screen name="Withdrawalhistory" component={Withdrawalhistory} />
+      <Stack.Screen name="P2PHistory" component={P2PHistory} />
+      <Stack.Screen name="Tradehistory" component={Tradehistory} />
+      <Stack.Screen name="TransferHistory" component={TransferHistory} />
+      
       
 
       {/* --------------------------- Settings flow---------------------*/}

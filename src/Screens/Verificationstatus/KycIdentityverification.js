@@ -1,3 +1,4 @@
+
 import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity, Dimensions, Image, ScrollView, Modal } from 'react-native'
 import React, { useRef, useState } from 'react'
 import { IMAGEPATH, VECTOR_ICONS } from '../../assets/Theme'
@@ -7,7 +8,7 @@ import Header from '../../Components/Header'
 import RBSheet from "react-native-raw-bottom-sheet";
 
 const { height, width } = Dimensions.get('window');
-const KYCIdentityverification = (props) => {
+const KycIdentityverification = (props) => {
 
     const refRBSheet1 = useRef();
     return (
@@ -28,17 +29,31 @@ const KYCIdentityverification = (props) => {
                         <Text style={styles.account}>Standard Identity verification</Text>
                         <Text style={[styles.account1]}>It only takes 3-5 minutes to verify your account.Unlock all trading permissions and enjoy exclusive newcomer benefits of to 10,800 USDT!</Text>
 
-                        {/* <WholeButton1 Label={'Get Verified'} Action={() => { props.navigation.navigate('Startverification') }} styles={{ width: width * 0.8, }} />
-                        <T */}
+                        <WholeButton1 Label={'Get Verified'} Action={() => { props.navigation.navigate('Startverification') }} styles={{ width: width * 0.8, }} />
+                        
 
-                        <TouchableOpacity onPress={() => { props.navigation.navigate('Startverification') }} style={{ width: width * 0.8, borderRadius: 5, alignItems: 'center', flexDirection: 'row',backgroundColor:'#768C5C',justifyContent:'center',padding:'4%',marginVertical:'4%' }}>
-                            <Text style={styles.textStyle64}>Get Verified  </Text>
-                             <Image source={IMAGEPATH.Arrowwhite} style={{width:24,height:17}} />
-                        </TouchableOpacity>
+                        {/* <View style={{ backgroundColor:'rgba(255, 145, 0, 0.1)', padding: '4%', width: width * 0.812, alignSelf: 'center', borderRadius: 8, marginTop: '5%' }}>
+                        <View style={{ flexDirection: 'row', justifyContent: 'space-between',alignSelf:'center' ,marginVertical:'3%'}}>
+                            <VECTOR_ICONS.Fontisto name={'clock'}  color={'#FF9100'} size={15} />
+                            <Text style={{fontSize:12,fontWeight:'400',color:'#FF9100',marginLeft:'3%'}}>Verification in progress, check back in a bit</Text>
+                        </View>
+                    </View>  */}
+
+                        {/* <View style={{ backgroundColor: 'rgba(255, 102, 102, 0.1)', padding: '4%', width: width * 0.812, alignSelf: 'center', borderRadius: 8, marginTop: '5%' }}>
+                            <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignSelf: 'center', marginVertical: '3%' }}>
+                                <VECTOR_ICONS.Fontisto name={'clock'} color={'#FF6666'} size={15} />
+                                <Text style={{ fontSize: 12, fontWeight: '400', color: '#FF6666', marginLeft: '3%', flexDirection: 'row', alignItems: 'center' }}>Verification failed<TouchableOpacity>
+                                    <Text style={{ fontSize: 12, fontWeight: '400', color: '#FF6666', textDecorationLine: 'underline', marginTop: '8%' }}>See why</Text></TouchableOpacity></Text>
+                            </View>
+                        </View>
+                       <WholeButton1 Label={'Try again'} Action={() => { props.navigation.navigate('Startverification') }} styles={{ width: width * 0.8, }} />
+                          */}
 
 
-                        <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center',marginVertical:'3%'}}>
-                            <Image source={IMAGEPATH.Vector1} style={{ width: 10, height: 12 }} />
+
+
+                        <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2%', marginTop: '2%' }}>
+                            <Image source={IMAGEPATH.Vector1} />
                             <Text style={styles.account2}>Your information on BitTrans is encrypted</Text>
                         </View>
                     </View>
@@ -131,65 +146,12 @@ const KYCIdentityverification = (props) => {
 
 
 
-            <RBSheet
-                ref={refRBSheet1}
-                closeOnDragDown={true}
-                closeOnPressMask={true}
-                height={570}
-                animationType={"fade"}
-                customStyles={{
-                    wrapper: {
-                        backgroundColor: "rgba(0, 0, 0, 0.4)",
-                    },
-                    draggableIcon: {
-                        backgroundColor: '#fff',
-                        width: width * 0.2,
-                        height: 100
-                    },
-                    container: {
-                        borderTopEndRadius: 30,
-                        borderTopStartRadius: 30,
-                        backgroundColor: "#1C1D22",
-                    },
-                }}
-            >
-                <View style={{ marginBottom: '5%', flex: 1, width: width * 0.9, alignSelf: 'center', alignItems: 'center' }}>
-
-                    <Image source={IMAGEPATH.Cancel} style={{ width: 60, height: 60, marginTop: '10%' }} />
-                    <Text style={[styles.logintext1, { textAlign: 'center' }]}>Didn’t receive the SMS verification code?</Text>
-                    <Text style={[styles.signStyle1, { textAlign: 'center', width: width * 0.75, marginTop: '6%', }]}>Make sure that the information you provide is true, accurate, and clear before trying again.</Text>
-
-                    <View style={{ flexDirection: 'row', marginTop: '7%', alignSelf: 'flex-start' }}>
-                        <Text style={styles.signStyle1}>1.</Text>
-                        <Text style={[styles.signStyle1, { alignSelf: 'flex-start', }]}> The personal information you provide must match that  shown on your ID.</Text>
-                    </View>
-                    <View style={{ flexDirection: 'row', marginTop: '2%', alignSelf: 'flex-start' }}>
-                        <Text style={styles.signStyle1}>2.</Text>
-                        <Text style={[styles.signStyle1, { alignSelf: 'flex-start' }]}> Make sure that your entire ID is clearly visible.</Text>
-                    </View>
-                    <View style={{ flexDirection: 'row', marginTop: '2%', alignSelf: 'flex-start' }}>
-                        <Text style={styles.signStyle1}>3.</Text>
-                        <Text style={[styles.signStyle1, { alignSelf: 'flex-start' }]}> Only passports, driver’s licenses, and ID cards can beused for verification.</Text>
-                    </View>
-                    <View style={{ flexDirection: 'row', marginTop: '2%', alignSelf: 'flex-start' }}>
-                        <Text style={styles.signStyle1}>4.</Text>
-                        <Text style={[styles.signStyle1, { alignSelf: 'flex-start' }]}> You must be at least 18 years old, and your ID must be valid and cannot be expired.</Text>
-                    </View>
-
-                    <WholeButton1 Label={'Try again'} Action={() => { props.navigation.navigate('Startverification') }} styles={{ width: width * 0.9, }} />
-
-                    <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width: width * 0.9 }}>
-                        <Image source={IMAGEPATH.Telegram} style={{ height: 17, width: 17, }} />
-                        <Text style={[styles.account3, { width: width * .799 }]}>Having trouble your account? Join our Telegram group and get help from our official customer support team</Text>
-                    </View>
-                </View>
-            </RBSheet>
 
         </SafeAreaView>
     )
 }
 
-export default KYCIdentityverification
+export default KycIdentityverification
 
 const styles = StyleSheet.create({
     mainviewStyle: {
@@ -227,9 +189,9 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         width: width * 0.9,
         backgroundColor: 'rgba(255, 255, 255, 0.06)',
-        padding: '2%',
+        padding: '4%',
         marginTop: '7%',
-        borderRadius: 7
+        borderRadius: 4
 
     },
     account: {
@@ -253,7 +215,7 @@ const styles = StyleSheet.create({
         fontWeight: '400',
         color: 'rgba(255, 255, 255, 0.6)',
         lineHeight: 20,
-        marginLeft: '2%',
+        marginLeft: '3%',
 
 
     },
@@ -308,9 +270,4 @@ const styles = StyleSheet.create({
 
 
     },
-    textStyle64: {
-        fontSize: 14,
-        fontWeight: '500',
-        color: '#fff',
-    }
 })

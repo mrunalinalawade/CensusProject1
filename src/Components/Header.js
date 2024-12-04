@@ -109,6 +109,14 @@ const Header = (props) => {
                  )
             }
 
+            {
+
+                props.sun && (
+                    <TouchableOpacity><Image source={IMAGEPATH.starsun} style={{width:30,height:30}} /></TouchableOpacity>
+            
+                )
+            }
+
 
         </View>
     );

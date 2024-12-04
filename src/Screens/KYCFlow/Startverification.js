@@ -60,14 +60,14 @@ const Startverification = (props) => {
                     </View>
 
 
-                    <View style={{ width: '25%', flexDirection: 'row', height: 50, alignItems: 'center', justifyContent: 'center', marginRight: '6%' ,alignSelf:'center'}} >
+                    <View style={{ width: '25%', flexDirection: 'row', height: 50, alignItems: 'center', justifyContent: 'center' ,alignSelf:'center'}} >
               <TouchableOpacity
                 onPress={() => setShow(true)}
                 style={{flexDirection:'row',alignItems:'center', backgroundColor:'rgba(255, 255, 255, 0.06)',width:width*0.9,alignSelf:'center',padding:'7%',borderRadius:8}}
               >
                 <Text style={{
                   color: 'rgba(255, 255, 255, 0.4)',
-                  fontSize: 25,
+                  fontSize: 14,
                   fontWeight: '400',
                   marginLeft:'4%'
                 }}>
