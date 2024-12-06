@@ -107,10 +107,11 @@ const P2PMainPage = (props) => {
                     </TouchableOpacity>
 
                 </View>
-                <View style={styles.viewStyle}>
+                <View style={[styles.viewStyle,{marginTop: '9%',}]}>
                     <View style={[styles.viewStyle, {
                         width: width * 0.67,
                         marginTop: '0%',
+                        
                     }]}>
                         <View style={[styles.allitemStyle, { width: width * 0.25, }]}>
                             <Image source={IMAGEPATH.Tether} style={{ width: 30, height: 30 }} />
@@ -432,7 +433,7 @@ const styles = StyleSheet.create({
     viewStyle: {
         flexDirection: 'row',
         justifyContent: 'space-between', alignItems: 'center', width: width * 0.9,
-        marginTop: '13%',
+        marginTop: '11%',
         alignSelf: 'center'
 
     },
@@ -458,8 +459,8 @@ const styles = StyleSheet.create({
         fontWeight: '400',
 
     },
-    text: { borderWidth: 1, borderColor: '#343434', padding: '2%', width: width * 0.2, alignItems: 'center', borderRadius: 5, justifyContent: 'space-evenly', flexDirection: 'row' },
-    text1: { padding: '6%', width: width * 0.17, alignItems: 'center', borderRadius: 9, justifyContent: 'space-evenly', flexDirection: 'row', marginVertical: '2%' },
+    text: { borderWidth: 1, borderColor: '#343434', padding: '1%', width: width * 0.2, alignItems: 'center', borderRadius: 5, justifyContent: 'space-evenly', flexDirection: 'row' },
+    text1: { padding: '4%', width: width * 0.17, alignItems: 'center', borderRadius: 9, justifyContent: 'space-evenly', flexDirection: 'row', marginVertical: '2%' },
     allitemStyle: {
         flexDirection: 'row',
         alignItems: 'center',

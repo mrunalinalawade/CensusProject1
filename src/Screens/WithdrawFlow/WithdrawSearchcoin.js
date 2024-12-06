@@ -160,7 +160,7 @@ const WithdrawSearchcoin = (props) => {
         <View style={{ marginBottom: '5%', flex: 1, width: width * 0.9, alignSelf: 'center', alignItems: 'center' }}>
           <Text style={styles.logintext1}>Withdraw</Text>
           <TouchableOpacity onPress={Sendcrpto} style={{flexDirection:'row',marginTop:'9%',justifyContent:'space-between',alignItems:'center',width: width * 0.9,borderWidth:1,borderColor:'rgba(75, 77, 86, 1)',borderRadius:5,padding:'4%',marginVertical:'3%'}}>
-          <Image source={IMAGEPATH.Deposit} style={{ width: 30, height: 30 }} />
+          <Image source={IMAGEPATH.Deposit} style={{ width:28, height: 30  }} />
             <View>
             <Text style={styles.crptoStyle}>Send via crypto network</Text>
             <Text style={styles.signStyle1}>Send to a known crypto address via crypto network</Text>
@@ -170,7 +170,7 @@ const WithdrawSearchcoin = (props) => {
           </TouchableOpacity>
 
           <View  style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center',width: width * 0.9,borderWidth:1,borderColor:'rgba(75, 77, 86, 1)',borderRadius:5,padding:'4%',marginVertical:'3%'}}>
-          <Image source={IMAGEPATH.Deposit} style={{ width: 30, height: 30 }} />
+          <Image source={IMAGEPATH.Deposit} style={{ width:28, height: 30  }} />
             <View style={{width:width*0.68}}>
             <Text style={styles.crptoStyle}>Send via email / phone / ID</Text>
             <Text style={styles.signStyle1}>Send to BitTrans user. Easy an instant</Text>

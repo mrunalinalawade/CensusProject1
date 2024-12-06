@@ -78,7 +78,7 @@ const Walletfunding = (props) => {
                 <Text style={styles.textStyle}>Coin</Text>
 
 
-                <TouchableOpacity onPress={() => { }} style={[styles.InputFieldStyle,]}>
+                <TouchableOpacity onPress={() => {props.navigation.navigate('Coindropdown') }} style={[styles.InputFieldStyle,]}>
                     <Text style={styles.PlaceholderStyle}>Minimum 0.00000001</Text>
                     <View style={{ flexDirection: 'row', alignItems: 'center', width: width * 0.19, right: '3%', justifyContent: 'space-between' }}>
                         <Text style={styles.account1}>USDT</Text>

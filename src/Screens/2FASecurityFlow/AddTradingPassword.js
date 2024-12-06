@@ -32,7 +32,7 @@ const AddTradingPassword = (props) => {
                 </View>
 
 
-                <WholeButton1 Label={'Set for 2FA'} Action={() => { props.navigation.naviagte('AddTradingPassword') }} styles={{ width: width * 0.9, marginTop: height * 0.54 }} />
+                <WholeButton1 Label={'Set for 2FA'} Action={() => { props.navigation.navigate('Changetradingpassword') }} styles={{ width: width * 0.9, marginTop: height * 0.54 }} />
             </View>
         </SafeAreaView>
     )

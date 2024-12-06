@@ -6,6 +6,7 @@ import WholeButton1 from '../../Components/WholeButton1';
 import Inputfield1 from '../../Components/Inputfields1';
 import RBSheet from 'react-native-raw-bottom-sheet';
 import FONTS from '../../assets/Fonts';
+import { ValidateFullname } from '../../Components/ValidationConfig/Validations';
 
 
 const { height, width } = Dimensions.get('window');
@@ -54,6 +55,7 @@ const Sendviacryptonetwork = (props) => {
               setFNameError(ValidateFullname(text));
             }
           }}
+          
           ShowError={ShowError.FNameError}
           Error={FNameError} />
         <View style={{ flexDirection: 'row', alignItems: 'center' }}>

@@ -24,9 +24,7 @@ const P2PHistory = (props) => {
 
 
     return (
-        <SafeAreaView style={{ flex: 1, backgroundColor: '#1C1D22' }}>
-
-            <View style={styles.mainviewStyle}>
+    <>
              
                 <View style={styles.viewStyle}>
                     <View style={{ flexDirection: 'row', alignItems: 'center', width: width * 0.52, }}>
@@ -110,7 +108,7 @@ const P2PHistory = (props) => {
 
 
 
-            </View>
+         
 
 
             <RBSheet
@@ -169,9 +167,8 @@ const P2PHistory = (props) => {
                 </View>
             </RBSheet>
 
+            </>
 
-
-        </SafeAreaView>
     )
 }
 

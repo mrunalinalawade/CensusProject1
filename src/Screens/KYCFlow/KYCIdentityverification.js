@@ -28,8 +28,6 @@ const KYCIdentityverification = (props) => {
                         <Text style={styles.account}>Standard Identity verification</Text>
                         <Text style={[styles.account1]}>It only takes 3-5 minutes to verify your account.Unlock all trading permissions and enjoy exclusive newcomer benefits of to 10,800 USDT!</Text>
 
-                        {/* <WholeButton1 Label={'Get Verified'} Action={() => { props.navigation.navigate('Startverification') }} styles={{ width: width * 0.8, }} />
-                        <T */}
 
                         <TouchableOpacity onPress={() => { props.navigation.navigate('Startverification') }} style={{ width: width * 0.8, borderRadius: 5, alignItems: 'center', flexDirection: 'row',backgroundColor:'#768C5C',justifyContent:'center',padding:'4%',marginVertical:'4%' }}>
                             <Text style={styles.textStyle64}>Get Verified  </Text>

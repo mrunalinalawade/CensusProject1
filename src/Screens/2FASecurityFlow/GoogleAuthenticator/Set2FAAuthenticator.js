@@ -44,7 +44,7 @@ const Set2FAAuthenticator = (props) => {
                 </View>
 
 
-                <WholeButton1 Label={'Set for 2FA'} Action={() => { props.navigation.naviagte('AddTradingPassword') }} styles={{ width: width * 0.9, marginTop: height * 0.33 }} />
+                <WholeButton1 Label={'Set for 2FA'} Action={() => { props.navigation.navigate('EnableAuthenticator') }} styles={{ width: width * 0.9, marginTop: height * 0.33 }} />
             </View>
         </SafeAreaView>
     )

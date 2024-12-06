@@ -158,7 +158,7 @@ const Selectcurrency = (props) => {
         </View>
 
 
-        <View style={[styles.USStyle, { marginVertical: '5%', paddingVertical: '4%', }]}>
+        <View style={[styles.USStyle, { marginVertical: '5%', paddingVertical: '3%', }]}>
           <Text style={styles.textStyle1}>USDT</Text>
         </View>
 

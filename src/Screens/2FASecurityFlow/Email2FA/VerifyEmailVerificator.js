@@ -92,7 +92,7 @@ const VerifyEmailVerificator = (props) => {
                     Error={CodeError}
                 />
 
-                <WholeButton1 Label={'Submit'} Action={() => { props.navigation.naviagte('') }} styles={{ width: width * 0.9, marginTop: height * 0.4 }} />
+                <WholeButton1 Label={'Submit'} Action={() => { props.navigation.navigate('Home') }} styles={{ width: width * 0.9, marginTop: height * 0.4 }} />
             </View>
 
         </SafeAreaView>

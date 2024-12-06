@@ -23,8 +23,8 @@ const Addressreveal = (props) => {
             <View style={styles.mainviewStyle}>
                 <Header1
                     label={true}
-                   
-                    navigate4={() => refRBSheet1.current.open()}
+                    navigate={()=>{props.navigation.goBack()}}
+                    // navigate4={() => refRBSheet1.current.open()}
 
                 />
                 <Text style={styles.logintext1}>Deposit USDT</Text>
@@ -131,7 +131,7 @@ const Addressreveal = (props) => {
 
 
 
-                    <WholeButton1 Label={'Okay, Thank you'} Action={() => { }} styles={{ width: width * 0.9, }} />
+                    <WholeButton1 Label={'Okay, Thank you'} Action={() => { refRBSheet1.current.close()  }} styles={{ width: width * 0.9, }} />
 
 
                 </View>

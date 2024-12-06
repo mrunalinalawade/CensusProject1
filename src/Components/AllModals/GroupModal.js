@@ -1,13 +1,14 @@
 
 import { StyleSheet, Text, View, Modal, SafeAreaView, TouchableOpacity, Image, TouchableWithoutFeedback, Dimensions, Platform } from 'react-native'
 import React, { useState } from 'react'
+import { IMAGEPATH, VECTOR_ICONS } from '../../assets/Theme';
 
 
 const { height, width } = Dimensions.get('window');
 const GroupModal = (props) => {
     // const [modalVisible, setModalVisible] = useState(false)
-    const Height1=Platform.OS === 'android' ? height * 0.16 :height * 0.17
-    const Height2=Platform.OS === 'android'  ? height * 0.17 :height * 0.2
+    const Height1 = Platform.OS === 'android' ? height * 0.16 : height * 0.17
+    const Height2 = Platform.OS === 'android' ? height * 0.17 : height * 0.2
     return (
         <View>
             <Modal
@@ -21,7 +22,7 @@ const GroupModal = (props) => {
                 //   setModalVisible(false);
                 // }}
                 style={{
-                    height: Platform.OS === 'android' ? height * 0.05: height * 0.08,
+                    height: Platform.OS === 'android' ? height * 0.05 : height * 0.08,
                 }}
             >
                 <TouchableWithoutFeedback onPress={props?.closeModal}>
@@ -40,7 +41,7 @@ const GroupModal = (props) => {
                     {
                         <View
                             style={{
-                                backgroundColor: '#fff',
+                                backgroundColor:'#1C1D22',
                                 width: "45%",
                                 padding: 10,
                                 marginTop: "10%",
@@ -50,47 +51,50 @@ const GroupModal = (props) => {
                                 flex: 1,
                                 borderColor: '#000',
                                 borderWidth: 1,
-                                
+
                             }}
                         >
 
                             {
-                              
-                                props?.CreateGroup &&(<>
-                                <TouchableOpacity
-                                    onPress={() => {
-                                        props?.Gmember();
 
-                                    }}
-                                    style={{
-                                        flexDirection: "row",
-                                        alignItems: "center",
-                                        marginVertical: 4,
-                                    }}
-                                >
-                                    <Text style={styles.TextStyle_1}>{props?.message}</Text>
-                                </TouchableOpacity>
+                                props?.CreateGroup && (<>
+                                    <TouchableOpacity
+                                        onPress={() => {
+                                            props?.Gmember();
+
+                                        }}
+                                        style={{
+                                            flexDirection: "row",
+                                            alignItems: "center",
+                                            marginVertical: 4,
+                                        }}
+                                    >
+                                         <Image source={IMAGEPATH.Square} style={{ width: 20, height: 20, }} />
+                                        <Text style={styles.TextStyle_1}>Report</Text>
+                                    </TouchableOpacity>
 
 
-<TouchableOpacity
-onPress={() => {
-    props?.Gmember();
+                                    <TouchableOpacity
+                                        onPress={() => {
+                                            props?.Gmember2();
 
-}}
-style={{
-    flexDirection: "row",
-    alignItems: "center",
-    marginVertical: 4,
-}}
->
-<Text style={styles.TextStyle_1}>{props?.message}</Text>
-</TouchableOpacity>
+                                        }}
+                                        style={{
+                                            flexDirection: "row",
+                                            alignItems: "center",
+                                            marginVertical: 4,
+                                            marginTop:'6%'
+                                        }}
+                                    >
+                                        <VECTOR_ICONS.AntDesign name={'search1'} color={'#A4A5A7'} size={20} />
+                                        <Text style={styles.TextStyle_1}>Search</Text>
+                                    </TouchableOpacity>
                                 </>
-                                
 
 
 
-                            )}
+
+                                )}
 
                             {/* {
                                 props?.line &&
@@ -125,8 +129,8 @@ export default GroupModal
 const styles = StyleSheet.create({
     TextStyle_1: {
         // fontFamily: FONT.Regular,
-
-        color: '#000',
+fontWeight:'400',
+        color: 'rgba(255, 255, 255, 0.6)',
         fontSize: 14,
         marginLeft: "8%",
     },

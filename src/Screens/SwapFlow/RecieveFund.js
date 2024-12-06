@@ -13,6 +13,7 @@ const RecieveFund = (props) => {
                 <Header1
                     textlabel={'Receive'}
                     label={true}
+                    navigate={() => props.navigation.goBack()}
                 />
 
                 <Image source={IMAGEPATH.golden} style={{ width: 35, height: 25, alignSelf: 'center', marginTop: '12%' }} />

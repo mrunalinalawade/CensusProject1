@@ -67,7 +67,7 @@ const AdSuccessfullyPosted = (props) => {
 
 
 
-                    <WholeButton1 Label={'Next'} Action={() => { }} styles={{ width: width * 0.9, bottom: '2%' }} />
+                    <WholeButton1 Label={'Next'} Action={() => {props.navigation.navigate('Home') }} styles={{ width: width * 0.9, bottom: '2%' }} />
 
 
 

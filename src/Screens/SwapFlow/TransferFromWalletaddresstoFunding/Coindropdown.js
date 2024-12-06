@@ -108,7 +108,7 @@ const Coindropdown = (props) => {
                         </Text>
                     )}
                     renderItem={(item) => (
-                        <TouchableOpacity style={styles.FlatlistView}>
+                        <TouchableOpacity onPress={()=>{props.navigation.navigate('AddfundpopupRecieve')}} style={styles.FlatlistView}>
                             <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: width * 0.5 }}>
                                 <Image source={item?.item?.img2} style={{ width: 45, height:45 }} />
                                 <View style={styles.TextView}>

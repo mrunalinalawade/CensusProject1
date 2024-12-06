@@ -64,7 +64,7 @@ const BuywiithINR = (props) => {
                 </View>
 
 
-                <View style={styles.FlatlistView}>
+                <TouchableOpacity  onPress={() => { refRBSheet4.current.open() }} style={styles.FlatlistView}>
                     <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: width * 0.4 }}>
                         <Image source={IMAGEPATH.Tether} style={{ width: 45, height: 45 }} />
                         <View style={styles.TextView}>
@@ -79,9 +79,9 @@ const BuywiithINR = (props) => {
 
                     </View>
 
-                </View>
-                <View style={styles.FlatlistView}>
-                    <TouchableOpacity onPress={() => { refRBSheet2.current.open() }} style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: width * 0.4 }}>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => { refRBSheet2.current.open() }}  style={styles.FlatlistView}>
+                    <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: width * 0.4 }}>
                         <Image source={IMAGEPATH.P2Puser} style={{ width: 45, height: 40 }} />
                         <View style={styles.TextView}>
                             <Text style={styles.Text11}>Buy with</Text>
@@ -95,7 +95,7 @@ const BuywiithINR = (props) => {
 
                     </View>
 
-                </View>
+                </TouchableOpacity>
 
 
                 {/* <View style={styles.optionsContainer}>
@@ -266,7 +266,7 @@ const BuywiithINR = (props) => {
                         </View>
                     </View>
 
-                    <WholeButton1 Label={'Confirm'} Action={() => { }} styles={{ width: width * 0.9, marginTop: height * 0.22 }} />
+                    <WholeButton1 Label={'Confirm'} Action={() => { refRBSheet2.current.close()}} styles={{ width: width * 0.9, marginTop: height * 0.22 }} />
 
 
 
@@ -283,7 +283,7 @@ const BuywiithINR = (props) => {
                 ref={refRBSheet4}
                 closeOnDragDown={true}
                 closeOnPressMask={true}
-                height={420}
+                height={460}
                 animationType={"fade"}
                 customStyles={{
                     wrapper: {
@@ -359,7 +359,7 @@ const BuywiithINR = (props) => {
 
                     <View style={{ flexDirection: 'row', marginTop: '6%', justifyContent: 'space-between', alignItems: 'center', width: width * 0.9 }}>
 
-                        <WholeButton1 Label={'Back'} Action={() => { }} styles={{ width: width * 0.43, padding: '3%', backgroundColor: 'rgba(36, 38, 42, 1)', }} />
+                        <WholeButton1 Label={'Back'} Action={() => {refRBSheet4.current.close()}} styles={{ width: width * 0.43, padding: '3%', backgroundColor: 'rgba(36, 38, 42, 1)', }} />
                         <WholeButton1 Label={'Refresh in 26s'} Action={() => { }} styles={{ width: width * 0.43, padding: '3%', }} />
                     </View>
 

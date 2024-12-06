@@ -99,6 +99,7 @@ const Inputfield1 = (props) => {
             placeholderTextColor={'rgba(255, 255, 255, 0.4)'}
             autoCapitalize="none"
             style={[
+              props.textinputStyle,
               styles.PlaceholderStyle,
               styles.InputFieldStyle,
               {

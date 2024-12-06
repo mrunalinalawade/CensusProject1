@@ -19,7 +19,7 @@ const EnableAuthenticator = (props) => {
                 <Text style={styles.logintext}>Authenticator App verification</Text>
                 <Image source={IMAGEPATH.Coloring} style={{ width: 90, height: 80, alignSelf: 'center', marginTop: height * 0.1 }} />
                 <Text style={styles.textStyel}>Instead of waiting for text messages, get verification codes from google authenticator app, It works even if your phone is offline</Text>
-                <WholeButton1 Label={'Enable'} Action={()=>{props.navigation.naviagte('AddTradingPassword')}} styles={{ width: width * 0.9,marginTop:height*0.36 }} />
+                <WholeButton1 Label={'Enable'} Action={()=>{props.navigation.navigate('VerifyAuthenticator')}} styles={{ width: width * 0.9,marginTop:height*0.36 }} />
                 </View>
                 
                 </SafeAreaView>

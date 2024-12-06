@@ -36,7 +36,7 @@ const SetPhonenumberverification = (props) => {
                 </View>
 
 
-                <WholeButton1 Label={'Set for 2FA'} Action={() => { props.navigation.naviagte('AddTradingPassword') }} styles={{ width: width * 0.9, marginTop: height * 0.5 }} />
+                <WholeButton1 Label={'Set for 2FA'} Action={() => { props.navigation.navigate('VerifyPhoneNumber') }} styles={{ width: width * 0.9, marginTop: height * 0.5 }} />
             </View>
         </SafeAreaView>
     )

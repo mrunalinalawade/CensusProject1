@@ -40,7 +40,7 @@ const Tranfer = (props) => {
                             />
                         </View>
                     </View>
-                    <TouchableOpacity style={{ alignSelf: 'flex-end', right: 10 }}>
+                    <TouchableOpacity onPress={()=>{props.navigation.navigate('Walletfunding')}} style={{ alignSelf: 'flex-end', right: 10 }}>
                         <Image source={IMAGEPATH.VerticalArrow} style={{ width: 20, height: 25 }} />
                     </TouchableOpacity>
 

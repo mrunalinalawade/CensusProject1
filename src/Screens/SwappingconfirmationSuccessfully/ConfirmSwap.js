@@ -139,8 +139,8 @@ const ConfirmSwap = (props) => {
 
                     <View style={{ flexDirection: 'row', marginTop: '6%', justifyContent: 'space-between', alignItems: 'center', width: width * 0.9 }}>
 
-                        <WholeButton1 Label={'Cancel'} Action={() => { }} styles={{ width: width * 0.43, padding: '3%', backgroundColor: 'rgba(36, 38, 42, 1)', }} />
-                        <WholeButton1 Label={'Confirm'} Action={() => { }} styles={{ width: width * 0.43, padding: '3%', }} />
+                        <WholeButton1 Label={'Cancel'} Action={() => {props.navigation.goBack() }} styles={{ width: width * 0.43, padding: '3%', backgroundColor: 'rgba(36, 38, 42, 1)', }} />
+                        <WholeButton1 Label={'Confirm'} Action={() => {props.navigation.navigate('TwoFAverification') }} styles={{ width: width * 0.43, padding: '3%', }} />
                     </View>
 
 

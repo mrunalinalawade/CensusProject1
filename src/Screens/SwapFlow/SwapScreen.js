@@ -173,7 +173,7 @@ const SwapScreen = (props) => {
         </View>
 
 
-        <WholeButton1 Label={'Swap Now'} Action={()=>{}} styles={{ width: width * 0.9,marginTop:'8%' }} />
+        <WholeButton1 Label={'Swap Now'} Action={()=>{props.navigation.navigate('ConfirmSwap')}} styles={{ width: width * 0.9,marginTop:'8%' }} />
 
 
 

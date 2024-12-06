@@ -84,7 +84,7 @@ const Tradehistory = (props) => {
 
 
     return (
-        <SafeAreaView style={{ flex: 1, backgroundColor: '#1C1D22' }}>
+       <>
 
             <View style={styles.mainviewStyle}>
                 <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: width * 0.9, alignSelf: 'flex-start', marginTop: '8%' }}>
@@ -269,7 +269,7 @@ const Tradehistory = (props) => {
 
                 </View>
             </RBSheet>
-        </SafeAreaView>
+            </>
     )
 }
 

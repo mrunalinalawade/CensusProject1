@@ -40,7 +40,7 @@ const IDphotoinfo = (props) => {
                             <Text style={styles.account3}>Rest assured that safeguarding information and ansuring you remain in control of it is our utmost priority,</Text>
                         </View>
 
-                    <WholeButton1 Label={'Next'} Action={() => {props.navigation.navigate('Submitted') }} styles={{ width: width * 0.9 }} />
+                    <WholeButton1 Label={'Next'} Action={() => {props.navigation.navigate('FrontimageofID') }} styles={{ width: width * 0.9 }} />
 
 
                 </View>

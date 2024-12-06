@@ -58,7 +58,7 @@ const Home = (props) => {
     <SafeAreaView style={{ flex: 1, backgroundColor: '#1C1D22' }}>
       <ScrollView showsVerticalScrollIndicator={false} >
         <View style={styles.HeaderStyle}>
-          <TouchableOpacity onPress={()=>{props.navigation.navigate('Settings')}}><Image source={IMAGEPATH.BT} style={{ width: 42, height: 19 }} /></TouchableOpacity>
+          <TouchableOpacity onPress={()=>{props.navigation.navigate('Settings')}}><Image source={IMAGEPATH.BT} style={{ width: 43, height: 19 }} /></TouchableOpacity>
          
           <View style={styles.InputViewFiled}>
             <TouchableOpacity
@@ -72,9 +72,11 @@ const Home = (props) => {
             <TextInput
               placeholder="Search here.."
               style={{
-                width: width * 0.48,
+                width: width * 0.4,
                 color: 'rgba(127, 128, 130, 1)',
-                marginLeft: '2%'
+                marginLeft: '2%',
+                // backgroundColor:'red'
+                
               }}
               placeholderTextColor={"rgba(127, 128, 130, 1)"}
               value={searchQuery}
@@ -82,8 +84,10 @@ const Home = (props) => {
             />
           </View>
           <View style={styles.rowStyle}>
-            <Image source={IMAGEPATH.Scanner} style={{ width: 40, height: 18 }} />
-            <Image source={IMAGEPATH.Bell} style={{ width: 23, height: 17 }} />
+            <TouchableOpacity onPress={()=>{props.navigation.navigate('Security')}}><Image source={IMAGEPATH.Scanner} style={{ width: 40, height: 18 }} /></TouchableOpacity>
+            
+            <TouchableOpacity onPress={()=>{props.navigation.navigate('Transactionhistoryscreen')}}><Image source={IMAGEPATH.Bell} style={{ width: 23, height: 17 }} /></TouchableOpacity>
+           
             <Image source={IMAGEPATH.Headset} style={{ width: 20, height: 17 }} />
           </View>
 
@@ -95,32 +99,32 @@ const Home = (props) => {
           </View>
           <TouchableOpacity  onPress={()=>{props.navigation.navigate('Addfundoptions')}} style={styles.fundStyle}><Text style={{
             fontSize: 12, fontWeight: '600',
-            color: '#FFFFFF'
+            color: '#FFFFFF',marginHorizontal:'2%'
           }}>Add Fund</Text></TouchableOpacity>
         </View>
         <View style={styles.mainStyele} >
           <View style={styles.deStyle}>
             <TouchableOpacity onPress={() => props.navigation.navigate('Selectcurrency')}
               style={styles.loginWithGoogleViewIos}>
-              <Image source={IMAGEPATH.Deposit} style={{ width: 35, height: 35  }} />
+              <Image source={IMAGEPATH.Deposit} style={{ width:28, height: 30  }} />
             </TouchableOpacity>
             <Text style={styles.depoStyle}>Deposit</Text>
           </View>
           <View style={styles.deStyle}>
             <TouchableOpacity onPress={() => { props.navigation.navigate('WithdrawSearchcoin') }} style={styles.loginWithGoogleViewIos}>
-              <Image source={IMAGEPATH.Withdraw} style={{ width: 35, height: 35 }} />
+              <Image source={IMAGEPATH.Withdraw} style={{ width:28, height: 30 }} />
             </TouchableOpacity>
             <Text style={styles.depoStyle}>Withdraw</Text>
           </View>
           <View style={styles.deStyle}>
             <TouchableOpacity onPress={()=>{props.navigation.navigate('SwapScreen')}} style={styles.loginWithGoogleViewIos}>
-              <Image source={IMAGEPATH.Swap} style={{ width: 35, height: 35 }} />
+              <Image source={IMAGEPATH.Swap} style={{ width:30, height:27}} />
             </TouchableOpacity>
             <Text style={styles.depoStyle}>Swap</Text>
           </View>
           <View style={styles.deStyle}>
             <TouchableOpacity onPress={()=>{props.navigation.navigate('P2PMain')}} style={styles.loginWithGoogleViewIos}>
-              <Image source={IMAGEPATH.P2P} style={{ width: 35, height: 35 }} />
+              <Image source={IMAGEPATH.P2P} style={{ width: 30, height:28 }} />
             </TouchableOpacity>
             <Text style={styles.depoStyle}>P2P</Text>
           </View>
@@ -208,7 +212,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     width: width * 0.9,
     alignSelf: 'center',
-    marginTop: '2%'
+    marginTop: '3%'
   },
   InputViewFiled: {
     backgroundColor: "rgba(42, 43, 47, 1)",
@@ -216,7 +220,9 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     // justifyContent: "space-between",
     width: width * 0.5,
-    borderRadius: 6, marginLeft: '1%'
+    borderRadius: 6,
+     marginLeft: '1%',
+    //  padding:'0%'
 
   },
   rowStyle: {
@@ -250,18 +256,18 @@ const styles = StyleSheet.create({
   },
   fundStyle: {
     backgroundColor: '#768C5C',
-    padding: '5.4%', borderRadius: 25,
+    padding: '4.8%', borderRadius: 25,
     alignItems: 'center',
     width: width * 0.33,
   },
   loginWithGoogleViewIos: {
-    backgroundColor: '#F6F6F633',
+    backgroundColor: 'rgba(255, 255, 255, 0.08)',
     borderRadius: 13,
     alignItems: 'center',
     justifyContent: 'center',
     // padding: '10%',
-    width: width * 0.2,
-    height: height * 0.09,
+    width: width * 0.17,
+    height: height * 0.08,
     alignSelf: 'center'
   },
   deStyle: { width: width * 0.2, alignSelf: 'center', alignItems: 'center' },
@@ -269,14 +275,14 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: '400',
     color: '#FFFFFF',
-    marginTop: '5%'
+    marginTop: '12%'
 
   },
   viewStyle: {
     width: width,
     backgroundColor: '#2D2E36',
     height: 1.5,
-    marginTop: '8%'
+    marginTop: '5%'
 
 
   },

@@ -11,7 +11,7 @@ const FrontimageofID = (props) => {
 
     const handleNext = () => {
         if (progressStep < 3) setProgressStep(progressStep + 1);
-        // props.navigation.navigate('BackimageofID')
+        props.navigation.navigate('BackimageofID')
     };
 
     const handlePrevious = () => {

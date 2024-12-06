@@ -20,7 +20,7 @@ const SubmittedSwap = (props) => {
                     </View>
 
                     
-                    <WholeButton1 Label={'Okay, thank you'} Action={() => props.navigation.navigate('Home')} styles={{ width: width * 0.9,marginTop:height*0.4 }} />
+                    <WholeButton1 Label={'Okay, thank you'} Action={() => props.navigation.navigate('Transactionhistoryscreen')} styles={{ width: width * 0.9,marginTop:height*0.4 }} />
                 </View>
             </View>
         </SafeAreaView>

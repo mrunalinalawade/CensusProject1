@@ -68,7 +68,7 @@ const Deleteaccount = (props) => {
             <Text style={[styles.tips, { marginLeft: '4%' }]}>I fully understand and accept the consequences.</Text>
           </View>
 
-          <WholeButton1 Label={'Delete account'} Action={()=>{}} styles={{ width: width * 0.9, bottom:'3%',backgroundColor:'rgba(255, 102, 102, 0.1)'}}
+          <WholeButton1 Label={'Delete account'} Action={()=>{props.navigation.navigate('Login')}} styles={{ width: width * 0.9, bottom:'3%',backgroundColor:'rgba(255, 102, 102, 0.1)'}}
           buttonStyle={{color:'#FF6666'}} />
 
             </View>

@@ -132,7 +132,7 @@ const AddfundpopupRecieve = (props) => {
                 </View>
 
 
-                <WholeButton1 Label={'Withdraw'} Action={() => props.navigation.navigate('Addressreveal')} styles={{ width: width * 0.42, padding: '3%', marginTop: '13%' }} />
+                <WholeButton1 Label={'Withdraw'} Action={() => props.navigation.navigate('Successfullywithdrawal')} styles={{ width: width * 0.42, padding: '3%', marginTop: '13%' }} />
 
 
             </View>

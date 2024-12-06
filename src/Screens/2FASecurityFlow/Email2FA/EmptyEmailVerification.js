@@ -19,7 +19,7 @@ const EmptyEmailVerification = (props) => {
                 <Text style={styles.logintext}>Email Verification</Text>
                 <Image source={IMAGEPATH.EmptyAddress} style={{ width: 110, height: 110, alignSelf: 'center', marginTop: height * 0.16 }} />
                 <Text style={styles.textStyel}>No record found</Text>
-                <WholeButton1 Label={'Add Authenticator'} Action={()=>{props.navigation.naviagte('AddTradingPassword')}} styles={{ width: width * 0.9,marginTop:height*0.39 }} />
+                <WholeButton1 Label={'Add Authenticator'} Action={()=>{props.navigation.navigate('SetEmailVerification')}} styles={{ width: width * 0.9,marginTop:height*0.39 }} />
                 </View>
                 
                 </SafeAreaView>

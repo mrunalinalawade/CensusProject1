@@ -144,7 +144,7 @@ const SetAmountandmethods = (props) => {
                 </View>
                 <View style={{ flexDirection: 'row',  justifyContent: 'space-between', alignItems: 'center', width: width * 0.9 ,bottom:'4%'}}>
 
-                    <WholeButton1 Label={'Previous'} Action={() => { }} styles={{ width: width * 0.43, padding: '3%', backgroundColor: 'rgba(36, 38, 42, 1)', }} />
+                    <WholeButton1 Label={'Previous'} Action={() => {props.navigation.goBack() }} styles={{ width: width * 0.43, padding: '3%', backgroundColor: 'rgba(36, 38, 42, 1)', }} />
                     <WholeButton1 Label={'Next'} Action={() => {props.navigation.navigate('Setconditions') }} styles={{ width: width * 0.43, padding: '3%', }} />
                 </View>
             </View>

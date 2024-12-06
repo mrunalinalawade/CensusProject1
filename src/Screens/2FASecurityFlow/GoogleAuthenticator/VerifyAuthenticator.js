@@ -21,7 +21,7 @@ const VerifyAuthenticator = (props) => {
                    
                 </View>
 
-                <WholeButton1 Label={'Submit'} Action={()=>{props.navigation.naviagte('')}} styles={{ width: width * 0.9,marginTop:height*0.5 }} />
+                <WholeButton1 Label={'Submit'} Action={()=>{props.navigation.navigate('Home')}} styles={{ width: width * 0.9,marginTop:height*0.5 }} />
             </View>
 
         </SafeAreaView>

@@ -28,7 +28,8 @@ const Security = (props) => {
                 <Image source={IMAGEPATH.verified} style={{ width: 25, height: 25 }} />
                 <Text style={styles.Password}>Trading password</Text>
               </View>
-              <Text style={styles.set}>Set password</Text>
+              <TouchableOpacity onPress={()=>{props.navigation.navigate('EmptyTradingPassword')}}><Text style={styles.set}>Set password</Text></TouchableOpacity>
+              
             </TouchableOpacity>
             <View style={[styles.viewStyle]}></View>
             <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginVertical: '3%' }}>
@@ -36,7 +37,9 @@ const Security = (props) => {
                 <Image source={IMAGEPATH.Authentcate} style={{ width: 20, height: 21 }} />
                 <Text style={styles.Password}>Authenticator App</Text>
               </View>
-              <Text style={styles.set}>Add Authenticator</Text>
+              <TouchableOpacity onPress={()=>{props.navigation.navigate('AddAuthenticatorAppverification')}}><Text style={styles.set}>Add Authenticator</Text></TouchableOpacity>
+              
+              
             </TouchableOpacity>
             <View style={[styles.viewStyle]}></View>
             <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginVertical: '3%' }}>
@@ -44,7 +47,10 @@ const Security = (props) => {
                 <Image source={IMAGEPATH.setting} style={{ width: 25, height: 25 }} />
                 <Text style={[styles.Password, { marginLeft: '18%' }]}>Email</Text>
               </View>
+              <TouchableOpacity onPress={()=>{props.navigation.navigate('EmptyEmailVerification')}}>
               <Image source={IMAGEPATH.rightcircle} style={{ width: 21, height: 21, right: 12 }} />
+
+              </TouchableOpacity>
             </TouchableOpacity>
             <View style={[styles.viewStyle]}></View>
             <TouchableOpacity onPress={() => refRBSheet1.current.open()} style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginVertical: '3%' }}>
@@ -52,7 +58,10 @@ const Security = (props) => {
                 <Image source={IMAGEPATH.phoneapp} style={{ width: 25, height: 25 }} />
                 <Text style={styles.Password}>Phone number</Text>
               </View>
+              <TouchableOpacity onPress={()=>{props.navigation.navigate('AddPhoneverification')}}>
               <Image source={IMAGEPATH.rightcircle} style={{ width: 21, height: 21, right: 12 }} />
+                </TouchableOpacity>
+             
             </TouchableOpacity>
 
             <View style={{ backgroundColor: '#272930', width: width * 0.83, alignItems: 'center', padding: '3%', alignSelf: 'center', marginVertical: '4%', borderRadius: 7 }}>
@@ -68,9 +77,9 @@ const Security = (props) => {
 
             </View>
           </View>
-
+          
           <View style={{ backgroundColor: 'rgba(34, 35, 42, 1)', padding: '4%', width: width * 0.9, alignSelf: 'center', borderRadius: 8, marginTop: '5%' }}>
-            <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginVertical: '3%' }}>
+            <TouchableOpacity onPress={()=>{props.navigation.navigate('Changepassword')}} style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginVertical: '3%' }}>
               <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                 <Image source={IMAGEPATH.loginPassword} style={{ width: 20, height: 22 }} />
                 <Text style={styles.Password}>Login Password</Text>
@@ -80,7 +89,7 @@ const Security = (props) => {
 
 
           <View style={{ backgroundColor: 'rgba(34, 35, 42, 1)', padding: '4%', width: width * 0.9, alignSelf: 'center', borderRadius: 8, marginTop: '5%' }}>
-            <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginVertical: '3%' }}>
+            <TouchableOpacity onPress={()=>{props.navigation.navigate('PaymentMethod')}} style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginVertical: '3%' }}>
               <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                 <Image source={IMAGEPATH.paymentmethod} style={{ width: 26, height: 17.95 }} />
                 <Text style={styles.Password}>Payment method</Text>
@@ -88,9 +97,9 @@ const Security = (props) => {
 
             </TouchableOpacity>
           </View>
-
+          
           <View style={{ backgroundColor: 'rgba(34, 35, 42, 1)', padding: '4%', width: width * 0.9, alignSelf: 'center', borderRadius: 8, marginTop: '5%' }}>
-            <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginVertical: '3%' }}>
+            <TouchableOpacity onPress={()=>{props.navigation.navigate('Deleteaccount')}} style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginVertical: '3%' }}>
               <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                 <Image source={IMAGEPATH.deleteaccount} style={{ width: 22, height: 22 }} />
                 <Text style={styles.Password}>Delete account</Text>

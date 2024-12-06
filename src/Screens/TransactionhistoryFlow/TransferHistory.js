@@ -209,7 +209,7 @@ const TransferHistory = (props) => {
     };
 
     return (
-        <SafeAreaView style={{ flex: 1, backgroundColor: '#1C1D22' }}>
+     <>
 
             <View style={styles.mainviewStyle}>
                 <View style={styles.viewStyle}>
@@ -633,8 +633,8 @@ const TransferHistory = (props) => {
 
                 </View>
             </RBSheet>
+            </>
 
-        </SafeAreaView>
     )
 }
 

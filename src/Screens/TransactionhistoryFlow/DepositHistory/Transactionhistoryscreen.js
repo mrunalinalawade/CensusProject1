@@ -5,6 +5,10 @@ import Header from '../../../Components/Header'
 import { IMAGEPATH, VECTOR_ICONS } from '../../../assets/Theme';
 import RBSheet from 'react-native-raw-bottom-sheet';
 import WholeButton1 from '../../../Components/WholeButton1';
+import Withdrawalhistory from '../Withdrawalhistory';
+import P2PHistory from '../P2PHistory';
+import Tradehistory from '../Tradehistory';
+import TransferHistory from '../TransferHistory';
 
 
 const { height, width } = Dimensions.get('window');
@@ -109,56 +113,77 @@ const Transactionhistoryscreen = (props) => {
                         ))}
                     </View>
                 </ScrollView>
-
-
-                <View style={styles.viewStyle}>
-                    <View style={{ flexDirection: 'row', alignItems: 'center', width: width * 0.52, }}>
-                        <TouchableOpacity onPress={() => { setselected('Crypto') }}
-                            style={[styles.text1, selected === 'Crypto' ? { backgroundColor: 'rgba(118, 140, 92, 0.1)' } : null, { padding: '6%', alignItems: 'center', width: width * 0.23, borderRadius: 9 }]}>
-                            <Text style={[styles.account1, { color: selected === 'Crypto' ? '#768C5C' : 'rgba(255, 255, 255, 0.6)' }]}>Crypto</Text></TouchableOpacity>
-                        <TouchableOpacity onPress={() => { setselected('Cash') }} style={[styles.text1, selected === 'Cash' ? { backgroundColor: 'rgba(118, 140, 92, 0.1)' } : null, { padding: '6%', alignItems: 'center', width: width * 0.23, borderRadius: 9 }]}>
-                            <Text style={[styles.account1, { color: selected === 'Cash' ? '#768C5C' : 'rgba(255, 255, 255, 0.6)' }]}>Cash</Text></TouchableOpacity>
-                    </View>
-                    <TouchableOpacity onPress={() => { refRBSheet1.current.open() }}><Image source={IMAGEPATH.filter} style={{ width: 20, height: 20 }} /></TouchableOpacity>
-                </View>
-
-                {
-                    selected === 'Crypto' ?
-                        <FlatList
-                            showsVerticalScrollIndicator={false}
-                            data={[1, 2, 3, 4, 5, 6, 7]}
-                            style={{ marginTop: '14%' }}
-
-                            ListEmptyComponent={() => (
-                                <Text style={{ color: 'black', fontSize: 16, fontFamily: FONT.semiBold, textAlign: 'center', marginTop: '10%' }} >
-                                    No Data Found
-                                </Text>
-                            )}
-                            renderItem={(item) => (
-                                <TouchableOpacity onPress={()=>{props.navigation.navigate('Deposithistory')}} style={styles.FlatlistView}>
-                                    <View style={{ flexDirection: 'row', alignItems: 'center', width: width * 0.9, justifyContent: 'space-between', alignSelf: 'center', }}>
-                                        <Text style={styles.usdt}>USDT</Text>
-                                        <Text style={styles.number}>+750</Text>
-                                    </View>
-                                    <View style={{ flexDirection: 'row', alignItems: 'center', width: width * 0.9, justifyContent: 'space-between', alignSelf: 'center', }}>
-                                        <View style={{ flexDirection: 'row', alignItems: 'center', alignSelf: 'center', marginVertical: '2%' }}>
-                                            <Text style={styles.tabText6}>10-24-2024</Text>
-                                            <VECTOR_ICONS.Entypo name={'dot-single'} size={20} color={'#63687F'} />
-                                            <Text style={styles.tabText6}>12:29:22</Text>
-                                        </View>
-                                        <Text style={styles.complte}>Completed</Text>
-
-                                    </View>
-                                    <View style={styles.viewStyle1}></View>
-                                </TouchableOpacity>
-                            )}
-                        />
-                        :
-                        <View>
-                            <Image source={IMAGEPATH.EmptyAddress} style={{ width: 110, height: 110, alignSelf: 'center', marginTop: height * 0.16 }} />
-                            <Text style={styles.textStyel}>No record found</Text>
+                {selectedTab === 'Deposits' && (
+                    <>
+                        <View style={styles.viewStyle}>
+                            <View style={{ flexDirection: 'row', alignItems: 'center', width: width * 0.52, }}>
+                                <TouchableOpacity onPress={() => { setselected('Crypto') }}
+                                    style={[styles.text1, selected === 'Crypto' ? { backgroundColor: 'rgba(118, 140, 92, 0.1)' } : null, { padding: '6%', alignItems: 'center', width: width * 0.23, borderRadius: 9 }]}>
+                                    <Text style={[styles.account1, { color: selected === 'Crypto' ? '#768C5C' : 'rgba(255, 255, 255, 0.6)' }]}>Crypto</Text></TouchableOpacity>
+                                <TouchableOpacity onPress={() => { setselected('Cash') }} style={[styles.text1, selected === 'Cash' ? { backgroundColor: 'rgba(118, 140, 92, 0.1)' } : null, { padding: '6%', alignItems: 'center', width: width * 0.23, borderRadius: 9 }]}>
+                                    <Text style={[styles.account1, { color: selected === 'Cash' ? '#768C5C' : 'rgba(255, 255, 255, 0.6)' }]}>Cash</Text></TouchableOpacity>
+                            </View>
+                            <TouchableOpacity onPress={() => { refRBSheet1.current.open() }}><Image source={IMAGEPATH.filter} style={{ width: 20, height: 20 }} /></TouchableOpacity>
                         </View>
+
+                        {
+                            selected === 'Crypto' ?
+                                <FlatList
+                                    showsVerticalScrollIndicator={false}
+                                    data={[1, 2, 3, 4, 5, 6, 7]}
+                                    style={{ marginTop: '14%' }}
+
+                                    ListEmptyComponent={() => (
+                                        <Text style={{ color: 'black', fontSize: 16, fontFamily: FONT.semiBold, textAlign: 'center', marginTop: '10%' }} >
+                                            No Data Found
+                                        </Text>
+                                    )}
+                                    renderItem={(item) => (
+                                        <TouchableOpacity onPress={() => { props.navigation.navigate('Deposithistory') }} style={styles.FlatlistView}>
+                                            <View style={{ flexDirection: 'row', alignItems: 'center', width: width * 0.9, justifyContent: 'space-between', alignSelf: 'center', }}>
+                                                <Text style={styles.usdt}>USDT</Text>
+                                                <Text style={styles.number}>+750</Text>
+                                            </View>
+                                            <View style={{ flexDirection: 'row', alignItems: 'center', width: width * 0.9, justifyContent: 'space-between', alignSelf: 'center', }}>
+                                                <View style={{ flexDirection: 'row', alignItems: 'center', alignSelf: 'center', marginVertical: '2%' }}>
+                                                    <Text style={styles.tabText6}>10-24-2024</Text>
+                                                    <VECTOR_ICONS.Entypo name={'dot-single'} size={20} color={'#63687F'} />
+                                                    <Text style={styles.tabText6}>12:29:22</Text>
+                                                </View>
+                                                <Text style={styles.complte}>Completed</Text>
+
+                                            </View>
+                                            <View style={styles.viewStyle1}></View>
+                                        </TouchableOpacity>
+                                    )}
+                                />
+                                :
+                                <View>
+                                    <Image source={IMAGEPATH.EmptyAddress} style={{ width: 110, height: 110, alignSelf: 'center', marginTop: height * 0.16 }} />
+                                    <Text style={styles.textStyel}>No record found</Text>
+                                </View>
+                        }
+                    </>
+                )
                 }
+
+                {selectedTab === 'Withdrawals' && (
+                    <Withdrawalhistory />
+                )}
+
+                {selectedTab === 'P2P' && (
+                    <P2PHistory />
+                )}
+                {selectedTab === 'Swap' && (
+                    <Withdrawalhistory />
+                )}
+                {selectedTab === 'Trade' && (
+                    <Tradehistory />
+                )}
+                {selectedTab === 'Transfer' && (
+                    <TransferHistory />
+                )}
+
 
 
 
