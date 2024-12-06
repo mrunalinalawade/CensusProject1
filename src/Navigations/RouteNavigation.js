@@ -104,6 +104,9 @@ import KycIdentityverification from '../Screens/Verificationstatus/KycIdentityve
 import Assets from '../Screens/HomeFlow/Assets';
 import USDTBalance from '../Screens/HomeFlow/NavbarAssetsFlow/USDTBalance';
 import Info from '../Screens/HomeFlow/NavbarMarketflow/Info';
+import Market from '../Screens/HomeFlow/Market';
+import EditFavorites from '../Screens/HomeFlow/NavbarMarketflow/EditFavorites';
+import Searchwithhistory from '../Screens/HomeFlow/Searchwithhistory';
 
 
 const Tab = createBottomTabNavigator();
@@ -112,7 +115,7 @@ const RouteNavigation = () => {
   return (
     <Stack.Navigator
       screenOptions={{ headerShown: false }}
-      initialRouteName="Login">
+      initialRouteName="Home">
       {/* -----------------------Splash----------------------------- */}
       <Stack.Screen name="Splash" component={Splash} />
       <Stack.Screen name="Viewdata" component={Viewdata} />
@@ -142,8 +145,13 @@ const RouteNavigation = () => {
 
       <Stack.Screen name="Home" component={Home} />
       <Stack.Screen name="Assets" component={Assets} />
+      <Stack.Screen name="Market" component={Market} />
+      
       <Stack.Screen name="USDTBalance" component={USDTBalance} />
       <Stack.Screen name="Info" component={Info} />
+      <Stack.Screen name="EditFavorites" component={EditFavorites} />
+      <Stack.Screen name="Searchwithhistory" component={Searchwithhistory} />
+      
       
 
 

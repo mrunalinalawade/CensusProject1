@@ -141,7 +141,10 @@ export const IMAGEPATH = {
   eye:require('../Images/ProfileFlowImg/eye.png'),
   Convert:require('../Images/AssetFlowImages/Convert.png'),
   Arrowwhite:require('../Images/AssetFlowImages/Arrowwhite.png'),
-  plus:require('../Images/AssetFlowImages/plus.png')
+  plus:require('../Images/AssetFlowImages/plus.png'),
+  marketsun:require('../Images/MarketFlowImages/marketsun.png'),
+  check:require('../Images/MarketFlowImages/check.png'),
+
 
 
 

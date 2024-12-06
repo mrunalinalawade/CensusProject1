@@ -88,13 +88,6 @@ const Assets = (props) => {
         {selectedTab === 'Trading' && (<TradingAssets />)}
 
 
-
-
-
-
-
-
-
       </View>
     </SafeAreaView>
   )
