@@ -15,7 +15,7 @@ import Assets from '../Screens/HomeFlow/Assets';
 
 
 const Tab = createBottomTabNavigator();
-const BottomTabNavigation = props => {
+const BottomTabbar = props => {
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor:'rgba(35, 36, 42, 0.89)' }}>
       <Tab.Navigator initialRouteName="Home"
@@ -133,7 +133,7 @@ const BottomTabNavigation = props => {
   )
 }
 
-export default BottomTabNavigation
+export default BottomTabbar
 
 const styles = StyleSheet.create({})
 

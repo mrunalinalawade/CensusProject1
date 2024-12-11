@@ -107,6 +107,13 @@ import Info from '../Screens/HomeFlow/NavbarMarketflow/Info';
 import Market from '../Screens/HomeFlow/Market';
 import EditFavorites from '../Screens/HomeFlow/NavbarMarketflow/EditFavorites';
 import Searchwithhistory from '../Screens/HomeFlow/Searchwithhistory';
+import Support from '../Screens/OnlineSupport/Support';
+import OnlineSupport from '../Screens/OnlineSupport/OnlineSupport';
+import Securityandfraud from '../Screens/OnlineSupport/Securityandfraud';
+import Particulartopic from '../Screens/OnlineSupport/Particulartopic';
+import SupportChat from '../Screens/OnlineSupport/SupportChat';
+import Topicpreview from '../Screens/OnlineSupport/Topicpreview';
+import SupportAssistanceChat from '../Screens/OnlineSupport/SupportAssistanceChat';
 
 
 const Tab = createBottomTabNavigator();
@@ -115,7 +122,7 @@ const RouteNavigation = () => {
   return (
     <Stack.Navigator
       screenOptions={{ headerShown: false }}
-      initialRouteName="Home">
+      initialRouteName="Login">
       {/* -----------------------Splash----------------------------- */}
       <Stack.Screen name="Splash" component={Splash} />
       <Stack.Screen name="Viewdata" component={Viewdata} />
@@ -269,7 +276,23 @@ const RouteNavigation = () => {
       <Stack.Screen name="SetPhonenumberverification" component={SetPhonenumberverification} />
       <Stack.Screen name="VerifyPhoneNumber" component={VerifyPhoneNumber} />
       <Stack.Screen name="Security" component={Security} />
+      {/* --------------------------- Online Support Flow---------------------*/}
+      
+      <Stack.Screen name="Support" component={Support} />
+      <Stack.Screen name="OnlineSupport" component={OnlineSupport} />
+      <Stack.Screen name="Securityandfraud" component={Securityandfraud} />
+      <Stack.Screen name="Particulartopic" component={Particulartopic} />
+      <Stack.Screen name="SupportChat" component={SupportChat} />
+      <Stack.Screen name="Topicpreview" component={Topicpreview} />
+      <Stack.Screen name="SupportAssistanceChat" component={SupportAssistanceChat} />
 
+      
+      
+
+      
+      
+      
+      
       
       
       

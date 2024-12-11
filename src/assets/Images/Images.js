@@ -144,6 +144,25 @@ export const IMAGEPATH = {
   plus:require('../Images/AssetFlowImages/plus.png'),
   marketsun:require('../Images/MarketFlowImages/marketsun.png'),
   check:require('../Images/MarketFlowImages/check.png'),
+  headset:require('../Images/MarketFlowImages/headset.png'),
+  textitle:require('../Images/MarketFlowImages/textitle.png'),
+  fraud:require('../Images/MarketFlowImages/fraud.png'),
+  userprofile:require('../Images/MarketFlowImages/userprofile.png'),
+  chat:require('../Images/MarketFlowImages/chat.png'),
+  bad:require('../Images/MarketFlowImages/bad.png'),
+  Good:require('../Images/MarketFlowImages/Good.png'),
+  Evil:require('../Images/MarketFlowImages/Evil.png'),
+  Default:require('../Images/MarketFlowImages/Default.png'),
+  photocamera:require('../Images/MarketFlowImages/photocamera.png'),
+  gallaryicon:require('../Images/MarketFlowImages/gallaryicon.png'),
+  docicon:require('../Images/MarketFlowImages/docicon.png'),
+  infosafe:require('../Images/MarketFlowImages/infosafe.png'),
+  smilingface:require('../Images/MarketFlowImages/smilingface.png'),
+  starstruck:require('../Images/MarketFlowImages/starstruck.png'),
+  confusedface:require('../Images/MarketFlowImages/confusedface.png'),
+
+
+
 
 
 
